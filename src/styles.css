@@ -395,10 +395,10 @@ td { border-top: 1px solid #f0f2f0; padding: 10px 9px; font-size: 10px; }
 .workout-exercise-cell .exercise-image-button { width: 58px; height: 46px; }
 .editor-exercise > .exercise-image-button { width: 74px; height: 63px; border: 1px solid #e9ede9; background: #fbfcfb; }
 .editor-exercise > .exercise-image-button img { width: 100%; height: 100%; object-fit: contain; }
-.exercise-image-modal-backdrop { z-index: 30; }
-.exercise-image-modal { position: relative; display: flex; width: min(100%, 920px); max-height: min(92vh, 900px); flex-direction: column; align-items: center; gap: 12px; padding: 48px 20px 18px; }
+.exercise-image-modal-backdrop { z-index: 30; padding: clamp(4px, 2vw, 24px); overflow: hidden; }
+.exercise-image-modal { position: relative; display: flex; width: min(100%, 1400px); height: min(94vh, 1100px); height: min(94dvh, 1100px); max-height: none; flex-direction: column; align-items: center; gap: 12px; overflow: hidden; padding: 54px 18px 16px; }
 .exercise-image-modal > .icon-button { position: absolute; top: 10px; right: 10px; }
-.exercise-image-modal > img { display: block; max-width: 100%; max-height: calc(92vh - 110px); object-fit: contain; }
+.exercise-image-modal > img { display: block; width: 100%; height: 100%; min-height: 0; flex: 1 1 auto; object-fit: contain; }
 .exercise-image-modal > p { margin: 0; color: #59635c; font-size: 11px; text-align: center; }
 .workout-exercise-no-image { display: grid; width: 74px; height: 63px; flex: 0 0 auto; place-items: center; border: 1px dashed #dce3dc; border-radius: 6px; background: #fbfcfb; color: #929b95; font-size: 8px; }
 .workout-exercise-cell .workout-exercise-no-image { width: 58px; height: 46px; border-style: solid; border-radius: 5px; }
@@ -604,6 +604,10 @@ body { background: #f7f7f6; }
 }
 
 @media (max-width: 560px) {
+  .exercise-image-modal-backdrop { padding: 6px; }
+  .exercise-image-modal { width: 100%; height: calc(100dvh - 12px); gap: 8px; padding: 48px 8px 12px; border-radius: 10px; }
+  .exercise-image-modal > img { max-width: 100%; }
+  .exercise-image-modal > p { font-size: 10px; }
   .cloud-gate-page { padding: 14px; }
   .cloud-gate-card { padding: 23px 18px; }
   .local-import-banner { align-items: flex-start; flex-direction: column; padding: 13px; }
