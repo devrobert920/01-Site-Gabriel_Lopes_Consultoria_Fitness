@@ -171,6 +171,19 @@ function normalizeStudentRecords(student) {
 
 const shareStudentKey = (id) => `gl-shared-student-${id}`;
 
+function createLiveShareToken() {
+  if (!globalThis.crypto?.getRandomValues) {
+    throw new Error('Seu navegador não consegue gerar um token seguro. Use HTTPS ou um navegador atualizado.');
+  }
+  const bytes = new Uint8Array(16);
+  globalThis.crypto.getRandomValues(bytes);
+  bytes[6] = (bytes[6] & 0x0f) | 0x40;
+  bytes[8] = (bytes[8] & 0x3f) | 0x80;
+  const hex = [...bytes].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+  const uuid = `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+  return `live.${uuid}`;
+}
+
 function studentShareData(student) {
   return {
     id: student.id,
@@ -236,9 +249,38 @@ async function readStudentPortalState() {
   const standalone = new URLSearchParams(window.location.search).get('student-pwa') === '1';
   if (!token && !standalone) return { active: false, student: null, error: '' };
   try {
-    const student = token
-      ? await decodeShareToken(token)
-      : JSON.parse(localStorage.getItem(shareStudentKey(localStorage.getItem('gl-last-shared-student'))) || 'null');
+    const standaloneToken = standalone ? localStorage.getItem('gl-last-shared-student') : null;
+    const liveToken = token?.startsWith('live.')
+      ? token
+      : standaloneToken?.startsWith('live.')
+        ? standaloneToken
+        : null;
+    let student;
+    if (liveToken) {
+      try {
+        const client = await getSupabaseClient();
+        if (!client) throw new Error('O compartilhamento atualizado não está configurado neste site.');
+        const { data, error } = await client.rpc('get_shared_student', {
+          share_token_input: liveToken.slice('live.'.length),
+        });
+        if (error) throw error;
+        if (!data?.id || typeof data.name !== 'string') {
+          throw new TypeError('Este link não está mais disponível. Solicite um novo link ao consultor.');
+        }
+        student = { ...data, shareToken: liveToken };
+      } catch (error) {
+        const cached = standalone || token ? localStorage.getItem(shareStudentKey(liveToken)) : null;
+        if (!cached) throw error;
+        console.warn('Não foi possível atualizar o painel compartilhado; exibindo a última versão salva neste aparelho.', error);
+        student = JSON.parse(cached);
+      }
+      localStorage.setItem(shareStudentKey(liveToken), JSON.stringify(student));
+      localStorage.setItem('gl-last-shared-student', liveToken);
+    } else {
+      student = token
+        ? await decodeShareToken(token)
+        : JSON.parse(localStorage.getItem(shareStudentKey(standaloneToken)) || 'null');
+    }
     if (!student?.id || typeof student.name !== 'string') throw new TypeError('Este aparelho ainda não tem um perfil compartilhado salvo.');
     return { active: true, student, error: '' };
   } catch (error) {
@@ -247,10 +289,11 @@ async function readStudentPortalState() {
   }
 }
 
-async function buildStudentShareUrl(student) {
+function buildStudentShareUrl(student) {
+  if (!student.shareToken) throw new TypeError('Gere ou atualize o link de compartilhamento antes de continuar.');
   const url = new URL(window.location.href);
   url.search = '';
-  url.hash = `student=${await encodeShareToken(student)}`;
+  url.hash = `student=${student.shareToken}`;
   return url.toString();
 }
 
@@ -276,6 +319,7 @@ export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [notice, setNotice] = useState('');
   const cloudWriteQueue = useRef(Promise.resolve());
+  const shareTokensByStudent = useRef(new Map());
 
   useEffect(() => {
     if (!isSupabaseConfigured) {
@@ -374,8 +418,9 @@ export default function App() {
 
   useEffect(() => {
     if (!portalState.student) return;
-    localStorage.setItem(shareStudentKey(portalState.student.id), JSON.stringify(portalState.student));
-    localStorage.setItem('gl-last-shared-student', String(portalState.student.id));
+    const cacheKey = portalState.student.shareToken || String(portalState.student.id);
+    localStorage.setItem(shareStudentKey(cacheKey), JSON.stringify(portalState.student));
+    localStorage.setItem('gl-last-shared-student', cacheKey);
     document.title = `${portalState.student.name} | Gabriel Lopes Fitness`;
   }, [portalState.student]);
 
@@ -422,6 +467,18 @@ export default function App() {
     const write = cloudWriteQueue.current.then(async () => {
       const { error } = await supabaseClient.from('student_records').upsert(rows, { onConflict: 'owner_id,student_id' });
       if (error) throw error;
+      const sharedRows = records.filter((student) => student.shareToken?.startsWith('live.')).map((student) => ({
+        share_token: student.shareToken.slice('live.'.length),
+        owner_id: authState.user.id,
+        student_id: String(student.id),
+        payload: studentShareData(student),
+      }));
+      if (sharedRows.length) {
+        const { error: shareError } = await supabaseClient
+          .from('student_shared_portals')
+          .upsert(sharedRows, { onConflict: 'owner_id,student_id' });
+        if (shareError) throw shareError;
+      }
     });
     cloudWriteQueue.current = write.catch(() => {});
     return write;
@@ -440,6 +497,32 @@ export default function App() {
         console.error('Não foi possível guardar a alteração pendente neste dispositivo.', storageError);
       }
       setNotice('Não foi possível salvar na nuvem. A alteração foi mantida neste dispositivo e será reenviada no próximo acesso.');
+    }
+  }
+
+  async function ensureStudentShare(student) {
+    const studentKey = String(student.id);
+    const currentStudent = students.find((item) => String(item.id) === studentKey) || student;
+    const shareableStudent = {
+      ...currentStudent,
+      shareToken: currentStudent.shareToken || shareTokensByStudent.current.get(studentKey) || createLiveShareToken(),
+    };
+    shareTokensByStudent.current.set(studentKey, shareableStudent.shareToken);
+    try {
+      await persistStudents([shareableStudent]);
+      clearPendingSyncStudents([shareableStudent], authState.user.id);
+      setStudents((current) => current.map((item) => String(item.id) === String(student.id) ? shareableStudent : item));
+      setSelectedStudent((current) => current?.id === student.id ? shareableStudent : current);
+      return shareableStudent;
+    } catch (error) {
+      console.error('Não foi possível atualizar o painel compartilhado do aluno.', error);
+      try {
+        storePendingSyncStudents([shareableStudent], authState.user.id);
+      } catch (storageError) {
+        console.error('Não foi possível guardar a atualização pendente do painel compartilhado.', storageError);
+      }
+      setNotice('Não foi possível atualizar o link na nuvem. Confira a configuração do Supabase e tente novamente.');
+      throw new Error('O link não foi atualizado. Verifique a conexão e a instalação do Supabase antes de compartilhar.');
     }
   }
 
@@ -515,8 +598,9 @@ export default function App() {
 
   async function shareStudent(student) {
     try {
-      const url = await buildStudentShareUrl(student);
-      const shareData = { title: `Meu acompanhamento — ${student.name}`, text: 'Este link contém informações pessoais do seu acompanhamento. Compartilhe diretamente com o aluno.', url };
+      const shareableStudent = await ensureStudentShare(student);
+      const url = buildStudentShareUrl(shareableStudent);
+      const shareData = { title: `Meu acompanhamento — ${student.name}`, text: 'Este link dá acesso aos dados pessoais do acompanhamento e mostra a versão atualizada. Compartilhe apenas diretamente com o aluno.', url };
       if (navigator.share) await navigator.share(shareData);
       else if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(shareData.url);
@@ -596,7 +680,7 @@ export default function App() {
         <div className="page-content">
           {legacyImportAvailable && <LocalImportBanner count={legacyImportCount} onImport={importLocalStudents} onDismiss={() => setLegacyImportAvailable(false)} />}
           {selectedStudent ? (
-            <StudentDetail student={selectedStudent} onBack={() => setSelectedStudent(null)} onUpdate={updateStudent} onShare={shareStudent} />
+            <StudentDetail student={selectedStudent} onBack={() => setSelectedStudent(null)} onUpdate={updateStudent} onShare={shareStudent} onEnsureShare={ensureStudentShare} />
           ) : activePage === 'overview' ? (
             <Overview students={students} activeCount={activeStudents} onAdd={() => setModalOpen(true)} onOpen={setSelectedStudent} onPage={setActivePage} />
           ) : activePage === 'students' ? (
@@ -734,7 +818,7 @@ function StudentPortal({ student }) {
   </div>;
 }
 
-function ShareQrModal({ student, onClose }) {
+function ShareQrModal({ student, onClose, onEnsureShare }) {
   const [shareUrl, setShareUrl] = useState('');
   const [qrCode, setQrCode] = useState('');
   const [error, setError] = useState('');
@@ -744,7 +828,8 @@ function ShareQrModal({ student, onClose }) {
     let cancelled = false;
     async function generateQrCode() {
       try {
-        const url = await buildStudentShareUrl(student);
+        const shareableStudent = await onEnsureShare(student);
+        const url = buildStudentShareUrl(shareableStudent);
         const image = await QRCode.toDataURL(url, { errorCorrectionLevel: 'M', margin: 2, width: 320 });
         if (!cancelled) {
           setShareUrl(url);
@@ -770,7 +855,7 @@ function ShareQrModal({ student, onClose }) {
   }
 
   return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card share-qr-modal" role="dialog" aria-modal="true" aria-labelledby="share-qr-title">
-    <div className="modal-heading"><div><div className="eyebrow">COMPARTILHAR COM O ALUNO</div><h2 id="share-qr-title">QR Code de {student.name}</h2><p>Escaneie para abrir o painel com treino, dieta e evolução.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
+    <div className="modal-heading">    <div><div className="eyebrow">COMPARTILHAR COM O ALUNO</div><h2 id="share-qr-title">QR Code de {student.name}</h2><p>Escaneie para abrir a versão atual do treino, dieta e evolução.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
     {qrCode ? <img className="share-qr-image" src={qrCode} alt={`QR Code do painel de ${student.name}`} /> : <div className="share-qr-placeholder">{error || 'Gerando QR Code...'}</div>}
     <label className="form-field share-qr-link">Link do painel<input readOnly value={shareUrl} onFocus={(event) => event.target.select()} /></label>
     {error && qrCode && <p className="form-error">{error}</p>}
@@ -851,7 +936,7 @@ function StudentsPage({ students, search, onSearch, onAdd, onOpen }) {
   </>;
 }
 
-function StudentDetail({ student, onBack, onUpdate, onShare }) {
+function StudentDetail({ student, onBack, onUpdate, onShare, onEnsureShare }) {
   const [tab, setTab] = useState('overview');
   const [editing, setEditing] = useState(false);
   const [workoutEditorOpen, setWorkoutEditorOpen] = useState(false);
@@ -867,7 +952,7 @@ function StudentDetail({ student, onBack, onUpdate, onShare }) {
   return <>
     <button className="back-link" onClick={onBack}><Icon name="chevron" size={15} /> Voltar para alunos</button>
     <div className="detail-heading"><div className="detail-person"><div className="avatar avatar-green large-avatar">{initials(student.name)}</div><div><div className="eyebrow">PERFIL DO ALUNO</div><h1>{student.name}</h1><p>{student.email} <span>·</span> Desde {formatDate(student.startDate)}</p></div></div><div className="detail-heading-actions"><button className="outline-button share-student-button" onClick={() => onShare(student)}><Icon name="share" size={15} /> Compartilhar link</button><button className="outline-button share-qr-button" onClick={() => setQrCodeOpen(true)}><Icon name="grid" size={15} /> Gerar QR Code</button><button className="outline-button" onClick={() => setEditing(true)}>Editar cadastro</button></div></div>
-    <p className="share-privacy-note">O link dá acesso aos dados de treino, dieta e evolução sem senha. Envie-o somente ao aluno.</p>
+    <p className="share-privacy-note">O link permanente mostra treino, dieta e evolução atualizados quando o aluno abrir ou recarregar a página. Envie-o somente ao aluno.</p>
     <div className="detail-tabs">{[['overview', 'Visão geral'], ['workout', 'Treino'], ['diet', 'Plano alimentar']].map(([id, label]) => <button className={tab === id ? 'active' : ''} key={id} onClick={() => setTab(id)}>{label}</button>)}</div>
     {tab === 'overview' ? <>
       <div className="detail-metrics">
@@ -887,7 +972,7 @@ function StudentDetail({ student, onBack, onUpdate, onShare }) {
     {dietEditorOpen && <DietEditorModal student={student} onClose={() => setDietEditorOpen(false)} onSave={(dietPlan) => { onUpdate(student.id, { dietPlan, diet: dietPlan.name.trim() || 'Plano alimentar' }); setDietEditorOpen(false); }} />}
     {progressEntry && <ProgressEntryModal student={student} type={progressEntry.type} record={progressEntry.record} onClose={() => setProgressEntry(null)} onSave={(updates) => { onUpdate(student.id, updates); setProgressEntry(null); }} />}
     {expandedChart && <ProgressChartModal student={student} kind={expandedChart} onClose={() => setExpandedChart(null)} onEdit={(record) => { setExpandedChart(null); setProgressEntry({ type: expandedChart, record }); }} />}
-    {qrCodeOpen && <ShareQrModal student={student} onClose={() => setQrCodeOpen(false)} />}
+    {qrCodeOpen && <ShareQrModal student={student} onClose={() => setQrCodeOpen(false)} onEnsureShare={onEnsureShare} />}
   </>;
 }
 
