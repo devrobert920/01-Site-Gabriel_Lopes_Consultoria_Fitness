@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import QRCode from 'qrcode';
 import { createDemoWorkoutPlan, createWorkoutExercise, createWorkoutPlan, exerciseCategories, exerciseLibrary, getExercise } from './exercises.js';
 import { getSupabaseClient, isSupabaseConfigured } from './supabase.js';
@@ -1135,6 +1136,9 @@ function AssignmentsPage({ type, students, onOpen, onUpdate }) {
 
 function ExerciseImage({ src, alt }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [zoom, setZoom] = useState(2.5);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const dragState = useRef(null);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -1145,17 +1149,63 @@ function ExerciseImage({ src, alt }) {
     return () => window.removeEventListener('keydown', closeOnEscape);
   }, [isOpen]);
 
+  function changeZoom(amount) {
+    setZoom((current) => Math.min(5, Math.max(1, Number((current + amount).toFixed(1)))));
+  }
+
+  function resetZoom() {
+    setZoom(1);
+    setOffset({ x: 0, y: 0 });
+  }
+
+  function startDragging(event) {
+    if (zoom === 1) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    dragState.current = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, offset };
+  }
+
+  function dragImage(event) {
+    if (dragState.current?.pointerId !== event.pointerId) return;
+    setOffset({
+      x: dragState.current.offset.x + event.clientX - dragState.current.startX,
+      y: dragState.current.offset.y + event.clientY - dragState.current.startY,
+    });
+  }
+
+  function stopDragging(event) {
+    if (dragState.current?.pointerId !== event.pointerId) return;
+    dragState.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+  }
+
   return <>
-    <button type="button" className="exercise-image-button" onClick={() => setIsOpen(true)} aria-label={`Ampliar imagem: ${alt}`}>
+    <button type="button" className="exercise-image-button" onClick={() => { setZoom(2.5); setOffset({ x: 0, y: 0 }); setIsOpen(true); }} aria-label={`Ampliar imagem: ${alt}`}>
       <img src={src} alt={alt} />
     </button>
-    {isOpen && <div className="modal-backdrop exercise-image-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && setIsOpen(false)}>
-      <section className="modal-card exercise-image-modal" role="dialog" aria-modal="true" aria-label={alt}>
-        <button type="button" className="icon-button" onClick={() => setIsOpen(false)} aria-label="Fechar imagem ampliada"><Icon name="close" /></button>
-        <img src={src} alt={alt} />
-        <p>{alt}</p>
-      </section>
-    </div>}
+    {isOpen && createPortal(
+      <div className="exercise-image-lightbox" onMouseDown={(event) => event.target === event.currentTarget && setIsOpen(false)}>
+        <div className="exercise-image-lightbox-header">
+          <p>{alt}</p>
+          <button type="button" className="icon-button" onClick={() => setIsOpen(false)} aria-label="Fechar imagem ampliada"><Icon name="close" /></button>
+        </div>
+        <div
+          className={`exercise-image-viewer ${zoom > 1 ? 'is-zoomed' : ''}`}
+          onPointerDown={startDragging}
+          onPointerMove={dragImage}
+          onPointerUp={stopDragging}
+          onPointerCancel={stopDragging}
+        >
+          <img src={src} alt={alt} draggable="false" style={{ transform: `translate3d(${offset.x}px, ${offset.y}px, 0) scale(${zoom})` }} />
+        </div>
+        <div className="exercise-image-controls" aria-label="Controles de zoom">
+          <button type="button" className="outline-button compact" onClick={() => changeZoom(-0.5)} disabled={zoom <= 1} aria-label="Diminuir zoom">−</button>
+          <span>{Math.round(zoom * 100)}%</span>
+          <button type="button" className="outline-button compact" onClick={() => changeZoom(0.5)} disabled={zoom >= 5} aria-label="Aumentar zoom">+</button>
+          <button type="button" className="outline-button compact" onClick={resetZoom}>Ajustar à tela</button>
+        </div>
+      </div>,
+      document.body,
+    )}
   </>;
 }
 
