@@ -1,0 +1,3 @@
+- Gerar QR Code ao compartilhar
+- Remover a tickagem
+- Alterar os link icon para o logo branco

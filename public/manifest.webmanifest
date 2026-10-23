@@ -1,0 +1,27 @@
+{
+  "id": "/?student-pwa=1",
+  "name": "Meu acompanhamento | Gabriel Lopes Fitness",
+  "short_name": "Meu treino",
+  "description": "Treinos, plano alimentar e evolução do aluno.",
+  "lang": "pt-BR",
+  "start_url": "/?student-pwa=1",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f7f6",
+  "theme_color": "#1c1c1c",
+  "icons": [
+    {
+      "src": "/pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
