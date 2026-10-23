@@ -207,7 +207,7 @@ function studentShareData(student) {
       days: (student.workoutPlan?.days || []).map((day) => ({
         id: day.id,
         name: day.name,
-        exercises: day.exercises.map(({ id, exerciseId, imageId, name, sets, reps, rest, notes }) => ({ id, exerciseId, imageId, name, sets, reps, rest, notes })),
+        exercises: day.exercises.map(({ id, exerciseId, imageId, image, name, sets, reps, rest, notes }) => ({ id, exerciseId, imageId, image, name, sets, reps, rest, notes })),
       })),
     },
     dietPlan: {
@@ -987,7 +987,7 @@ function WorkoutPlanView({ plan, onEdit, readOnly = false }) {
   const exerciseCount = plan.days.reduce((total, day) => total + day.exercises.length, 0);
   return <div className="workout-plan-view">
     <div className="workout-plan-heading"><div><div className="eyebrow">PLANILHA DE TREINO</div><h2>{plan.name || 'Novo treino'}</h2><p>{plan.days.length} {plan.days.length === 1 ? 'dia' : 'dias'} de treino <span>·</span> {exerciseCount} {exerciseCount === 1 ? 'exercício' : 'exercícios'}</p></div>{!readOnly && <button className="primary-button" onClick={onEdit}><Icon name="check" size={16} /> Editar planilha</button>}</div>
-    {plan.days.map((day) => <section className="panel workout-day-panel" key={day.id}><div className="workout-day-heading"><div><span className="workout-day-tag">SESSÃO</span><h3>{day.name}</h3></div><span className="goal-pill">{day.exercises.length} exercícios</span></div>{day.exercises.length ? <div className="workout-table-wrap"><table className="workout-table"><thead><tr><th>EXERCÍCIO / EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th></tr></thead><tbody>{day.exercises.map((exercise) => { const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image; return <tr key={exercise.id}><td><div className="workout-exercise-cell">{image ? <img src={image} alt={`Exemplo ilustrado de ${exercise.name}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}<strong>{exercise.name}</strong></div></td><td>{exercise.sets}</td><td>{exercise.reps}</td><td>{exercise.rest}</td><td className="workout-notes">{exercise.notes || '—'}</td></tr>; })}</tbody></table></div> : <p className="workout-empty-day">Ainda não há exercícios nesta sessão.</p>}</section>)}
+    {plan.days.map((day) => <section className="panel workout-day-panel" key={day.id}><div className="workout-day-heading"><div><span className="workout-day-tag">SESSÃO</span><h3>{day.name}</h3></div><span className="goal-pill">{day.exercises.length} exercícios</span></div>{day.exercises.length ? <div className="workout-table-wrap"><table className="workout-table"><thead><tr><th>EXERCÍCIO / EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th></tr></thead><tbody>{day.exercises.map((exercise) => { const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image; return <tr key={exercise.id}><td><div className="workout-exercise-cell">{image ? <ExerciseImage src={image} alt={`Exemplo ilustrado de ${exercise.name}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}<strong>{exercise.name}</strong></div></td><td>{exercise.sets}</td><td>{exercise.reps}</td><td>{exercise.rest}</td><td className="workout-notes">{exercise.notes || '—'}</td></tr>; })}</tbody></table></div> : <p className="workout-empty-day">Ainda não há exercícios nesta sessão.</p>}</section>)}
     {plan.days.length === 0 && <div className="panel"><EmptyState title="Sua ficha ainda está vazia" text="Adicione dias e exercícios para montar o treino." /></div>}
   </div>;
 }
@@ -1133,6 +1133,32 @@ function AssignmentsPage({ type, students, onOpen, onUpdate }) {
   </>;
 }
 
+function ExerciseImage({ src, alt }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    function closeOnEscape(event) {
+      if (event.key === 'Escape') setIsOpen(false);
+    }
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isOpen]);
+
+  return <>
+    <button type="button" className="exercise-image-button" onClick={() => setIsOpen(true)} aria-label={`Ampliar imagem: ${alt}`}>
+      <img src={src} alt={alt} />
+    </button>
+    {isOpen && <div className="modal-backdrop exercise-image-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && setIsOpen(false)}>
+      <section className="modal-card exercise-image-modal" role="dialog" aria-modal="true" aria-label={alt}>
+        <button type="button" className="icon-button" onClick={() => setIsOpen(false)} aria-label="Fechar imagem ampliada"><Icon name="close" /></button>
+        <img src={src} alt={alt} />
+        <p>{alt}</p>
+      </section>
+    </div>}
+  </>;
+}
+
 function WorkoutEditorModal({ student, onClose, onSave }) {
   const [plan, setPlan] = useState(() => JSON.parse(JSON.stringify(student.workoutPlan || createWorkoutPlan(student.workout || 'Novo treino'))));
   const [activeDayId, setActiveDayId] = useState(() => plan.days[0]?.id);
@@ -1222,16 +1248,13 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
   </section></div>;
 }
 
-function WorkoutExerciseEditorRow({ exercise, onUpdate, onRemove }) {
-  return <tr><td><div className="editor-exercise"><img src={exercise.image} alt={`Exemplo ilustrado de ${exercise.name || 'exercício'}`} /><div className="editor-exercise-fields"><select aria-label="Selecionar exercício" value={exercise.exerciseId || 'custom'} onChange={(event) => onUpdate(exercise.id, 'exerciseId', event.target.value)}><option value="custom">Exercício personalizado</option>{exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select>{exercise.exerciseId === 'custom' ? <input aria-label="Nome do exercício" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Nome do exercício" /> : <span className="selected-exercise-name">{exercise.name}</span>}<label className="image-picker">Imagem de exemplo<select aria-label="Imagem de exemplo" value={exercise.imageId || exercise.exerciseId} onChange={(event) => onUpdate(exercise.id, 'imageId', event.target.value)}>{exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</select></label></div></div></td>{[['sets', '3'], ['reps', '10-12'], ['rest', '60s']].map(([field, placeholder]) => <td key={field}><input className="sheet-input short" aria-label={field === 'sets' ? 'Séries' : field === 'reps' ? 'Repetições' : 'Descanso'} value={exercise[field]} onChange={(event) => onUpdate(exercise.id, field, event.target.value)} placeholder={placeholder} /></td>)}<td><input className="sheet-input notes-input" aria-label="Observações" value={exercise.notes} onChange={(event) => onUpdate(exercise.id, 'notes', event.target.value)} placeholder="Ex.: controlar a descida" /></td><td><button type="button" className="remove-exercise-button" onClick={() => onRemove(exercise.id)} aria-label={`Remover ${exercise.name || 'exercício'}`}><Icon name="close" size={15} /></button></td></tr>;
-}
-
 function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
   const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image;
+  const isCustomExercise = exercise.exerciseId === 'custom';
   return <tr>
     <td>
       <div className="editor-exercise">
-        {image ? <img src={image} alt={`Exemplo ilustrado de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}
+        {image ? <ExerciseImage src={image} alt={`Exemplo ilustrado de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}
         <div className="editor-exercise-fields">
           <label className="exercise-picker-label">Exercício
             <select aria-label="Selecionar exercício" value={getExercise(exercise.exerciseId) ? exercise.exerciseId : 'custom'} onChange={(event) => onUpdate(exercise.id, 'exerciseId', event.target.value)}>
@@ -1239,14 +1262,16 @@ function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
               {exerciseCategories.map((category) => <optgroup label={category} key={category}>{exerciseLibrary.filter((item) => item.category === category).map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</optgroup>)}
             </select>
           </label>
-          {exercise.exerciseId === 'custom' && <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />}
-          <label className="image-picker">Imagem de exemplo
-            <select aria-label="Imagem de exemplo" value={exercise.imageId || (exercise.image ? 'custom' : 'none')} onChange={(event) => onUpdate(exercise.id, 'imageId', event.target.value)}>
-              <option value="none">Sem imagem</option>
-              {exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
-              {exercise.imageId === 'custom' && <option value="custom">Imagem existente</option>}
-            </select>
-          </label>
+          {isCustomExercise && <>
+            <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />
+            <label className="image-picker">Imagem de exemplo
+              <select aria-label="Imagem de exemplo" value={exercise.imageId || (exercise.image ? 'custom' : 'none')} onChange={(event) => onUpdate(exercise.id, 'imageId', event.target.value)}>
+                <option value="none">Sem imagem</option>
+                {exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
+                {exercise.imageId === 'custom' && <option value="custom">Imagem existente</option>}
+              </select>
+            </label>
+          </>}
         </div>
       </div>
     </td>
