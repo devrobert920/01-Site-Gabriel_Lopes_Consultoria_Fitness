@@ -183,6 +183,7 @@ export function createWorkoutExercise(exerciseId = exerciseLibrary[0].id) {
   return {
     id: `${exercise.id}-${Math.random().toString(36).slice(2, 9)}`,
     exerciseId: exercise.id,
+    imageId: exercise.id,
     name: exercise.name,
     image: exercise.image,
     sets: exercise.sets,

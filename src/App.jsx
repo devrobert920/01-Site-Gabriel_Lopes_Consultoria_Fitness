@@ -43,8 +43,15 @@ function normalizeStudent(student) {
         ...day,
         exercises: (day.exercises || []).map((exercise) => {
           const exerciseId = legacyExerciseIds[exercise.exerciseId] || exercise.exerciseId;
-          const canonical = getExercise(exerciseId) || getExercise(exercise.imageId) || exerciseLibrary[0];
-          return { ...exercise, exerciseId: canonical.id, name: canonical.name, image: canonical.image };
+          const canonical = getExercise(exerciseId);
+          const imageExercise = exercise.imageId === 'none' ? null : getExercise(exercise.imageId) || canonical;
+          return {
+            ...exercise,
+            exerciseId: canonical ? canonical.id : 'custom',
+            name: canonical ? canonical.name : exercise.name || '',
+            imageId: exercise.imageId ?? imageExercise?.id ?? (exercise.image ? 'custom' : 'none'),
+            image: exercise.imageId === 'none' ? '' : imageExercise?.image || exercise.image || '',
+          };
         }),
       })),
     },
@@ -200,7 +207,7 @@ function studentShareData(student) {
       days: (student.workoutPlan?.days || []).map((day) => ({
         id: day.id,
         name: day.name,
-        exercises: day.exercises.map(({ id, exerciseId, name, sets, reps, rest, notes }) => ({ id, exerciseId, name, sets, reps, rest, notes })),
+        exercises: day.exercises.map(({ id, exerciseId, imageId, name, sets, reps, rest, notes }) => ({ id, exerciseId, imageId, name, sets, reps, rest, notes })),
       })),
     },
     dietPlan: {
@@ -980,7 +987,7 @@ function WorkoutPlanView({ plan, onEdit, readOnly = false }) {
   const exerciseCount = plan.days.reduce((total, day) => total + day.exercises.length, 0);
   return <div className="workout-plan-view">
     <div className="workout-plan-heading"><div><div className="eyebrow">PLANILHA DE TREINO</div><h2>{plan.name || 'Novo treino'}</h2><p>{plan.days.length} {plan.days.length === 1 ? 'dia' : 'dias'} de treino <span>·</span> {exerciseCount} {exerciseCount === 1 ? 'exercício' : 'exercícios'}</p></div>{!readOnly && <button className="primary-button" onClick={onEdit}><Icon name="check" size={16} /> Editar planilha</button>}</div>
-    {plan.days.map((day) => <section className="panel workout-day-panel" key={day.id}><div className="workout-day-heading"><div><span className="workout-day-tag">SESSÃO</span><h3>{day.name}</h3></div><span className="goal-pill">{day.exercises.length} exercícios</span></div>{day.exercises.length ? <div className="workout-table-wrap"><table className="workout-table"><thead><tr><th>EXERCÍCIO / EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th></tr></thead><tbody>{day.exercises.map((exercise) => { const catalogExercise = getExercise(exercise.exerciseId); return <tr key={exercise.id}><td><div className="workout-exercise-cell"><img src={catalogExercise?.image || exercise.image} alt={`Exemplo ilustrado de ${exercise.name}`} /><strong>{catalogExercise?.name || exercise.name}</strong></div></td><td>{exercise.sets}</td><td>{exercise.reps}</td><td>{exercise.rest}</td><td className="workout-notes">{exercise.notes || '—'}</td></tr>; })}</tbody></table></div> : <p className="workout-empty-day">Ainda não há exercícios nesta sessão.</p>}</section>)}
+    {plan.days.map((day) => <section className="panel workout-day-panel" key={day.id}><div className="workout-day-heading"><div><span className="workout-day-tag">SESSÃO</span><h3>{day.name}</h3></div><span className="goal-pill">{day.exercises.length} exercícios</span></div>{day.exercises.length ? <div className="workout-table-wrap"><table className="workout-table"><thead><tr><th>EXERCÍCIO / EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th></tr></thead><tbody>{day.exercises.map((exercise) => { const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image; return <tr key={exercise.id}><td><div className="workout-exercise-cell">{image ? <img src={image} alt={`Exemplo ilustrado de ${exercise.name}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}<strong>{exercise.name}</strong></div></td><td>{exercise.sets}</td><td>{exercise.reps}</td><td>{exercise.rest}</td><td className="workout-notes">{exercise.notes || '—'}</td></tr>; })}</tbody></table></div> : <p className="workout-empty-day">Ainda não há exercícios nesta sessão.</p>}</section>)}
     {plan.days.length === 0 && <div className="panel"><EmptyState title="Sua ficha ainda está vazia" text="Adicione dias e exercícios para montar o treino." /></div>}
   </div>;
 }
@@ -993,7 +1000,17 @@ const measurementSeries = [
   { key: 'chest', label: 'Peitoral', color: '#c59b27' },
   { key: 'waist', label: 'Cintura', color: '#4e9c73' },
   { key: 'hip', label: 'Quadril', color: '#6485bb' },
-  { key: 'arm', label: 'Braço', color: '#a273ac' },
+  { key: 'arm', label: 'Braço (geral)', color: '#a273ac' },
+  { key: 'calfLeft', label: 'Panturrilha esquerda', color: '#d87548' },
+  { key: 'calfRight', label: 'Panturrilha direita', color: '#ba6a47' },
+  { key: 'quadricepsLeft', label: 'Quadríceps esquerdo', color: '#58a9a2' },
+  { key: 'quadricepsRight', label: 'Quadríceps direito', color: '#408b85' },
+  { key: 'forearmLeft', label: 'Antebraço esquerdo', color: '#8b78bb' },
+  { key: 'forearmRight', label: 'Antebraço direito', color: '#705e9f' },
+  { key: 'bicepsLeft', label: 'Bíceps esquerdo', color: '#cf7692' },
+  { key: 'bicepsRight', label: 'Bíceps direito', color: '#ad5f79' },
+  { key: 'glutes', label: 'Glúteos', color: '#8a9c42' },
+  { key: 'neck', label: 'Pescoço', color: '#71889c' },
 ];
 
 function ProgressChart({ records: sourceRecords, kind, onEdit, interactive = true, expanded = false }) {
@@ -1142,11 +1159,31 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
     updateDay(activeDay.id, { exercises: [...activeDay.exercises, createWorkoutExercise()] });
   }
 
+  function addCustomExercise() {
+    const exercise = {
+      id: `custom-${Math.random().toString(36).slice(2, 9)}`,
+      exerciseId: 'custom',
+      imageId: 'none',
+      name: '',
+      image: '',
+      sets: '3',
+      reps: '10-12',
+      rest: '60s',
+      notes: '',
+    };
+    updateDay(activeDay.id, { exercises: [...activeDay.exercises, exercise] });
+  }
+
   function updateExercise(exerciseId, field, value) {
     const selectedExercise = field === 'exerciseId' ? getExercise(value) : null;
+    const selectedImage = field === 'imageId' ? getExercise(value) : null;
     const exercises = activeDay.exercises.map((exercise) => {
       if (exercise.id !== exerciseId) return exercise;
-      if (field === 'exerciseId' && selectedExercise) return { ...exercise, exerciseId: selectedExercise.id, name: selectedExercise.name, image: selectedExercise.image, sets: selectedExercise.sets, reps: selectedExercise.reps, rest: selectedExercise.rest };
+      if (field === 'exerciseId' && selectedExercise) return { ...exercise, exerciseId: selectedExercise.id, name: selectedExercise.name, imageId: selectedExercise.id, image: selectedExercise.image, sets: selectedExercise.sets, reps: selectedExercise.reps, rest: selectedExercise.rest };
+      if (field === 'exerciseId') return { ...exercise, exerciseId: 'custom', name: '', imageId: 'none', image: '' };
+      if (field === 'imageId') return value === 'custom'
+        ? { ...exercise, imageId: value }
+        : { ...exercise, imageId: value, image: selectedImage?.image || '' };
       return { ...exercise, [field]: value };
     });
     updateDay(activeDay.id, { exercises });
@@ -1178,7 +1215,7 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
       {activeDay && <div className="workout-editor-day"><div className="workout-editor-day-heading"><label className="form-field">Nome da sessão<input value={activeDay.name} onChange={(event) => updateDay(activeDay.id, { name: event.target.value })} /></label><button type="button" className="remove-day-button" onClick={() => removeDay(activeDay.id)}>Remover dia</button></div>
         <div className="workout-editor-table-wrap"><table className="workout-editor-table"><thead><tr><th>EXERCÍCIO E EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th><th /></tr></thead><tbody>{activeDay.exercises.map((exercise) => <FixedWorkoutExerciseRow key={exercise.id} exercise={exercise} onUpdate={updateExercise} onRemove={removeExercise} />)}</tbody></table></div>
         {activeDay.exercises.length === 0 && <div className="workout-editor-empty">Adicione exercícios para preencher esta sessão.</div>}
-        <button type="button" className="add-exercise-button" onClick={addExercise}><Icon name="plus" size={15} /> Adicionar exercício</button>
+        <div className="workout-editor-add-actions"><button type="button" className="add-exercise-button" onClick={addExercise}><Icon name="plus" size={15} /> Adicionar do catálogo</button><button type="button" className="add-exercise-button" onClick={addCustomExercise}><Icon name="plus" size={15} /> Adicionar personalizado</button></div>
       </div>}
       <div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar planilha</button></div>
     </form>
@@ -1190,14 +1227,24 @@ function WorkoutExerciseEditorRow({ exercise, onUpdate, onRemove }) {
 }
 
 function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
+  const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image;
   return <tr>
     <td>
       <div className="editor-exercise">
-        <img src={getExercise(exercise.exerciseId)?.image || exercise.image} alt={`Exemplo ilustrado de ${exercise.name}`} />
+        {image ? <img src={image} alt={`Exemplo ilustrado de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}
         <div className="editor-exercise-fields">
           <label className="exercise-picker-label">Exercício
-            <select aria-label="Selecionar exercício" value={exercise.exerciseId} onChange={(event) => onUpdate(exercise.id, 'exerciseId', event.target.value)}>
+            <select aria-label="Selecionar exercício" value={getExercise(exercise.exerciseId) ? exercise.exerciseId : 'custom'} onChange={(event) => onUpdate(exercise.id, 'exerciseId', event.target.value)}>
+              <option value="custom">Exercício personalizado</option>
               {exerciseCategories.map((category) => <optgroup label={category} key={category}>{exerciseLibrary.filter((item) => item.category === category).map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</optgroup>)}
+            </select>
+          </label>
+          {exercise.exerciseId === 'custom' && <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />}
+          <label className="image-picker">Imagem de exemplo
+            <select aria-label="Imagem de exemplo" value={exercise.imageId || (exercise.image ? 'custom' : 'none')} onChange={(event) => onUpdate(exercise.id, 'imageId', event.target.value)}>
+              <option value="none">Sem imagem</option>
+              {exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
+              {exercise.imageId === 'custom' && <option value="custom">Imagem existente</option>}
             </select>
           </label>
         </div>
@@ -1276,9 +1323,13 @@ function DietEditorModal({ student, onClose, onSave }) {
 function ProgressEntryModal({ student, type, record, onClose, onSave }) {
   const isWeight = type === 'weight';
   const latest = student.measurements || {};
+  const measurementValues = Object.fromEntries(measurementSeries.map(({ key }) => [
+    key,
+    record ? record[key] ?? '' : latest[key] ?? '',
+  ]));
   const [form, setForm] = useState(isWeight
     ? { date: record?.date || todayDate(), value: String(record?.value ?? student.weight ?? '') }
-    : { date: record?.date || todayDate(), chest: record?.chest ?? latest.chest ?? '', waist: record?.waist ?? latest.waist ?? '', hip: record?.hip ?? latest.hip ?? '', arm: record?.arm ?? latest.arm ?? '' });
+    : { date: record?.date || todayDate(), ...measurementValues });
   const [error, setError] = useState('');
   function submit(event) {
     event.preventDefault();
@@ -1293,19 +1344,19 @@ function ProgressEntryModal({ student, type, record, onClose, onSave }) {
       onSave({ weight: currentWeight, weightRecords: records, history: records.map((record) => record.value) });
       return;
     }
-    const measurements = Object.fromEntries(['chest', 'waist', 'hip', 'arm'].map((key) => [key, Number(form[key]) || 0]));
+    const measurements = Object.fromEntries(measurementSeries.map(({ key }) => [key, Number(form[key]) || 0]));
     if (!Object.values(measurements).some(Boolean)) return setError('Informe pelo menos uma medida.');
     const records = (student.measurementRecords || []).filter((item) => item.date !== (record?.date || form.date) && item.date !== form.date);
     records.push({ date: form.date, ...measurements });
     records.sort((first, second) => first.date.localeCompare(second.date));
     const currentRecord = records[records.length - 1];
-    onSave({ measurements: { chest: currentRecord.chest || 0, waist: currentRecord.waist || 0, hip: currentRecord.hip || 0, arm: currentRecord.arm || 0 }, measurementRecords: records });
+    onSave({ measurements: Object.fromEntries(measurementSeries.map(({ key }) => [key, currentRecord[key] || 0])), measurementRecords: records });
   }
   return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card progress-entry-modal" role="dialog" aria-modal="true" aria-labelledby="progress-entry-title">
     <div className="modal-heading"><div><div className="eyebrow">ACOMPANHAMENTO</div><h2 id="progress-entry-title">{record ? 'Editar registro' : isWeight ? 'Registrar peso' : 'Atualizar medidas'}</h2><p>{student.name} · os registros ficam salvos no histórico.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
     <form onSubmit={submit}><div className="form-grid">
       <label className="form-field full">Data do registro<input type="date" value={form.date} onChange={(event) => setForm((current) => ({ ...current, date: event.target.value }))} required /></label>
-      {isWeight ? <label className="form-field full">Peso (kg)<input type="number" min="1" step="0.1" value={form.value} onChange={(event) => setForm((current) => ({ ...current, value: event.target.value }))} required autoFocus /></label> : [['chest', 'Peitoral'], ['waist', 'Cintura'], ['hip', 'Quadril'], ['arm', 'Braço']].map(([key, label]) => <label className="form-field" key={key}>{label} (cm)<input type="number" min="0" step="0.1" value={form[key]} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.value }))} placeholder="—" /></label>)}
+      {isWeight ? <label className="form-field full">Peso (kg)<input type="number" min="1" step="0.1" value={form.value} onChange={(event) => setForm((current) => ({ ...current, value: event.target.value }))} required autoFocus /></label> : measurementSeries.map(({ key, label }) => <label className="form-field" key={key}>{label} (cm)<input type="number" min="0" step="0.1" value={form[key]} onChange={(event) => setForm((current) => ({ ...current, [key]: event.target.value }))} placeholder="—" /></label>)}
     </div>{error && <p className="form-error">{error}</p>}<div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar registro</button></div></form>
   </section></div>;
 }
@@ -1339,11 +1390,21 @@ function AddStudentModal({ onClose, onSave }) {
 }
 
 function EditStudentModal({ student, onClose, onSave }) {
-  const [form, setForm] = useState({ name: student.name, email: student.email, phone: student.phone || '', goal: student.goal, weight: student.weight, height: student.height, status: student.status, diet: student.diet, chest: student.measurements?.chest || '', waist: student.measurements?.waist || '', hip: student.measurements?.hip || '', arm: student.measurements?.arm || '' });
+  const [form, setForm] = useState({
+    name: student.name,
+    email: student.email,
+    phone: student.phone || '',
+    goal: student.goal,
+    weight: student.weight,
+    height: student.height,
+    status: student.status,
+    diet: student.diet,
+    ...Object.fromEntries(measurementSeries.map(({ key }) => [key, student.measurements?.[key] || ''])),
+  });
   function submit(event) {
     event.preventDefault();
     const weight = Number(form.weight);
-    const measurements = { chest: Number(form.chest) || 0, waist: Number(form.waist) || 0, hip: Number(form.hip) || 0, arm: Number(form.arm) || 0 };
+    const measurements = Object.fromEntries(measurementSeries.map(({ key }) => [key, Number(form[key]) || 0]));
     const weightRecords = [...(student.weightRecords || [])];
     if (weight !== Number(student.weight)) {
       const todayRecordIndex = weightRecords.findIndex((record) => record.date === todayDate());
@@ -1352,7 +1413,7 @@ function EditStudentModal({ student, onClose, onSave }) {
       weightRecords.sort((first, second) => first.date.localeCompare(second.date));
     }
     const measurementRecords = [...(student.measurementRecords || [])];
-    const measurementsChanged = Object.keys(measurements).some((key) => Number(student.measurements?.[key] || 0) !== measurements[key]);
+    const measurementsChanged = measurementSeries.some(({ key }) => Number(student.measurements?.[key] || 0) !== measurements[key]);
     if (measurementsChanged) {
       const todayRecordIndex = measurementRecords.findIndex((record) => record.date === todayDate());
       const record = { date: todayDate(), ...measurements };
@@ -1363,5 +1424,5 @@ function EditStudentModal({ student, onClose, onSave }) {
     const dietPlan = { ...(student.dietPlan || createDietPlan()), name: form.diet.trim() || 'Plano alimentar' };
     onSave({ ...form, diet: dietPlan.name, dietPlan, weight, height: Number(form.height), measurements, weightRecords, history: weightRecords.map((record) => record.value), measurementRecords });
   }
-  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-student-title"><div className="modal-heading"><div><div className="eyebrow">PERFIL DO ALUNO</div><h2 id="edit-student-title">Atualizar informações</h2><p>As alterações serão salvas automaticamente no seu navegador.</p></div><button className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div><form onSubmit={submit}><div className="form-grid"><label className="form-field">Nome completo<input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} /></label><label className="form-field">E-mail<input required type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} /></label><label className="form-field">Telefone<input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} /></label><label className="form-field">Objetivo<select value={form.goal} onChange={(event) => setForm({ ...form, goal: event.target.value })}><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Saúde e bem-estar</option><option>Performance</option></select></label><label className="form-field">Peso atual (kg)<input required type="number" step="0.1" min="1" value={form.weight} onChange={(event) => setForm({ ...form, weight: event.target.value })} /></label><label className="form-field">Altura (m)<input required type="number" step="0.01" min="0.5" value={form.height} onChange={(event) => setForm({ ...form, height: event.target.value })} /></label><label className="form-field">Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value })}><option>Ativo</option><option>Atenção</option><option>Inativo</option></select></label></div><div className="form-section-label">MEDIDAS CORPORAIS (CM)</div><div className="form-grid measurement-inputs">{[['chest', 'Peitoral'], ['waist', 'Cintura'], ['hip', 'Quadril'], ['arm', 'Braço']].map(([key, label]) => <label className="form-field" key={key}>{label}<input type="number" step="0.1" min="0" value={form[key]} onChange={(event) => setForm({ ...form, [key]: event.target.value })} placeholder="—" /></label>)}</div><div className="form-section-label">PRESCRIÇÃO ATUAL</div><div className="form-grid"><label className="form-field full">Plano alimentar<input value={form.diet} onChange={(event) => setForm({ ...form, diet: event.target.value })} /></label></div><div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar alterações</button></div></form></section></div>;
+  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-student-title"><div className="modal-heading"><div><div className="eyebrow">PERFIL DO ALUNO</div><h2 id="edit-student-title">Atualizar informações</h2><p>As alterações serão salvas automaticamente no seu navegador.</p></div><button className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div><form onSubmit={submit}><div className="form-grid"><label className="form-field">Nome completo<input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} /></label><label className="form-field">E-mail<input required type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} /></label><label className="form-field">Telefone<input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} /></label><label className="form-field">Objetivo<select value={form.goal} onChange={(event) => setForm({ ...form, goal: event.target.value })}><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Saúde e bem-estar</option><option>Performance</option></select></label><label className="form-field">Peso atual (kg)<input required type="number" step="0.1" min="1" value={form.weight} onChange={(event) => setForm({ ...form, weight: event.target.value })} /></label><label className="form-field">Altura (m)<input required type="number" step="0.01" min="0.5" value={form.height} onChange={(event) => setForm({ ...form, height: event.target.value })} /></label><label className="form-field">Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value })}><option>Ativo</option><option>Atenção</option><option>Inativo</option></select></label></div><div className="form-section-label">MEDIDAS CORPORAIS (CM)</div><div className="form-grid measurement-inputs">{measurementSeries.map(({ key, label }) => <label className="form-field" key={key}>{label}<input type="number" step="0.1" min="0" value={form[key]} onChange={(event) => setForm({ ...form, [key]: event.target.value })} placeholder="—" /></label>)}</div><div className="form-section-label">PRESCRIÇÃO ATUAL</div><div className="form-grid"><label className="form-field full">Plano alimentar<input value={form.diet} onChange={(event) => setForm({ ...form, diet: event.target.value })} /></label></div><div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar alterações</button></div></form></section></div>;
 }
