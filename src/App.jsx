@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import QRCode from 'qrcode';
-import { createDemoWorkoutPlan, createWorkoutExercise, createWorkoutPlan, exerciseCategories, exerciseLibrary, getExercise } from './exercises.js';
+import { createDemoWorkoutPlan, createWorkoutExercise, createWorkoutPlan, exerciseLibrary, getExercise } from './exercises.js';
 import { getSupabaseClient, isSupabaseConfigured } from './supabase.js';
 import brandLogo from './assets/brand/gabriel-lopes-logo.png';
 
@@ -1289,20 +1289,93 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
   </section></div>;
 }
 
+function ExercisePicker({ selectedExercise, isCustomExercise, onSelect }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState('');
+  const [position, setPosition] = useState(null);
+  const triggerRef = useRef(null);
+  const menuRef = useRef(null);
+  const searchRef = useRef(null);
+  const normalizedSearch = search.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').trim();
+  const filteredExercises = exerciseLibrary.filter((item) => item.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').includes(normalizedSearch));
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    function updatePosition() {
+      const bounds = triggerRef.current?.getBoundingClientRect();
+      if (!bounds) return;
+      const width = Math.min(360, window.innerWidth - 24);
+      const maxHeight = Math.min(320, window.innerHeight - 24);
+      const left = Math.max(12, Math.min(bounds.left, window.innerWidth - width - 12));
+      const belowSpace = window.innerHeight - bounds.bottom - 12;
+      const top = belowSpace < Math.min(220, maxHeight) && bounds.top > belowSpace
+        ? Math.max(12, bounds.top - Math.min(maxHeight, window.innerHeight - 24) - 4)
+        : bounds.bottom + 4;
+      setPosition({ left, top, width, maxHeight });
+    }
+
+    function closeOnOutsidePointer(event) {
+      if (!triggerRef.current?.contains(event.target) && !menuRef.current?.contains(event.target)) setIsOpen(false);
+    }
+
+    function closeOnEscape(event) {
+      if (event.key !== 'Escape') return;
+      setIsOpen(false);
+      triggerRef.current?.focus();
+    }
+
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+    window.addEventListener('scroll', updatePosition, true);
+    document.addEventListener('pointerdown', closeOnOutsidePointer);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener('scroll', updatePosition, true);
+      document.removeEventListener('pointerdown', closeOnOutsidePointer);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen && position) searchRef.current?.focus();
+  }, [isOpen, position]);
+
+  function chooseExercise(exerciseId) {
+    onSelect(exerciseId);
+    setSearch('');
+    setIsOpen(false);
+  }
+
+  return <div className="exercise-picker">
+    <span>Exercício</span>
+    <button type="button" ref={triggerRef} className="exercise-picker-trigger" aria-haspopup="listbox" aria-expanded={isOpen} onClick={() => setIsOpen((current) => { if (!current) setSearch(''); return !current; })}>
+      <span>{selectedExercise?.name || (isCustomExercise ? 'Exercício personalizado' : 'Selecionar exercício')}</span>
+      <Icon name="chevron" size={14} />
+    </button>
+    {isOpen && position && createPortal(
+      <div ref={menuRef} className="exercise-picker-menu" style={position}>
+        <input ref={searchRef} type="search" aria-label="Buscar exercício" placeholder="Buscar exercício" value={search} onChange={(event) => setSearch(event.target.value)} />
+        <div className="exercise-picker-options" role="listbox" aria-label="Exercícios disponíveis">
+          <button type="button" role="option" aria-selected={isCustomExercise} className={isCustomExercise ? 'selected' : ''} onClick={() => chooseExercise('custom')}>Exercício personalizado</button>
+          {filteredExercises.map((item) => <button type="button" role="option" aria-selected={selectedExercise?.id === item.id} className={selectedExercise?.id === item.id ? 'selected' : ''} key={item.id} onClick={() => chooseExercise(item.id)}>{item.label}</button>)}
+          {filteredExercises.length === 0 && <p className="exercise-picker-empty">Nenhum exercício encontrado.</p>}
+        </div>
+      </div>,
+      document.body,
+    )}
+  </div>;
+}
+
 function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
-  const [exerciseSearch, setExerciseSearch] = useState('');
   const [videoSearch, setVideoSearch] = useState('');
   const video = getExercise(exercise.videoId || exercise.exerciseId)?.video;
   const currentExercise = getExercise(exercise.exerciseId);
   const isCustomExercise = exercise.exerciseId === 'custom';
   const normalizeSearch = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').trim();
-  const normalizedExerciseSearch = normalizeSearch(exerciseSearch);
   const normalizedVideoSearch = normalizeSearch(videoSearch);
-  const filteredExercises = exerciseLibrary.filter((item) => normalizeSearch(item.name).includes(normalizedExerciseSearch));
   const filteredVideos = exerciseLibrary.filter((item) => normalizeSearch(item.name).includes(normalizedVideoSearch));
-  const exerciseOptions = currentExercise && !filteredExercises.some((item) => item.id === currentExercise.id)
-    ? [currentExercise, ...filteredExercises]
-    : filteredExercises;
   const videoExercise = getExercise(exercise.videoId);
   const videoOptions = videoExercise && !filteredVideos.some((item) => item.id === videoExercise.id)
     ? [videoExercise, ...filteredVideos]
@@ -1313,15 +1386,7 @@ function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
       <div className="editor-exercise">
         {video ? <ExerciseVideo src={video} alt={`Assistir demonstração de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-video">Sem vídeo</span>}
         <div className="editor-exercise-fields">
-          {!isCustomExercise && <label className="catalog-search-label">Buscar exercício
-            <input type="search" aria-label="Buscar exercício pelo nome" value={exerciseSearch} onChange={(event) => setExerciseSearch(event.target.value)} placeholder="Digite o nome" />
-          </label>}
-          <label className="exercise-picker-label">Exercício
-            <select aria-label="Selecionar exercício" value={currentExercise ? exercise.exerciseId : 'custom'} onChange={(event) => { onUpdate(exercise.id, 'exerciseId', event.target.value); setExerciseSearch(''); }}>
-              <option value="custom">Exercício personalizado</option>
-              {exerciseCategories.map((category) => <optgroup label={category} key={category}>{exerciseOptions.filter((item) => item.category === category).map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</optgroup>)}
-            </select>
-          </label>
+          <ExercisePicker selectedExercise={currentExercise} isCustomExercise={isCustomExercise} onSelect={(value) => onUpdate(exercise.id, 'exerciseId', value)} />
           {isCustomExercise && <>
             <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />
             <label className="catalog-search-label">Buscar vídeo
@@ -1330,7 +1395,7 @@ function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
             <label className="video-picker">Vídeo demonstrativo
               <select aria-label="Vídeo demonstrativo" value={exercise.videoId || ''} onChange={(event) => { onUpdate(exercise.id, 'videoId', event.target.value); setVideoSearch(''); }}>
                 <option value="">Sem vídeo vinculado</option>
-                {videoOptions.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
+                {videoOptions.map((item) => <option value={item.id} key={item.id}>{item.label}</option>)}
               </select>
             </label>
           </>}

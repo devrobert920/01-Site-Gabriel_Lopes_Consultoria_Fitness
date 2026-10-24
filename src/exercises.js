@@ -9,7 +9,7 @@ function normalizeExerciseName(value) {
     .replace(/^-|-$/g, '');
 }
 
-export const exerciseLibrary = exerciseData.map((exercise, index) => {
+const validatedExercises = exerciseData.map((exercise, index) => {
   if (typeof exercise.nome !== 'string' || !exercise.nome.trim()) {
     throw new TypeError(`O exercício na posição ${index + 1} precisa ter um nome.`);
   }
@@ -37,13 +37,38 @@ export const exerciseLibrary = exerciseData.map((exercise, index) => {
     reps: '10-12',
     rest: '60s',
   };
-}).sort((first, second) => first.name.localeCompare(second.name, 'pt-BR', { sensitivity: 'base' }));
+});
+
+const exercisesByBaseId = new Map();
+for (const exercise of validatedExercises) {
+  const versions = exercisesByBaseId.get(exercise.id) || [];
+  if (!versions.some((version) => version.video === exercise.video)) versions.push(exercise);
+  exercisesByBaseId.set(exercise.id, versions);
+}
+
+const usedExerciseIds = new Set();
+export const exerciseLibrary = [...exercisesByBaseId.values()].flatMap((versions) => versions.map((exercise, index) => {
+  const videoFilename = exercise.video.split('/').pop().replace(/\.mp4(?:$|\?)/i, '');
+  const variantId = normalizeExerciseName(videoFilename) || `video-${index + 1}`;
+  let id = index === 0 ? exercise.id : `${exercise.id}-${variantId}`;
+  let suffix = 2;
+  while (usedExerciseIds.has(id)) {
+    id = `${exercise.id}-${variantId}-${suffix}`;
+    suffix += 1;
+  }
+  usedExerciseIds.add(id);
+  return {
+    ...exercise,
+    id,
+    label: versions.length > 1 ? `${exercise.name} (${videoFilename.replace(/[_-]+/g, ' ')})` : exercise.name,
+  };
+})).sort((first, second) => first.name.localeCompare(second.name, 'pt-BR', { sensitivity: 'base' }));
 
 const exercisesById = new Map(exerciseLibrary.map((exercise) => [exercise.id, exercise]));
-const exercisesByName = new Map(exerciseLibrary.map((exercise) => [normalizeExerciseName(exercise.name), exercise]));
-
-if (exercisesById.size !== exerciseLibrary.length) {
-  throw new TypeError('O catálogo de vídeos possui nomes que geram identificadores duplicados.');
+const exercisesByName = new Map();
+for (const exercise of exerciseLibrary) {
+  const nameId = normalizeExerciseName(exercise.name);
+  if (!exercisesByName.has(nameId)) exercisesByName.set(nameId, exercise);
 }
 
 export const exerciseCategories = [...new Set(exerciseLibrary.map((exercise) => exercise.category))];

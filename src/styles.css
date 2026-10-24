@@ -539,16 +539,22 @@ body { background: #f7f7f6; }
 .detail-tabs button.active { color: #8f6f16; border-bottom-color: #c59b27; }
 .workout-day-tab.active { border-bottom-color: #c59b27; color: #8f6f16; }
 .workout-editor-table th { color: #8f7a3c; }
-.exercise-picker-label { display: flex; flex-direction: column; gap: 4px; color: #8c7740; font-size: 8px; font-weight: 600; }
-.exercise-picker-label select { width: 100%; min-width: 0; height: 33px; padding: 0 7px; border: 1px solid #e5e0d2; border-radius: 5px; background: white; color: #343129; font-size: 9px; }
-.exercise-picker-label select:focus { border-color: #c59b27; outline: none; box-shadow: 0 0 0 2px #c59b2724; }
-.catalog-search-label { display: flex; flex-direction: column; gap: 3px; color: #8c7740; font-size: 8px; font-weight: 600; }
-.catalog-search-label input { width: 100%; min-width: 0; height: 30px; padding: 0 7px; border: 1px solid #e5e0d2; border-radius: 5px; background: #fff; color: #343129; font-size: 9px; }
-.catalog-search-label input:focus { border-color: #c59b27; outline: none; box-shadow: 0 0 0 2px #c59b2724; }
+.exercise-picker { display: flex; min-width: 0; flex-direction: column; gap: 4px; color: #8c7740; font-size: 8px; font-weight: 600; }
+.exercise-picker-trigger { display: flex; width: 100%; min-width: 0; height: 33px; align-items: center; justify-content: space-between; gap: 5px; padding: 0 7px; border: 1px solid #e5e0d2; border-radius: 5px; background: white; color: #343129; font-size: 9px; text-align: left; cursor: pointer; }
+.exercise-picker-trigger > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.exercise-picker-trigger svg { flex: 0 0 auto; transform: rotate(90deg); }
+.exercise-picker-trigger:focus-visible { border-color: #c59b27; outline: none; box-shadow: 0 0 0 2px #c59b2724; }
+.exercise-picker-menu { position: fixed; z-index: 20; display: flex; flex-direction: column; gap: 7px; padding: 9px; border: 1px solid #e5e0d2; border-radius: 7px; background: #fff; box-shadow: 0 8px 24px #17221c35; color: #343129; }
+.exercise-picker-menu > input { width: 100%; min-width: 0; height: 34px; flex: 0 0 auto; padding: 0 9px; border: 1px solid #e5e0d2; border-radius: 5px; background: #fff; color: #343129; font-size: 12px; }
+.exercise-picker-menu > input:focus { border-color: #c59b27; outline: none; box-shadow: 0 0 0 2px #c59b2724; }
+.exercise-picker-options { min-height: 0; flex: 1 1 auto; overflow-y: auto; }
+.exercise-picker-options button { display: block; width: 100%; min-height: 34px; padding: 7px 9px; border: 0; border-radius: 4px; background: transparent; color: #455149; font-size: 12px; text-align: left; cursor: pointer; }
+.exercise-picker-options button:hover, .exercise-picker-options button:focus-visible { outline: none; background: #f6f2e7; }
+.exercise-picker-options button.selected { background: #f2ecd9; color: #775e17; font-weight: 600; }
+.exercise-picker-empty { margin: 0; padding: 10px 8px; color: #89938c; font-size: 11px; }
 .editor-exercise-fields { min-width: 190px; }
 .editor-exercise { min-width: 240px; }
 .editor-exercise > .exercise-video-thumbnail { background: #fff; }
-.editor-exercise-fields > select { display: none; }
 .editor-exercise-fields > input { display: block; }
 .video-picker { display: flex; }
 .brand-copy strong, .page-heading h1, .detail-heading h1, .panel-heading h2, .directory-toolbar h2,

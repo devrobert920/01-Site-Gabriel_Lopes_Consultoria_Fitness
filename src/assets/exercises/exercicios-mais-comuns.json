@@ -1,307 +1,787 @@
 [
   {
-    "nome": "Supino",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bench_press.mp4"
+    "nome": "45 graus avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/45_degree_lunge.mp4"
   },
   {
-    "nome": "Agachamento com barra nas costas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/back_squat.mp4"
+    "nome": "90 graus isometria para diagonal alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/90_degree_hold_to_diagonal_reach.mp4"
   },
   {
-    "nome": "Levantamento terra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadlift.mp4"
+    "nome": "90-90 quadril Twists",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/90-90_hip_twists.mp4"
   },
   {
-    "nome": "Elevação pélvica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_thrust.mp4"
+    "nome": "Base A isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/a-stance_hold.mp4"
   },
   {
-    "nome": "Remada curvada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_over_row.mp4"
+    "nome": "Base A isometria para avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/a-stance_hold_to_reverse_lunge.mp4"
   },
   {
-    "nome": "Barra fixa",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pull_up.mp4"
+    "nome": "Ativo argola suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/active_ring_hang.mp4"
   },
   {
-    "nome": "Barra fixa supinada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chin_up.mp4"
+    "nome": "Alternado kettlebell sentado no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_floor_seated_press.mp4"
   },
   {
-    "nome": "Flexão",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up.mp4"
+    "nome": "Alternado com kettlebell sentado desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_seated_press.mp4"
   },
   {
-    "nome": "Agachamento frontal",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_squat.mp4"
+    "nome": "Alternado com kettlebell sentado desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_seated_press.mp4"
   },
   {
-    "nome": "Agachamento goblet",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_squat.mp4"
+    "nome": "Alternado com kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_strict_press.mp4"
   },
   {
-    "nome": "Supino com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_bench_press.mp4"
+    "nome": "Barra fixa supinada assistida com faixa, levando o peito à barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/band_assissted_chest_to_bar_chin_up.mp4"
   },
   {
-    "nome": "Remada curvada com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_bent_over_row.mp4"
+    "nome": "Levantamento terra com resistência da faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/band_resisted_deadlifts.mp4"
   },
   {
-    "nome": "Desenvolvimento com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_strict_press.mp4"
-  },
-  {
-    "nome": "Levantamento terra com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_deadlift.mp4"
-  },
-  {
-    "nome": "Levantamento terra com halteres romeno",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_straight_leg_deadlift.mp4"
-  },
-  {
-    "nome": "Elevação pélvica com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_hip_thrust.mp4"
-  },
-  {
-    "nome": "Avanço com barra reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_reverse_lunge.mp4"
-  },
-  {
-    "nome": "Avanço com barra caminhando",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_walking_lunge.mp4"
-  },
-  {
-    "nome": "Rosca com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_curl.mp4"
-  },
-  {
-    "nome": "Desenvolvimento Arnold",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/arnold_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/strict_press.mp4"
-  },
-  {
-    "nome": "Avanço com halteres reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_reverse_lunge.mp4"
-  },
-  {
-    "nome": "Avanço goblet com halteres reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_reverse_lunge.mp4"
-  },
-  {
-    "nome": "Avanço goblet com kettlebell reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_goblet_reverse_lunge.mp4"
-  },
-  {
-    "nome": "Desenvolvimento com halteres no chão",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento com barra no chão",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_floor_press.mp4"
-  },
-  {
-    "nome": "Remada baixa unilateral com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_1-arm_low_row.mp4"
-  },
-  {
-    "nome": "Extensão de tríceps com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_tricep_extensions.mp4"
-  },
-  {
-    "nome": "Rosca martelo",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hammer_curls.mp4"
-  },
-  {
-    "nome": "Rosca bíceps",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bicep_curls.mp4"
-  },
-  {
-    "nome": "Rosca alternada para bíceps",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_bicep_curls.mp4"
-  },
-  {
-    "nome": "Rotação russa",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/russian_twists.mp4"
-  },
-  {
-    "nome": "Prancha",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank.mp4"
-  },
-  {
-    "nome": "Elevação de pernas suspenso com pernas estendidas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_leg_raises_with_legs_straight.mp4"
-  },
-  {
-    "nome": "Elevação de joelhos suspenso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_knee_raises.mp4"
-  },
-  {
-    "nome": "Agachamento livre",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/air_squat.mp4"
-  },
-  {
-    "nome": "Avanço reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_lunge.mp4"
-  },
-  {
-    "nome": "Avanço lateral",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lunge.mp4"
-  },
-  {
-    "nome": "Agachamento com barra em posição de avanço",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_squat_in_lunge.mp4"
-  },
-  {
-    "nome": "Agachamento com halteres em posição de avanço",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_squat_in_lunge.mp4"
-  },
-  {
-    "nome": "Agachamento goblet em avanço",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_squat_in_lunge.mp4"
-  },
-  {
-    "nome": "Levantamento terra sumô",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/sumo_deadlift.mp4"
-  },
-  {
-    "nome": "Levantamento terra romeno com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_straight_leg_deadlift.mp4"
-  },
-  {
-    "nome": "Levantamento terra sumô com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_sumo_deadlift.mp4"
-  },
-  {
-    "nome": "Elevação pélvica com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_hip_thrust.mp4"
-  },
-  {
-    "nome": "Elevação pélvica unilateral",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_hip_thrust.mp4"
-  },
-  {
-    "nome": "Ponte de glúteos isométrica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_hold.mp4"
+    "nome": "Com faixa elástica adução",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_adduction.mp4"
   },
   {
     "nome": "Rosca e desenvolvimento com barra",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_curl_to_press.mp4"
   },
   {
-    "nome": "Rosca e desenvolvimento com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_curl_to_press.mp4"
+    "nome": "Flexionado L suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_l_hang.mp4"
   },
   {
-    "nome": "Remada alta com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_upright_row.mp4"
+    "nome": "Barra fixa com pernas em L",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_l-sit_pull_ups.mp4"
   },
   {
-    "nome": "Remada alta com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_upright_row.mp4"
+    "nome": "Flexionado Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_hollow_hold.mp4"
   },
   {
-    "nome": "Desenvolvimento landmine",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_press.mp4"
+    "nome": "Posição inferior-Up kettlebell braço barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom-up_kettlebell_arm_bar.mp4"
   },
   {
-    "nome": "Desenvolvimento ajoelhado com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_db_press.mp4"
+    "nome": "Caixa com contrapeso agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/box_counterbalance_squat.mp4"
   },
   {
-    "nome": "Desenvolvimento landmine ajoelhado",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_landmine_press.mp4"
+    "nome": "Caixa salto",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/box_jump.mp4"
   },
   {
-    "nome": "Desenvolvimento landmine com os dois braços",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_arm_landmine_press.mp4"
+    "nome": "Caranguejo extensões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crab_extensions.mp4"
   },
   {
-    "nome": "Desenvolvimento sentado no chão com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_floor_seated_press.mp4"
+    "nome": "Caranguejo chute Through",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crab_kick_through.mp4"
   },
   {
-    "nome": "Desenvolvimento sentado no chão com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_seated_strict_press.mp4"
+    "nome": "Caranguejo Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crab_walk.mp4"
   },
   {
-    "nome": "Supino com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_bench_press.mp4"
+    "nome": "Caranguejo Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crab_walk.mp4"
   },
   {
-    "nome": "Mergulho nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_dip.mp4"
+    "nome": "Croc respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/croc_breathing_position.mp4"
   },
   {
-    "nome": "Remada nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_row.mp4"
+    "nome": "Levantamento terra romeno cruzado",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cross_body_straight_leg_deadlift.mp4"
   },
   {
-    "nome": "Remada no TRX",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_row.mp4"
+    "nome": "Supino com halteres e pegada fechada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_bench_press.mp4"
   },
   {
-    "nome": "Remada renegada com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_renegade_row.mp4"
+    "nome": "Halteres pegada fechada remada curvada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_bent_over_row.mp4"
   },
   {
-    "nome": "Remada renegada com mãos elevadas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_renegade_rows.mp4"
+    "nome": "Halteres pegada fechada corte diagonal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_cross_chop.mp4"
   },
   {
-    "nome": "Agachamento goblet com halteres em posição de avanço",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_squat_in_lunge.mp4"
+    "nome": "Desenvolvimento no chão com halteres e pegada fechada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_floor_press.mp4"
   },
   {
-    "nome": "Avanço com halteres caminhando",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_walking_lunge.mp4"
+    "nome": "Agachamento com halteres e base fechada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_narrow_stance_squat.mp4"
   },
   {
-    "nome": "Unilateral subida no banco",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_step_up.mp4"
+    "nome": "Avanço reverso com halteres, ênfase nos quadríceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_quad_dominant_reverse_lunge.mp4"
   },
   {
-    "nome": "Subida no banco com halteres, estilo goblet",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_step_up.mp4"
+    "nome": "Halteres em quatro apoios remada renegada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_quadrupled_renegade_row.mp4"
   },
   {
-    "nome": "Subida no banco com halteres seguida de avanço reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_step_up_to_reverse_lunge.mp4"
+    "nome": "Deadbugs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbugs.mp4"
   },
   {
-    "nome": "Levantamento terra romeno unilateral com apoio na parede",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_straight_leg_deadlift_with_wall_support.mp4"
+    "nome": "Deadbugs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbugs.mp4"
   },
   {
-    "nome": "Agachamento na caixa",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/box_squat.mp4"
+    "nome": "Deadbugs no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbugs_on_bench.mp4"
   },
   {
-    "nome": "Agachamento na caixa com peso corporal",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bodyweight_box_squat.mp4"
+    "nome": "Donkey Kicks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/donkey_kicks.mp4"
+  },
+  {
+    "nome": "Excêntrico Slide Outs para flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_slide_outs_to_press_ups.mp4"
+  },
+  {
+    "nome": "Prancha alternando cotovelo e mãos",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/elbow_to_hands_plank.mp4"
+  },
+  {
+    "nome": "Elephant Walks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/elephant_walks.mp4"
+  },
+  {
+    "nome": "Forward isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/forward_hold.mp4"
+  },
+  {
+    "nome": "Forward isometria marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/forward_hold_march.mp4"
+  },
+  {
+    "nome": "Forward Lean no argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/forward_lean_on_rings.mp4"
+  },
+  {
+    "nome": "Forward Rocks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/forward_rocks.mp4"
+  },
+  {
+    "nome": "Frog Pump",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/frog_pump.mp4"
+  },
+  {
+    "nome": "Frog Stretch com punho Pulsation",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/frog_stretch_with_wrist_pulsation.mp4"
+  },
+  {
+    "nome": "Frontal e posterior alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_and_back_reach.mp4"
+  },
+  {
+    "nome": "Full Moon",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/full_moon.mp4"
+  },
+  {
+    "nome": "Goblet base escalonada pistol agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_kickstand_pistol_squat.mp4"
+  },
+  {
+    "nome": "Avanço lateral goblet",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_lateral_lunge.mp4"
+  },
+  {
+    "nome": "Ajoelhado anilha Halo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_plate_halo.mp4"
+  },
+  {
+    "nome": "Ajoelhado unilateral Arnold desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_single_arm_arnold_press.mp4"
+  },
+  {
+    "nome": "Heel Taps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/heel_taps.mp4"
+  },
+  {
+    "nome": "Heels Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/heels_walk.mp4"
+  },
+  {
+    "nome": "Alto caixa com contrapeso agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/high_box_counterbalance_squat.mp4"
+  },
+  {
+    "nome": "Quadril extensão assistido suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_extension_assisted_hang.mp4"
+  },
+  {
+    "nome": "Invertido prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inverted_plank.mp4"
+  },
+  {
+    "nome": "Invertido prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inverted_plank.mp4"
+  },
+  {
+    "nome": "Flexão invertida",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inverted_press_up.mp4"
+  },
+  {
+    "nome": "Levantamento terra estilo mala com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_suitcase_deadlift.mp4"
+  },
+  {
+    "nome": "Kettlebell estilo mala isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_suitcase_hold.mp4"
+  },
+  {
+    "nome": "Levantamento terra sumô com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_sumo_deadlift.mp4"
+  },
+  {
+    "nome": "Avanço lateral landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_lateral_lunge.mp4"
+  },
+  {
+    "nome": "Agachamento landmine com base fechada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_narrow_stance_squat.mp4"
+  },
+  {
+    "nome": "Landmine Pass em Sorensen isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_pass_in_sorensons_hold.mp4"
+  },
+  {
+    "nome": "Perna Scissors com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/leg_scissors_with_band.mp4"
+  },
+  {
+    "nome": "Deslocado halteres base escalonada levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_db_staggered_stance_straight_leg_deadlift.mp4"
   },
   {
     "nome": "Agachamento pistol",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pistol_squat.mp4"
   },
   {
-    "nome": "Agachamento cossack",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cossack_squat.mp4"
+    "nome": "Pistol agachamento no caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pistol_squat_on_box.mp4"
   },
   {
-    "nome": "Agachamento com passada cruzada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_squat.mp4"
+    "nome": "Prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank.mp4"
   },
   {
-    "nome": "Agachamento kang",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kang_squat.mp4"
+    "nome": "Prisoner kang agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_kang_squat.mp4"
   },
   {
-    "nome": "Flexão Jefferson",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/jefferson_curl.mp4"
+    "nome": "Prisoner unilateral levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_single_leg_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Prisoner Spinal Wave",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_spinal_wave.mp4"
+  },
+  {
+    "nome": "Prisoner Spinal Wave",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_spinal_wave.mp4"
+  },
+  {
+    "nome": "Rear pé elevado barra levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_barbell_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Agachamento búlgaro com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_db_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Argola ajoelhado extensão de tríceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_kneeling_tricep_extensions.mp4"
+  },
+  {
+    "nome": "Argola longo alavanca prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_long_lever_plank.mp4"
+  },
+  {
+    "nome": "Argola escaladores",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_mountain_climbers.mp4"
+  },
+  {
+    "nome": "Argola pike",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_pike.mp4"
+  },
+  {
+    "nome": "Sentado posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Sentado com halteres desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_db_strict_press.mp4"
+  },
+  {
+    "nome": "Sentado Flutters",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_flutters.mp4"
+  },
+  {
+    "nome": "Sentado bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_good_morning.mp4"
+  },
+  {
+    "nome": "Unilateral halteres no chão desenvolvimento em dead bug",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_floor_press_in_deadbug.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell posição frontal caixa agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_front_rack_box_squat.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell posição frontal passada cruzada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_front_rack_curtsy_squat.mp4"
+  },
+  {
+    "nome": "Unilateral posição frontal kettlebell subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_front_rack_kb_step_up.mp4"
+  },
+  {
+    "nome": "Levantamento terra romeno unilateral com apoio na parede",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_straight_leg_deadlift_with_wall_support.mp4"
+  },
+  {
+    "nome": "Subida unilateral no banco com anilha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_plate_step_up.mp4"
+  },
+  {
+    "nome": "Unilateral argola com pés elevados posição superior de argola remada isométrico",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_ring_feet_elevated_top_of_ring_row_isometric.mp4"
+  },
+  {
+    "nome": "Agachamento patinador",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/skater_squats.mp4"
+  },
+  {
+    "nome": "Agachamento com apoio no TRX",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_with_trx_support.mp4"
+  },
+  {
+    "nome": "Deitado de costas Psoas marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/supine_psoas_march.mp4"
+  },
+  {
+    "nome": "Com apoio Scap barras fixas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/supported_scap_pull_ups.mp4"
+  },
+  {
+    "nome": "T flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/t_press_up.mp4"
+  },
+  {
+    "nome": "T flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/t_press_up.mp4"
+  },
+  {
+    "nome": "Ajoelhado Spinal Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_spinal_pulses.mp4"
+  },
+  {
+    "nome": "Ajoelhado torácica coluna Joint Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_thoracic_spine_joint_rotations.mp4"
+  },
+  {
+    "nome": "Ajoelhado para em pé com apoio",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_to_standing_with_support.mp4"
+  },
+  {
+    "nome": "Alto prancha halteres passagem",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_plank_db_pass_through.mp4"
+  },
+  {
+    "nome": "TRX excêntrico flexão (alto)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_eccentric_press_up_(high).mp4"
+  },
+  {
+    "nome": "TRX cotovelo para mãos prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_elbow_to_hands_plank.mp4"
+  },
+  {
+    "nome": "TRX extensão do corpo extensões (tríceps)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_fall_out_extensions_(triceps).mp4"
+  },
+  {
+    "nome": "TRX extensões do corpo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_fall-outs.mp4"
+  },
+  {
+    "nome": "TRX extensões do corpo com Choas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_fall-outs_with_choas.mp4"
+  },
+  {
+    "nome": "TRX unilateral agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_single_leg_squat.mp4"
+  },
+  {
+    "nome": "TRX estendido braço lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_straight_arm_side_plank.mp4"
+  },
+  {
+    "nome": "TRX T elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_t_raises.mp4"
+  },
+  {
+    "nome": "TRX Y elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_y_raises.mp4"
+  },
+  {
+    "nome": "Tuck Ups",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tuck_ups.mp4"
+  },
+  {
+    "nome": "Tuck Ups",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tuck_ups.mp4"
+  },
+  {
+    "nome": "Turkish Get Up",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/turkish_get_up.mp4"
+  },
+  {
+    "nome": "V-Sit isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/v-sit_hold.mp4"
+  },
+  {
+    "nome": "Walk Outs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_outs.mp4"
+  },
+  {
+    "nome": "Walk Outs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_outs.mp4"
+  },
+  {
+    "nome": "Parede Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_sit.mp4"
+  },
+  {
+    "nome": "Parede Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_sit.mp4"
+  },
+  {
+    "nome": "TRX posição superior de flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_top_of_press_up_hold.mp4"
+  },
+  {
+    "nome": "TRX posição superior de remada isométrico",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_top_of_row_isometric.mp4"
+  },
+  {
+    "nome": "Parede Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_sit.mp4"
+  },
+  {
+    "nome": "Parede Sit perna marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_sit_leg_march.mp4"
+  },
+  {
+    "nome": "90-90 quadril Twists",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/90-90_hip_twists.mp4"
+  },
+  {
+    "nome": "Hollow Body Rolls",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hollow_body_rolls.mp4"
+  },
+  {
+    "nome": "Argola com pés elevados flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_feet_elevated_press_up.mp4"
+  },
+  {
+    "nome": "Argola flexões (pés em argolas)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_press_ups_(feet_in_rings).mp4"
+  },
+  {
+    "nome": "Base A passagem",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/a-stance_pass_through.mp4"
+  },
+  {
+    "nome": "Ativo suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/active_hang.mp4"
+  },
+  {
+    "nome": "Ativo argola suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/active_ring_hang.mp4"
+  },
+  {
+    "nome": "Adductor Slides",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/adductor_slides.mp4"
+  },
+  {
+    "nome": "Adductor Stretch com extensão-rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/adductor_stretch_with_extension-rotation.mp4"
+  },
+  {
+    "nome": "Advanced TRX Serratus Slide com urso deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/advanced_trx_serratus_slide_with_bear_crawl.mp4"
+  },
+  {
+    "nome": "Agachamento livre",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/air_squat.mp4"
+  },
+  {
+    "nome": "Agachamento livre",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/air_squat.mp4"
+  },
+  {
+    "nome": "Remada curvada alternada com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_db_bent_over_row.mp4"
+  },
+  {
+    "nome": "Alternado remada gorila",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_gorilla_row.mp4"
+  },
+  {
+    "nome": "Alternado Groiners",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_groiners.mp4"
+  },
+  {
+    "nome": "Alternado com kettlebell no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_floor_press.mp4"
+  },
+  {
+    "nome": "A-Skip",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/a-skip.mp4"
+  },
+  {
+    "nome": "A-Stand",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/a-stand.mp4"
+  },
+  {
+    "nome": "A-Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/a-walk.mp4"
+  },
+  {
+    "nome": "Adductor Stretch com extensão-rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/adductor_stretch_with_extension-rotation.mp4"
+  },
+  {
+    "nome": "Unilateral TRX remada com deslocado kettlebell isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_trx_row_with_offset_kb_hold.mp4"
+  },
+  {
+    "nome": "Unilateral TRX extensões do corpo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_trx_fall-outs.mp4"
+  },
+  {
+    "nome": "Barra fixa com seis pausas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/six_pause_pull_up.mp4"
+  },
+  {
+    "nome": "Rosca alternada para bíceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_bicep_curls.mp4"
+  },
+  {
+    "nome": "Alternado Slider prancha Circles",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_slider_plank_circles.mp4"
+  },
+  {
+    "nome": "Alternado Slider Tabletop roscas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_slider_tabletop_curls.mp4"
+  },
+  {
+    "nome": "Alternado Tuck-Ups",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_tuck-ups.mp4"
+  },
+  {
+    "nome": "Flexão arqueiro",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/archer_press_up.mp4"
+  },
+  {
+    "nome": "Barra fixa arqueiro",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/archer_pull_up.mp4"
+  },
+  {
+    "nome": "Arqueado suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/arching_hang.mp4"
+  },
+  {
+    "nome": "Desenvolvimento Arnold",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/arnold_press.mp4"
+  },
+  {
+    "nome": "Alternado com kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_strict_press.mp4"
+  },
+  {
+    "nome": "Assistido unilateral kettlebell levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/assissted_single_leg_kb_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Assistido unilateral kettlebell levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/assissted_single_leg_kb_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Levantamento terra romeno com barra afastada do corpo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/away_from_body_barbell_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Away de Body kettlebell levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/away_from_body_kb_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Base escalonada landmine levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/b-stance_landmine_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Agachamento com base escalonada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/b-stance_squat.mp4"
+  },
+  {
+    "nome": "Agachamento com barra nas costas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/back_squat.mp4"
+  },
+  {
+    "nome": "Remada arqueiro nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/archer_ring_row.mp4"
+  },
+  {
+    "nome": "Alternado kettlebell sentado no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_floor_seated_press.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Clam Shell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_clam_shell.mp4"
+  },
+  {
+    "nome": "Com faixa elástica dead bug isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_deadbug_hold.mp4"
+  },
+  {
+    "nome": "Com faixa elástica dead bug Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_deadbug_pulses.mp4"
+  },
+  {
+    "nome": "Com faixa elástica dead bug Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_deadbug_pulses.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Deadbugs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_deadbugs.mp4"
+  },
+  {
+    "nome": "Extensão de tríceps com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_extensions.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Facepulls",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_facepulls.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Facepulls",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_facepulls.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Fire Hydrant",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_fire_hydrant.mp4"
+  },
+  {
+    "nome": "Butt Kicks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/butt_kicks.mp4"
+  },
+  {
+    "nome": "Flexão de joelhos para posteriores com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_hamstring_curl.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_hollow_hold.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Hollow isometria Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_hollow_hold_pulses.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Hollow isometria Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_hollow_hold_pulses.mp4"
+  },
+  {
+    "nome": "Com faixa elástica acima da cabeça agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_overhead_squat.mp4"
+  },
+  {
+    "nome": "Com faixa elástica Pass Throughs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pass_throughs.mp4"
+  },
+  {
+    "nome": "Com faixa elástica aberturas com faixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_aparts.mp4"
+  },
+  {
+    "nome": "Com faixa elástica puxada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_downs.mp4"
+  },
+  {
+    "nome": "Com faixa elástica puxada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_downs.mp4"
+  },
+  {
+    "nome": "Barra fixa com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_ups.mp4"
+  },
+  {
+    "nome": "Barra fixa com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_ups.mp4"
+  },
+  {
+    "nome": "Com faixa elástica sentado bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_seated_good_morning.mp4"
+  },
+  {
+    "nome": "Com faixa elástica unilateral levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_single_leg_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Balanced Sit Lateral Lean",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/balanced_sit_lateral_lean.mp4"
+  },
+  {
+    "nome": "Balanced Sit acima da cabeça alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/balanced_sit_overhead_reach.mp4"
+  },
+  {
+    "nome": "Com faixa elástica de bruços desenvolvimento Outs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_prone_press_outs.mp4"
+  },
+  {
+    "nome": "Com faixa elástica unilateral levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_single_leg_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Avanço a 45 graus com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_45_degree_lunge.mp4"
+  },
+  {
+    "nome": "Rosca com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_curl.mp4"
+  },
+  {
+    "nome": "Desenvolvimento com barra no chão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_floor_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento sentado no chão com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_floor_seated_press.mp4"
+  },
+  {
+    "nome": "Barra bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_good_morning.mp4"
+  },
+  {
+    "nome": "Elevação pélvica com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_hip_thrust.mp4"
   },
   {
     "nome": "Elevação de pernas com barra",
@@ -316,148 +796,776 @@
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_reverse_curl_to_press.mp4"
   },
   {
-    "nome": "Desenvolvimento com halteres no chão na posição dead bug",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_press_in_deadbug.mp4"
+    "nome": "Avanço com barra reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_reverse_lunge.mp4"
   },
   {
-    "nome": "Levantamento terra estilo mala com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_suitcase_deadlift.mp4"
+    "nome": "Barra Rollout",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_rollout.mp4"
   },
   {
-    "nome": "Remada curvada com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_bent_over_row.mp4"
-  },
-  {
-    "nome": "Remada baixa unilateral com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_1-arm_low_row.mp4"
-  },
-  {
-    "nome": "Desenvolvimento com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_strict_press.mp4"
-  },
-  {
-    "nome": "Sentado com halteres desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_db_strict_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento sentado com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_kb_strict_press.mp4"
-  },
-  {
-    "nome": "Unilateral sentado com halteres desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_seated_db_press.mp4"
-  },
-  {
-    "nome": "Unilateral com halteres no chão desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_floor_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento unilateral com kettlebell no chão",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_floor_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento ajoelhado com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_kb_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento Pallof ajoelhado",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_pallof_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento Pallof sentado no chão",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_pallof_press.mp4"
-  },
-  {
-    "nome": "Desenvolvimento Pallof",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pallof_press.mp4"
-  },
-  {
-    "nome": "Prancha lateral",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank.mp4"
-  },
-  {
-    "nome": "Prancha com carga",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weighted_plank.mp4"
-  },
-  {
-    "nome": "Prancha com alavanca longa",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/long_lever_plank.mp4"
-  },
-  {
-    "nome": "Prancha alternando cotovelo e mãos",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/elbow_to_hands_plank.mp4"
-  },
-  {
-    "nome": "Ponte de glúteos com cruzamento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_to_crossover.mp4"
-  },
-  {
-    "nome": "Elevação pélvica com pés elevados",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_hip_thrust.mp4"
-  },
-  {
-    "nome": "Pullover com kettlebell em ponte de glúteos",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_kettlebell_pullover.mp4"
-  },
-  {
-    "nome": "Avanço lateral com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_lateral_lunge.mp4"
-  },
-  {
-    "nome": "Avanço lateral goblet",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_lateral_lunge.mp4"
-  },
-  {
-    "nome": "Avanço lateral em posição frontal com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_lateral_lunge.mp4"
-  },
-  {
-    "nome": "Avanço lateral landmine",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_lateral_lunge.mp4"
-  },
-  {
-    "nome": "Subida no banco seguida de avanço reverso",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/step_up_to_reverse_lunge.mp4"
-  },
-  {
-    "nome": "Subida no banco com passada cruzada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_step_up.mp4"
-  },
-  {
-    "nome": "Subida no banco com halteres ao lado do corpo",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_suitcase_step_up.mp4"
-  },
-  {
-    "nome": "Subida lateral unilateral no banco",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_lateral_step_up.mp4"
+    "nome": "Barra unilateral Lateral subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_single_leg_lateral_step_up.mp4"
   },
   {
     "nome": "Subida unilateral no banco com barra",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_single_leg_step_up.mp4"
   },
   {
-    "nome": "Avanço a 45 graus com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_45_degree_lunge.mp4"
+    "nome": "Barra Skull Crushers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_skull_crushers.mp4"
+  },
+  {
+    "nome": "Agachamento com barra em posição de avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Levantamento terra romeno com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Avanço com barra caminhando",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_walking_lunge.mp4"
+  },
+  {
+    "nome": "Barra Windshield Wipers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_windshield_wipers.mp4"
+  },
+  {
+    "nome": "Urso deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bear_crawl.mp4"
+  },
+  {
+    "nome": "Urso deslocamento (relaxed)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bear_crawl_(relaxed).mp4"
+  },
+  {
+    "nome": "Urso deslocamento isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bear_crawl_hold.mp4"
+  },
+  {
+    "nome": "Urso deslocamento isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bear_crawl_hold.mp4"
+  },
+  {
+    "nome": "Urso deslocamento com elevação Off",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bear_crawl_with_lift_off.mp4"
+  },
+  {
+    "nome": "Urso deslocamento com Rock Backs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bear_crawl_with_rock_backs.mp4"
+  },
+  {
+    "nome": "Banco com contrapeso agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bench_counterbalance_squat.mp4"
+  },
+  {
+    "nome": "Barra bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_good_morning.mp4"
+  },
+  {
+    "nome": "Flexionado perna Copenhagen prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_leg_copenhagen_plank.mp4"
+  },
+  {
+    "nome": "Remada curvada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_over_row.mp4"
+  },
+  {
+    "nome": "Flexionado afastado L suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_straddle_l_hang.mp4"
+  },
+  {
+    "nome": "Bird dog",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog.mp4"
+  },
+  {
+    "nome": "Remada baixa unilateral na posição bird dog",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_1-arm_low_row.mp4"
+  },
+  {
+    "nome": "Bird dog de urso deslocamento isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_from_bear_crawl_hold.mp4"
+  },
+  {
+    "nome": "Bird dog de urso deslocamento isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_from_bear_crawl_hold.mp4"
+  },
+  {
+    "nome": "Bird dog em urso deslocamento isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_in_bear_crawl_hold.mp4"
+  },
+  {
+    "nome": "Bird dog em prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_in_plank.mp4"
+  },
+  {
+    "nome": "Bird dog para cotovelo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_to_elbow.mp4"
+  },
+  {
+    "nome": "Bird dog Trap elevação no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_trap_raise_on_bench.mp4"
+  },
+  {
+    "nome": "Body Saws",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/body_saws.mp4"
+  },
+  {
+    "nome": "Agachamento na caixa com peso corporal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bodyweight_box_squat.mp4"
+  },
+  {
+    "nome": "Posição inferior de arqueiro flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_archer_press_up_hold.mp4"
+  },
+  {
+    "nome": "Posição inferior de invertido flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_inverted_press_up_hold.mp4"
+  },
+  {
+    "nome": "Posição inferior de flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_press_up_hold.mp4"
+  },
+  {
+    "nome": "Posição inferior de argola mergulho isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_ring_dip_hold.mp4"
+  },
+  {
+    "nome": "Posição inferior de agachamento respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_squat_breathing_position.mp4"
+  },
+  {
+    "nome": "Posição inferior de agachamento com braço acima da cabeça respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_squat_with_arm_overhead_breathing_position.mp4"
+  },
+  {
+    "nome": "Posição inferior de agachamento Y elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_squat_y_raises.mp4"
+  },
+  {
+    "nome": "Posição inferior de agachamento Y elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_squat_y_raises.mp4"
+  },
+  {
+    "nome": "Posição inferior Up com kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Supino",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bench_press.mp4"
+  },
+  {
+    "nome": "Rosca bíceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bicep_curls.mp4"
+  },
+  {
+    "nome": "Flexionado braço barra fixa isométrico",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_arm_pull_up_isometric.mp4"
+  },
+  {
+    "nome": "Agachamento na caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/box_squat.mp4"
+  },
+  {
+    "nome": "Agachamento na caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/box_squat.mp4"
+  },
+  {
+    "nome": "Break Dancers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/break_dancers.mp4"
+  },
+  {
+    "nome": "Bretzel",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bretzel.mp4"
+  },
+  {
+    "nome": "Bretzel respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bretzel_breathing_position.mp4"
+  },
+  {
+    "nome": "Bunny Hops",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bunny_hops.mp4"
+  },
+  {
+    "nome": "Borboleta",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/butterfly.mp4"
+  },
+  {
+    "nome": "Borboleta sentado desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/butterfly_seated_press.mp4"
+  },
+  {
+    "nome": "Candle Stick Lowers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/candle_stick_lowers.mp4"
+  },
+  {
+    "nome": "Cat-Camel",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cat-camel.mp4"
+  },
+  {
+    "nome": "Cat-Camel",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cat-camel.mp4"
+  },
+  {
+    "nome": "Remada serrote",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chainsaw_row.mp4"
+  },
+  {
+    "nome": "Peito elevado unilateral elevação pélvica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chest_elevated_single_leg_hip_thrust.mp4"
+  },
+  {
+    "nome": "Queixo acima da barra isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chin_over_bar_hold.mp4"
+  },
+  {
+    "nome": "Flexão com palma",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/clapping_press_up.mp4"
+  },
+  {
+    "nome": "Agachamento cossack",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cossack_squat.mp4"
+  },
+  {
+    "nome": "Agachamento cossack",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cossack_squat.mp4"
+  },
+  {
+    "nome": "Agachamento cossack",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cossack_squat.mp4"
+  },
+  {
+    "nome": "Com contrapeso agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/counterbalance_squat.mp4"
+  },
+  {
+    "nome": "Queixo acima da barra isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chin_over_bar_hold.mp4"
+  },
+  {
+    "nome": "Barra fixa supinada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chin_up.mp4"
+  },
+  {
+    "nome": "Caixa salto",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/box_jump.mp4"
+  },
+  {
+    "nome": "Broad saltos",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/broad_jumps.mp4"
+  },
+  {
+    "nome": "Close Gate",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/close_the_gate.mp4"
+  },
+  {
+    "nome": "Corte diagonal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cross_chop.mp4"
+  },
+  {
+    "nome": "Cruzado Line Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crossover_line_walk.mp4"
+  },
+  {
+    "nome": "Pegada fechada halteres Skull Crushers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crush_grip_db_skull_crushers.mp4"
+  },
+  {
+    "nome": "Curtsey caixa passar por cima goblet",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsey_box_step_over_goblet.mp4"
+  },
+  {
+    "nome": "Curtsey caixa passar por cima com duplo posição frontal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsey_box_step_over_with_dual_front_rack.mp4"
+  },
+  {
+    "nome": "Agachamento com passada cruzada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_squat.mp4"
+  },
+  {
+    "nome": "Passada cruzada passo cruzado",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_step_across.mp4"
+  },
+  {
+    "nome": "Subida no banco com passada cruzada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_step_up.mp4"
+  },
+  {
+    "nome": "Remada baixa unilateral com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_1-arm_low_row.mp4"
   },
   {
     "nome": "Avanço a 45 graus com halteres",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_45_degree_lunge.mp4"
   },
   {
-    "nome": "Avanço reverso com halteres, ênfase nos quadríceps",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_quad_dominant_reverse_lunge.mp4"
+    "nome": "Agachamento com halteres e base escalonada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_b-stance_squat.mp4"
+  },
+  {
+    "nome": "Halteres base escalonada levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_b-stance_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Supino com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_bench_press.mp4"
+  },
+  {
+    "nome": "Remada curvada com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_bent_over_row.mp4"
+  },
+  {
+    "nome": "Halteres cruzado levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_cross_body_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Halteres pegada fechada Away de Body levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_away_from_body_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Cruzado por trás 1-braço com faixa elástica remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cross-behind_1-arm_banded_row.mp4"
+  },
+  {
+    "nome": "Desenvolvimento cubano",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cuban_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento cubano",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cuban_press.mp4"
+  },
+  {
+    "nome": "Halteres pegada fechada Jefferson rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_jefferson_curl.mp4"
+  },
+  {
+    "nome": "Halteres pegada fechada Jefferson rosca no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_jefferson_curl_on_bench.mp4"
+  },
+  {
+    "nome": "Rosca e desenvolvimento com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_curl_to_press.mp4"
+  },
+  {
+    "nome": "Flexão excêntrica no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_bench.mp4"
+  },
+  {
+    "nome": "Levantamento terra com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_deadlift.mp4"
+  },
+  {
+    "nome": "Halteres Flies",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_flies.mp4"
+  },
+  {
+    "nome": "Desenvolvimento com halteres no chão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento com halteres no chão na posição dead bug",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_press_in_deadbug.mp4"
+  },
+  {
+    "nome": "Halteres no chão desenvolvimento em Half Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_press_in_half_hollow_hold.mp4"
+  },
+  {
+    "nome": "Halteres no chão desenvolvimento em Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_press_in_hollow_hold.mp4"
+  },
+  {
+    "nome": "Desenvolvimento sentado no chão com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_floor_seated_strict_press.mp4"
+  },
+  {
+    "nome": "Halteres Full Moon",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_full_moon.mp4"
+  },
+  {
+    "nome": "Avanço goblet com halteres reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Agachamento goblet com halteres em posição de avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Subida no banco com halteres, estilo goblet",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_step_up.mp4"
+  },
+  {
+    "nome": "Subida no banco com halteres, estilo goblet",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_goblet_step_up.mp4"
+  },
+  {
+    "nome": "Elevação pélvica com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_hip_thrust.mp4"
+  },
+  {
+    "nome": "Elevação pélvica com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_hip_thrust.mp4"
+  },
+  {
+    "nome": "Elevação pélvica com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_hip_thrust.mp4"
+  },
+  {
+    "nome": "Halteres avanço Clocks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_lunge_clocks.mp4"
+  },
+  {
+    "nome": "Remada renegada com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_renegade_row.mp4"
+  },
+  {
+    "nome": "Avanço com halteres reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Halteres unilateral do fazendeiro marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_single_arm_farmers_march.mp4"
+  },
+  {
+    "nome": "Halteres unilateral levantamento terra romeno com com apoio na parede",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_single_leg_straight_leg_deadlift_with_wall_support.mp4"
+  },
+  {
+    "nome": "Agachamento com halteres em posição de avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Levantamento terra romeno com halteres e base escalonada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_staggered_stance_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Subida no banco com halteres seguida de avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_step_up_to_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Levantamento terra com halteres romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Desenvolvimento com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_strict_press.mp4"
+  },
+  {
+    "nome": "Halteres estilo mala levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_suitcase_deadlift.mp4"
+  },
+  {
+    "nome": "Subida no banco com halteres ao lado do corpo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_suitcase_step_up.mp4"
+  },
+  {
+    "nome": "Halteres ajoelhado pegada fechada rosca para desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_tall_kneeling_crush_grip_curl_to_press.mp4"
+  },
+  {
+    "nome": "Halteres ajoelhado pegada fechada desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_tall_kneeling_crush_grip_press.mp4"
+  },
+  {
+    "nome": "Extensão de tríceps com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_tricep_extensions.mp4"
+  },
+  {
+    "nome": "Halteres Walk sobre flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_walk_over_push_ups.mp4"
+  },
+  {
+    "nome": "Halteres caminhando levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_walking_deadlift.mp4"
+  },
+  {
+    "nome": "Dead bug isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbug_hold.mp4"
+  },
+  {
+    "nome": "Dead bug isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbug_hold.mp4"
+  },
+  {
+    "nome": "Dead bug isometria com Legs Lowered",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbug_hold_with_legs_lowered.mp4"
+  },
+  {
+    "nome": "Dead bug isometria com unilateral Lowered",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbug_hold_with_single_leg_lowered.mp4"
+  },
+  {
+    "nome": "Remada alta com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_upright_row.mp4"
+  },
+  {
+    "nome": "Deadbugs no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbugs_on_bench.mp4"
+  },
+  {
+    "nome": "Deadbugs com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbugs_with_pause.mp4"
+  },
+  {
+    "nome": "Levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadlift.mp4"
+  },
+  {
+    "nome": "Diagonal Step para no chão varredura",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/diagonal_step_to_floor_swipe.mp4"
+  },
+  {
+    "nome": "Diamante kettlebell flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/diamond_kb_push_ups.mp4"
+  },
+  {
+    "nome": "Flexão diamante",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/diamond_press_ups.mp4"
+  },
+  {
+    "nome": "Flexão diamante",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/diamond_press_ups.mp4"
+  },
+  {
+    "nome": "Desenvolvimento landmine com os dois braços",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_arm_landmine_press.mp4"
+  },
+  {
+    "nome": "Duplo halteres do fazendeiro marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_db_farmers_march.mp4"
+  },
+  {
+    "nome": "Duplo kettlebell do fazendeiro marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_kb_farmers_march.mp4"
+  },
+  {
+    "nome": "Remada gorila com dois kettlebells",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_kb_gorilla_row.mp4"
+  },
+  {
+    "nome": "Duplo kettlebell carregada acima da cabeça",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_kb_oh_carry.mp4"
+  },
+  {
+    "nome": "Duplo kettlebell Clean e Jerk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/dual_kb_clean_and_jerk.mp4"
+  },
+  {
+    "nome": "Duck Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/duck_walk.mp4"
+  },
+  {
+    "nome": "Dumbell Pullover no no chão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/dumbell_pullover_on_floor.mp4"
+  },
+  {
+    "nome": "Excêntrico 1.5 repetição Rear pé elevado agachamento em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_1.5_rep_rear_foot_elevated_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Flexão com fase excêntrica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up.mp4"
+  },
+  {
+    "nome": "Flexão excêntrica com as mãos na caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_box.mp4"
+  },
+  {
+    "nome": "Excêntrico flexão no alto barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_high_barbell.mp4"
+  },
+  {
+    "nome": "Excêntrico flexão no alto caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_high_box.mp4"
+  },
+  {
+    "nome": "Excêntrico flexão no baixo barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_low_barbell.mp4"
+  },
+  {
+    "nome": "Excêntrico flexão no médio barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_medium_barbell.mp4"
+  },
+  {
+    "nome": "Duplo braço elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_arm_lift.mp4"
+  },
+  {
+    "nome": "Elevação pélvica com pés elevados",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_hip_thrust.mp4"
+  },
+  {
+    "nome": "Flexão invertida com pés elevados",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_inverted_press_up.mp4"
+  },
+  {
+    "nome": "Com pés elevados avanço lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_lateral_lunge.mp4"
+  },
+  {
+    "nome": "Flexão com pés elevados",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_press_up.mp4"
+  },
+  {
+    "nome": "Com pés elevados argola prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_ring_plank.mp4"
+  },
+  {
+    "nome": "Remada nas argolas com pés elevados",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_ring_row.mp4"
+  },
+  {
+    "nome": "Com pés elevados estendido braço lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_straight_arm_side_plank.mp4"
+  },
+  {
+    "nome": "Com pés elevados posição superior de invertido flexão isométrico isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_top_of_inverted_press_up_isometric_hold.mp4"
+  },
+  {
+    "nome": "Com pés elevados posição superior de argola remada isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_top_of_ring_row_hold.mp4"
+  },
+  {
+    "nome": "Com pés elevados posição superior de argola remada isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_top_of_ring_row_hold.mp4"
+  },
+  {
+    "nome": "Pés no caixa respiração",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_on_box_breathing.mp4"
+  },
+  {
+    "nome": "Finger Tip flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/finger_tip_press_up.mp4"
+  },
+  {
+    "nome": "Fire Hydrant",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/fire_hydrant.mp4"
+  },
+  {
+    "nome": "No chão Facing Angels",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_facing_angels.mp4"
+  },
+  {
+    "nome": "No chão Facing Angels",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_facing_angels.mp4"
+  },
+  {
+    "nome": "Sentado no chão alternado com faixa elástica Pull",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_alternating_banded_pull.mp4"
+  },
+  {
+    "nome": "Sentado no chão alternado com faixa elástica Pull",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_alternating_banded_pull.mp4"
+  },
+  {
+    "nome": "Sentado no chão posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Sentado no chão kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_kb_strict_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento Pallof sentado no chão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_pallof_press.mp4"
+  },
+  {
+    "nome": "Sentado no chão unilateral posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_seated_single_arm_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "No chão Sweep",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_sweep.mp4"
+  },
+  {
+    "nome": "No chão Tuck para pike Presses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_tuck_to_pike_presses.mp4"
+  },
+  {
+    "nome": "No chão Wiper",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/floor_wiper.mp4"
+  },
+  {
+    "nome": "Barra fixa com fase excêntrica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_pull_up.mp4"
+  },
+  {
+    "nome": "Com pés elevados posição inferior de argola flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_bottom_of_ring_press_up_hold.mp4"
+  },
+  {
+    "nome": "Posição frontal e do fazendeiro carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_rack_and_farmers_carry.mp4"
   },
   {
     "nome": "Avanço reverso em posição frontal",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_rack_reverse_lunge.mp4"
   },
   {
-    "nome": "Avanço reverso em posição frontal com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_reverse_lunge.mp4"
+    "nome": "Ponte de glúteos isométrica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "Ponte de glúteos isométrica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "Pullover com kettlebell em ponte de glúteos",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_kettlebell_pullover.mp4"
+  },
+  {
+    "nome": "Ponte de glúteos com cruzamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_to_crossover.mp4"
+  },
+  {
+    "nome": "Agachamento goblet com base escalonada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_b-stance_squat.mp4"
+  },
+  {
+    "nome": "Goblet cossack agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_cossack_squat.mp4"
+  },
+  {
+    "nome": "Goblet passada cruzada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_curtsy_squat.mp4"
+  },
+  {
+    "nome": "Suspenso escapular Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_scapular_rotations.mp4"
+  },
+  {
+    "nome": "Agachamento frontal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_squat.mp4"
+  },
+  {
+    "nome": "Posição frontal cossack agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_rack_cossack_squat.mp4"
+  },
+  {
+    "nome": "Agachamento com base fechada em posição frontal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_rack_narrow_stance_squat.mp4"
+  },
+  {
+    "nome": "Desenvolvimento com halteres em ponte de glúteos",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_db_press.mp4"
   },
   {
     "nome": "Agachamento frontal para caixa",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_squat_to_box.mp4"
+  },
+  {
+    "nome": "Agachamento goblet",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_squat.mp4"
+  },
+  {
+    "nome": "Agachamento goblet",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_squat.mp4"
+  },
+  {
+    "nome": "Agachamento goblet em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_squat_in_lunge.mp4"
   },
   {
     "nome": "Agachamento goblet com soltura",
@@ -468,48 +1576,932 @@
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_squat_with_ankle_rocks.mp4"
   },
   {
-    "nome": "Barra fixa com faixa elástica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_ups.mp4"
+    "nome": "Groin Shift Hinge",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/groin_shift_hinge.mp4"
   },
   {
-    "nome": "Barra fixa com fase excêntrica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_pull_up.mp4"
+    "nome": "Ajoelhado com faixa elástica corte",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_banded_chop.mp4"
   },
   {
-    "nome": "Barra fixa com pegada aberta",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_grip_pull_ups.mp4"
+    "nome": "Ajoelhado com faixa elástica diagonal corte",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_banded_diagonal_chop.mp4"
+  },
+  {
+    "nome": "Ajoelhado com faixa elástica Y's",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_banded_y's.mp4"
+  },
+  {
+    "nome": "Ajoelhado posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado halteres pegada fechada corte diagonal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_db_crush_grip_cross_chop.mp4"
+  },
+  {
+    "nome": "Avanço com rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_with_rotation.mp4"
+  },
+  {
+    "nome": "Desenvolvimento ajoelhado com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_db_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado duplo kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_dual_kb_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado Halo rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_halo_rotation.mp4"
+  },
+  {
+    "nome": "Ajoelhado kettlebell Cross Chops",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_kb_cross_chops.mp4"
+  },
+  {
+    "nome": "Ajoelhado kettlebell Windmill",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_kb_windmill.mp4"
+  },
+  {
+    "nome": "Desenvolvimento landmine ajoelhado",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_landmine_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento Pallof ajoelhado",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_pallof_press.mp4"
+  },
+  {
+    "nome": "Suspenso escapular Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_scapular_rotations.mp4"
+  },
+  {
+    "nome": "Goblet Lateral subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_lateral_step_up.mp4"
+  },
+  {
+    "nome": "Desenvolvimento ajoelhado com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_kb_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado duplo kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_dual_kb_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado com diagonal alcance respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_with_diagonal_reach_breathing_position.mp4"
+  },
+  {
+    "nome": "Ajoelhado com Lateral Lean respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_with_lateral_lean_breathing_position.mp4"
+  },
+  {
+    "nome": "Ajoelhado com rotação respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_with_rotation_breathing_position.mp4"
+  },
+  {
+    "nome": "Half Moon",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_moon.mp4"
+  },
+  {
+    "nome": "Half sentado kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_seated_kb_press.mp4"
+  },
+  {
+    "nome": "Hand elevado unilateral remada curvada de prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hand_elevated_single_arm_bent_over_row_from_plank.mp4"
+  },
+  {
+    "nome": "Mãos elevado Forearms para mãos Presses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_forearms_to_hands_presses.mp4"
+  },
+  {
+    "nome": "Mãos elevado Opposite ombro Taps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_opposite_shoulder_taps.mp4"
+  },
+  {
+    "nome": "Mãos elevado Opposite ombro Taps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_opposite_shoulder_taps.mp4"
+  },
+  {
+    "nome": "Remada renegada com mãos elevadas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_renegade_rows.mp4"
+  },
+  {
+    "nome": "Mãos elevado unilateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_single_arm_plank.mp4"
+  },
+  {
+    "nome": "Mãos elevado alto prancha Weight Transfers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_tall_plank_weight_transfers.mp4"
+  },
+  {
+    "nome": "Suspenso flexionado joelho L escapular Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_bent_knee_l_scapular_rotations.mp4"
+  },
+  {
+    "nome": "Suspenso flexionado joelho L escapular Rotations com apoio",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_bent_knee_l_scapular_rotations_with_support.mp4"
+  },
+  {
+    "nome": "Suspenso pés com apoio escapular Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_feet_supported_scapular_rotations.mp4"
+  },
+  {
+    "nome": "Elevação de joelhos suspenso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_knee_raises.mp4"
+  },
+  {
+    "nome": "Suspenso joelho Tuck isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_knee_tuck_hold.mp4"
+  },
+  {
+    "nome": "Elevação de pernas suspenso com pernas estendidas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_leg_raises_with_legs_straight.mp4"
+  },
+  {
+    "nome": "Suspenso argola remada escapular Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_ring_row_scapular_rotations.mp4"
+  },
+  {
+    "nome": "Ajoelhado Rise",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_rise.mp4"
+  },
+  {
+    "nome": "Suspenso L para afastado",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_l_to_straddle.mp4"
+  },
+  {
+    "nome": "Posterior da coxa Walk Outs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hamstring_walk_outs.mp4"
+  },
+  {
+    "nome": "Mãos elevado Lateral deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_lateral_crawl.mp4"
+  },
+  {
+    "nome": "Posterior da coxa Walk Out marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hamstring_walk_out_march.mp4"
+  },
+  {
+    "nome": "Rosca martelo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hammer_curls.mp4"
+  },
+  {
+    "nome": "Mãos elevado unilateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hands_elevated_single_arm_plank.mp4"
+  },
+  {
+    "nome": "Hammer pegada halteres bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hammer_grip_db_good_morning.mp4"
+  },
+  {
+    "nome": "Hinge no caixa respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hinge_on_box_breathing_position.mp4"
+  },
+  {
+    "nome": "Quadril elevado afastado Lifts",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_elevated_straddle_lifts.mp4"
+  },
+  {
+    "nome": "Quadril Flexion assistido suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_flexion_assisted_hang.mp4"
+  },
+  {
+    "nome": "Barra quadril Hurdles",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/barbell_hip_hurdles.mp4"
+  },
+  {
+    "nome": "Quadril Hurdles",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_hurdles.mp4"
+  },
+  {
+    "nome": "Elevação pélvica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_thrust.mp4"
+  },
+  {
+    "nome": "Elevação pélvica Marches",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_thrust_marches.mp4"
+  },
+  {
+    "nome": "Elevação pélvica Marches",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_thrust_marches.mp4"
+  },
+  {
+    "nome": "Hollow Body alternada Kicks com anilha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hollow_body_flutter_kicks_with_plate.mp4"
+  },
+  {
+    "nome": "Hollow Body Flutters",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hollow_body_flutters.mp4"
+  },
+  {
+    "nome": "Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hollow_hold.mp4"
+  },
+  {
+    "nome": "Horse Stance torácica Reaches",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/horse_stance_thoracic_reaches.mp4"
+  },
+  {
+    "nome": "Horse Stance torácica Reaches",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/horse_stance_thoracic_reaches.mp4"
+  },
+  {
+    "nome": "Minhoca para Hollow",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inchworm_to_hollow.mp4"
+  },
+  {
+    "nome": "Minhoca para Hollow",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inchworm_to_hollow.mp4"
+  },
+  {
+    "nome": "Minhoca para flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inchworm_to_press_up.mp4"
+  },
+  {
+    "nome": "Minhoca para flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inchworm_to_press_up.mp4"
+  },
+  {
+    "nome": "Alto Knees",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/high_knees.mp4"
+  },
+  {
+    "nome": "Hollow Body com anilha Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hollow_body_with_plate_pulses.mp4"
+  },
+  {
+    "nome": "Hinged faixa elástica abdução",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hinged_band_abduction.mp4"
+  },
+  {
+    "nome": "Hollow Body isometria Pallof desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hollow_body_hold_pallof_press.mp4"
+  },
+  {
+    "nome": "Alto parede Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/high_wall_sit.mp4"
+  },
+  {
+    "nome": "Avanço com rotação (joelho raised)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_with_rotation_(knee_raised).mp4"
+  },
+  {
+    "nome": "Elevação pélvica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_thrust.mp4"
+  },
+  {
+    "nome": "Elevação pélvica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_thrust.mp4"
+  },
+  {
+    "nome": "IYTU",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/iytu.mp4"
+  },
+  {
+    "nome": "Janda Sit Ups",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/janda_sit_ups.mp4"
+  },
+  {
+    "nome": "Flexão Jefferson",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/jefferson_curl.mp4"
+  },
+  {
+    "nome": "Flexão Jefferson",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/jefferson_curl.mp4"
+  },
+  {
+    "nome": "Salto e Catch no unilateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/jump_and_catch_on_single_leg.mp4"
+  },
+  {
+    "nome": "Agachamento kang",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kang_squat.mp4"
+  },
+  {
+    "nome": "Remada baixa unilateral com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_1-arm_low_row.mp4"
+  },
+  {
+    "nome": "Kettlebell braço barra com desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_arm_bar_with_press.mp4"
+  },
+  {
+    "nome": "Kettlebell base escalonada levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_b-stance_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Supino com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_bench_press.mp4"
+  },
+  {
+    "nome": "Remada curvada com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_bent_over_row.mp4"
+  },
+  {
+    "nome": "Kettlebell Circles",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_circles.mp4"
+  },
+  {
+    "nome": "Kettlebell com contrapeso agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_counterbalance_squat.mp4"
+  },
+  {
+    "nome": "Kettlebell pegada fechada supino",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_crush_grip_bench_press.mp4"
+  },
+  {
+    "nome": "Kettlebell pegada fechada remada curvada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_crush_grip_bent_over_row.mp4"
+  },
+  {
+    "nome": "Kettlebell pegada fechada no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_crush_grip_floor_press.mp4"
+  },
+  {
+    "nome": "Kettlebell dead bug isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_deadbug_hold.mp4"
+  },
+  {
+    "nome": "Kettlebell Deadbugs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_deadbugs.mp4"
+  },
+  {
+    "nome": "Levantamento terra com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_deadlift.mp4"
+  },
+  {
+    "nome": "Kettlebell do fazendeiro carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_farmers_carry.mp4"
+  },
+  {
+    "nome": "Desenvolvimento no chão com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_floor_press.mp4"
+  },
+  {
+    "nome": "Kettlebell no chão desenvolvimento em dead bug",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_floor_press_in_deadbug.mp4"
+  },
+  {
+    "nome": "Kettlebell base A isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_a-stance_hold.mp4"
+  },
+  {
+    "nome": "Flexão Jefferson",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/jefferson_curl.mp4"
+  },
+  {
+    "nome": "Kettlebell Clean e desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_clean_and_press.mp4"
+  },
+  {
+    "nome": "Kettlebell no chão desenvolvimento em Half Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_floor_press_in_half_hollow_hold.mp4"
+  },
+  {
+    "nome": "Kettlebell no chão desenvolvimento em Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_floor_press_in_hollow_hold.mp4"
+  },
+  {
+    "nome": "Kettlebell posição frontal carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_carry.mp4"
+  },
+  {
+    "nome": "Kettlebell posição frontal passada cruzada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_curtsy_squat.mp4"
+  },
+  {
+    "nome": "Avanço lateral em posição frontal com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_lateral_lunge.mp4"
+  },
+  {
+    "nome": "Avanço reverso em posição frontal com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Kettlebell posição frontal subida no banco para avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_step_up_to_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Kettlebell posição frontal avanço caminhando",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_front_rack_walking_lunge.mp4"
+  },
+  {
+    "nome": "Kettlebell Full Moon",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_full_moon.mp4"
+  },
+  {
+    "nome": "Avanço goblet com kettlebell reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_goblet_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Kettlebell Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_hollow_hold.mp4"
+  },
+  {
+    "nome": "Kettlebell Horn rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_horn_curl.mp4"
+  },
+  {
+    "nome": "Kettlebell Jefferson rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_jefferson_curl.mp4"
+  },
+  {
+    "nome": "Kettlebell Jefferson rosca no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_jefferson_curl_on_bench.mp4"
+  },
+  {
+    "nome": "Kettlebell Lowering no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_lowering_on_bench.mp4"
+  },
+  {
+    "nome": "Kettlebell base fechada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_narrow_stance_squat.mp4"
+  },
+  {
+    "nome": "Kettlebell lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_side_plank.mp4"
+  },
+  {
+    "nome": "Kettlebell lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_side_plank.mp4"
+  },
+  {
+    "nome": "Kettlebell unilateral levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_single_leg_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Kettlebell base escalonada levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_staggered_stance_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Kettlebell Star prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_star_plank.mp4"
+  },
+  {
+    "nome": "Kettlebell estendido braço lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_straight_arm_side_plank.mp4"
+  },
+  {
+    "nome": "Kettlebell estendido braço lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_straight_arm_side_plank.mp4"
+  },
+  {
+    "nome": "Kettlebell estendido braço lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_straight_arm_side_plank.mp4"
+  },
+  {
+    "nome": "Desenvolvimento com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_strict_press.mp4"
+  },
+  {
+    "nome": "Kettlebell caminhando levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_walking_deadlift.mp4"
+  },
+  {
+    "nome": "Kettlebell Screwdrivers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kettlebell_screwdrivers.mp4"
+  },
+  {
+    "nome": "Chute Stand peso corporal caixa agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kick_stand_bodyweight_box_squat.mp4"
+  },
+  {
+    "nome": "Base escalonada quadril Thrusts",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kickstand_hip_thrusts.mp4"
+  },
+  {
+    "nome": "Joelho para peito Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/knee_to_chest_walk.mp4"
+  },
+  {
+    "nome": "Joelho para peito Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/knee_to_chest_walk.mp4"
+  },
+  {
+    "nome": "Ajoelhado Slide Outs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kneeling_slide_outs.mp4"
+  },
+  {
+    "nome": "Ajoelhado Walk Out",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kneeling_walk_out.mp4"
+  },
+  {
+    "nome": "Knees sobre ponta do pé kettlebell agachamento goblet em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/knees_over_toe_kb_goblet_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "KOT Squats",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kot_squats.mp4"
+  },
+  {
+    "nome": "L abdominal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/l_crunch.mp4"
+  },
+  {
+    "nome": "L suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/l_hang.mp4"
+  },
+  {
+    "nome": "L anilha no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/l_plate_floor_press.mp4"
+  },
+  {
+    "nome": "Landmine base escalonada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_b-stance_squat.mp4"
+  },
+  {
+    "nome": "Levantamento terra landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_deadlift.mp4"
+  },
+  {
+    "nome": "Landmine sentado no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_floor_seated_press.mp4"
+  },
+  {
+    "nome": "Landmine Full Contact Twist",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_full_contact_twist.mp4"
+  },
+  {
+    "nome": "Landmine base escalonada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_kickstand_squat.mp4"
+  },
+  {
+    "nome": "Lateral Sways em aberta Stance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_sways_in_wide_stance.mp4"
+  },
+  {
+    "nome": "Kettlebell braço barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kettlebell_arm_bar.mp4"
+  },
+  {
+    "nome": "Landmine unilateral remada baixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_single_arm_low_row.mp4"
+  },
+  {
+    "nome": "Landmine Anti-rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_anti-rotation.mp4"
+  },
+  {
+    "nome": "L suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/l_hang.mp4"
+  },
+  {
+    "nome": "Remada landmine com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_bar_row.mp4"
+  },
+  {
+    "nome": "Desenvolvimento landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_press.mp4"
+  },
+  {
+    "nome": "Landmine avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Avanço reverso baixo com landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_reverse_lunge_(low).mp4"
+  },
+  {
+    "nome": "Landmine rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_rotation.mp4"
+  },
+  {
+    "nome": "Sentado landmine desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_landmine_press.mp4"
+  },
+  {
+    "nome": "Agachamento landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_squat.mp4"
+  },
+  {
+    "nome": "Landmine agachamento (baixo)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_squat_(low).mp4"
+  },
+  {
+    "nome": "Levantamento terra romeno landmine",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Lateral com faixa elástica dead bug isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_banded_deadbug_hold.mp4"
+  },
+  {
+    "nome": "Lateral com faixa elástica Deadbugs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_banded_deadbugs.mp4"
+  },
+  {
+    "nome": "Lateral caranguejo Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_crab_walk.mp4"
+  },
+  {
+    "nome": "Lateral Duck Unders",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_duck_unders.mp4"
+  },
+  {
+    "nome": "Avanço lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lunge.mp4"
+  },
+  {
+    "nome": "Avanço lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lunge.mp4"
+  },
+  {
+    "nome": "Avanço lateral com faixa elástica acima da cabeça alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lunge_with_band_overhead_reach.mp4"
+  },
+  {
+    "nome": "Avanço lateral com Slide",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lunge_with_slide.mp4"
+  },
+  {
+    "nome": "Lateral Ostrich Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_ostrich_walk.mp4"
+  },
+  {
+    "nome": "Lateral flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_press_ups.mp4"
+  },
+  {
+    "nome": "Lateral Step com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_step_with_pause.mp4"
+  },
+  {
+    "nome": "Lateral com faixa elástica Walks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_banded_walks.mp4"
+  },
+  {
+    "nome": "Lateral com faixa elástica Walks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_banded_walks.mp4"
+  },
+  {
+    "nome": "Line Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/line_walk.mp4"
+  },
+  {
+    "nome": "Linear Swing",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/linear_swing.mp4"
+  },
+  {
+    "nome": "Lizard deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lizard_crawl.mp4"
+  },
+  {
+    "nome": "Lizard deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lizard_crawl.mp4"
+  },
+  {
+    "nome": "Prancha com alavanca longa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/long_lever_plank.mp4"
+  },
+  {
+    "nome": "Longo alavanca flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/long_lever_press_ups.mp4"
+  },
+  {
+    "nome": "Baixo alternado avanço lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/low_alternating_lateral_lunge.mp4"
+  },
+  {
+    "nome": "Baixo avanço reverso Slide",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/low_reverse_lunge_slide.mp4"
+  },
+  {
+    "nome": "Avanço Clocks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_clocks.mp4"
+  },
+  {
+    "nome": "Avanço Clocks com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_clocks_with_kb.mp4"
+  },
+  {
+    "nome": "Avanço para cossack agachamento Slider Complex",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_to_cossack_squat_slider_complex.mp4"
+  },
+  {
+    "nome": "Avanço Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_walk.mp4"
+  },
+  {
+    "nome": "Avanço Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_walk.mp4"
+  },
+  {
+    "nome": "Deitado kettlebell Screw Drivers",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lying_kb_screw_drivers.mp4"
+  },
+  {
+    "nome": "Deitado joelho para peito",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lying_knee_to_chest.mp4"
+  },
+  {
+    "nome": "Modified Deadbugs com isométrico desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/modified_deadbugs_with_isometric_press.mp4"
+  },
+  {
+    "nome": "Monkey Walks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/monkey_walks.mp4"
+  },
+  {
+    "nome": "Escaladores com Sliders",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/mountain_climbers_with_sliders.mp4"
   },
   {
     "nome": "Barra fixa com pegada fechada",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/narrow_grip_pull_ups.mp4"
   },
   {
-    "nome": "Barra fixa nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_pull_ups.mp4"
+    "nome": "Fechada agachamento com acima da cabeça Lateral alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/narrow_squat_with_overhead_lateral_reach.mp4"
   },
   {
-    "nome": "Barra fixa arqueiro",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/archer_pull_up.mp4"
+    "nome": "Pescoço Retractions",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/neck_retractions.mp4"
   },
   {
-    "nome": "Barra fixa supinada assistida com faixa, levando o peito à barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/band_assissted_chest_to_bar_chin_up.mp4"
+    "nome": "Pescoço Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/neck_rotations.mp4"
   },
   {
-    "nome": "Flexão com pés elevados",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_press_up.mp4"
+    "nome": "Negative 1.5 repetição flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/negative_1.5_rep_press_ups.mp4"
   },
   {
-    "nome": "Flexão diamante",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/diamond_press_ups.mp4"
+    "nome": "Neutral pegada Swing",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/neutral_grip_swing.mp4"
   },
   {
-    "nome": "Flexão para tríceps",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/triceps_press_ups.mp4"
+    "nome": "Avanço para Lizard",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lunge_to_lizard.mp4"
   },
   {
-    "nome": "Flexão com fase excêntrica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up.mp4"
+    "nome": "Baixo Windmill",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/low_windmill.mp4"
+  },
+  {
+    "nome": "Escaladores",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/mountain_climbers.mp4"
+  },
+  {
+    "nome": "Longo alavanca unilateral prancha no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/long_lever_single_arm_plank_on_bench.mp4"
+  },
+  {
+    "nome": "Deslocado halteres caminhando levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_db_walking_deadlift.mp4"
+  },
+  {
+    "nome": "Deslocado kettlebell agachamento em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_kb_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Deslocado kettlebell base escalonada levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_kb_staggered_stance_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Deslocado kettlebell caminhando levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_kb_walking_deadlift.mp4"
+  },
+  {
+    "nome": "Deslocado Rear pé elevado halteres agachamento em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_rear_foot_elevated_db_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Deslocado Rear pé elevado halteres levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_rear_foot_elevated_db_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Deslocado Rear pé elevado kettlebell levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_rear_foot_elevated_kb_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Deslocado agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_squat.mp4"
+  },
+  {
+    "nome": "Deslocado agachamento com rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_squat_with_rotation.mp4"
+  },
+  {
+    "nome": "Carregada acima da cabeça e do fazendeiro carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/oh_carry_and_farmers_carry.mp4"
+  },
+  {
+    "nome": "Opposite ombro Tap com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/opposite_shoulder_tap_with_pause.mp4"
+  },
+  {
+    "nome": "Opposite ombro Taps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/opposite_shoulder_taps.mp4"
+  },
+  {
+    "nome": "Extensões em quatro apoios",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions.mp4"
+  },
+  {
+    "nome": "Opposite ombro Taps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/opposite_shoulder_taps.mp4"
+  },
+  {
+    "nome": "Opposite ombro Taps de urso deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/opposite_shoulder_taps_from_bear_crawl.mp4"
+  },
+  {
+    "nome": "Opposite lateral alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/opposite_side_reach.mp4"
+  },
+  {
+    "nome": "Ostrich Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ostrich_walk.mp4"
+  },
+  {
+    "nome": "Ostrich Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ostrich_walk.mp4"
+  },
+  {
+    "nome": "Ostrich Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ostrich_walk.mp4"
+  },
+  {
+    "nome": "Extensão de tríceps acima da cabeça com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/overhead_db_tricep_extension.mp4"
+  },
+  {
+    "nome": "Desenvolvimento Pallof",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pallof_press.mp4"
+  },
+  {
+    "nome": "Pallof desenvolvimento com Circle",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pallof_press_with_circle.mp4"
+  },
+  {
+    "nome": "Passive suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/passive_hang.mp4"
+  },
+  {
+    "nome": "Passive suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/passive_hang.mp4"
+  },
+  {
+    "nome": "Patrick subidas no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/patrick_step_ups.mp4"
+  },
+  {
+    "nome": "Pike flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pike_press_up.mp4"
+  },
+  {
+    "nome": "Flexão pike com pés elevados",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pike_press_ups_with_feet_elevated.mp4"
+  },
+  {
+    "nome": "Argola suspenso L-Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_hanging_l-sit.mp4"
+  },
+  {
+    "nome": "Prancha marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank_march.mp4"
+  },
+  {
+    "nome": "Prancha Shift com alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank_shift_with_reach.mp4"
+  },
+  {
+    "nome": "Prancha com unilateral remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank_with_single_arm_row.mp4"
+  },
+  {
+    "nome": "Anilha levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plate_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Poliquin subidas no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/poliquin_step_ups.mp4"
+  },
+  {
+    "nome": "Powell elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/powell_raise.mp4"
+  },
+  {
+    "nome": "Flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up.mp4"
+  },
+  {
+    "nome": "Flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up.mp4"
+  },
+  {
+    "nome": "Flexão Body Saw",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_body_saw.mp4"
   },
   {
     "nome": "Flexão no banco",
@@ -520,244 +2512,192 @@
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_on_box.mp4"
   },
   {
-    "nome": "Flexão com palma",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/clapping_press_up.mp4"
+    "nome": "Flexão no alto barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_on_high_barbell.mp4"
   },
   {
-    "nome": "Flexão arqueiro",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/archer_press_up.mp4"
+    "nome": "Flexão no alto caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_on_high_box.mp4"
   },
   {
-    "nome": "Flexão pike com pés elevados",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pike_press_ups_with_feet_elevated.mp4"
+    "nome": "Flexão no baixo barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_on_low_barbell.mp4"
   },
   {
-    "nome": "Flexão nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_press_up.mp4"
+    "nome": "Flexão no médio barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_on_medium_barbell.mp4"
   },
   {
-    "nome": "Mergulho excêntrico nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_dip_eccentric.mp4"
+    "nome": "Flexão com ombro Tap",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_up_with_shoulder_tap.mp4"
   },
   {
-    "nome": "Remada excêntrica nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_row_eccentric.mp4"
+    "nome": "Prisoner Spinal Wave",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_spinal_wave.mp4"
   },
   {
-    "nome": "Remada nas argolas com pés elevados",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_ring_row.mp4"
+    "nome": "Flexões com faixa elástica Resistance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_ups_with_band_resistance.mp4"
   },
   {
-    "nome": "Remada curvada alternada com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_db_bent_over_row.mp4"
+    "nome": "Flexões com excêntrico Focus",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_ups_with_eccentric_focus.mp4"
   },
   {
-    "nome": "Remada gorila com dois kettlebells",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_kb_gorilla_row.mp4"
+    "nome": "Flexões com unilateral Slide-Out",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_ups_with_single_arm_slide-out.mp4"
   },
   {
-    "nome": "Remada serrote",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/chainsaw_row.mp4"
+    "nome": "Flexões com unilateral Slide-Out de One perna",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/press_ups_with_single_arm_slide-out_from_one_leg.mp4"
   },
   {
-    "nome": "Remada baixa unilateral na posição bird dog",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog_1-arm_low_row.mp4"
+    "nome": "Prisoner agachamento livre",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_air_squat.mp4"
   },
   {
-    "nome": "Desenvolvimento no chão com halteres e pegada fechada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_floor_press.mp4"
+    "nome": "Prisoner kang agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_kang_squat.mp4"
   },
   {
-    "nome": "Supino com halteres e pegada fechada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_crush_grip_bench_press.mp4"
+    "nome": "Prisoner bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_good_morning.mp4"
   },
   {
-    "nome": "Desenvolvimento com halteres em ponte de glúteos",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_db_press.mp4"
+    "nome": "Powell elevação no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/powell_raise_on_bench.mp4"
   },
   {
-    "nome": "Alternado com kettlebell no chão desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_floor_press.mp4"
+    "nome": "Prisoner Spinal Wave",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_spinal_wave.mp4"
   },
   {
-    "nome": "Alternado com kettlebell sentado desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_seated_press.mp4"
+    "nome": "Prisoner agachamento em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_squat_in_lunge.mp4"
   },
   {
-    "nome": "Alternado com kettlebell desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/alternating_kb_strict_press.mp4"
+    "nome": "Prisoner ajoelhado para em pé",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_tall_kneeling_to_standing.mp4"
   },
   {
-    "nome": "Posição inferior Up com kettlebell desenvolvimento",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_up_kb_press.mp4"
+    "nome": "Pronated queixo acima da barra isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pronated_chin_over_bar_hold.mp4"
   },
   {
-    "nome": "Desenvolvimento cubano",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cuban_press.mp4"
+    "nome": "De bruços deitado para em pé",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prone_lying_to_standing.mp4"
   },
   {
-    "nome": "Desenvolvimento landmine ajoelhado com os dois braços",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_double_arm_landmine_press.mp4"
+    "nome": "De bruços deitado para em pé",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prone_lying_to_standing.mp4"
   },
   {
-    "nome": "Unilateral com kettlebell remada gorila",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_gorilla_row.mp4"
+    "nome": "De bruços ombro Swimmers em em quatro apoios posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prone_shoulder_swimmers_in_quadrupled_position.mp4"
   },
   {
-    "nome": "Desenvolvimento no chão com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_floor_press.mp4"
+    "nome": "De bruços unilateral estendido Pec Stretch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prone_single_arm_straight_pec_stretch.mp4"
   },
   {
-    "nome": "Levantamento terra com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_deadlift.mp4"
+    "nome": "Barra fixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/pull_up.mp4"
   },
   {
-    "nome": "Com faixa elástica puxada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_pull_downs.mp4"
-  },
-  {
-    "nome": "Extensão de tríceps com faixa elástica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_extensions.mp4"
-  },
-  {
-    "nome": "Flexão de joelhos para posteriores com faixa elástica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_hamstring_curl.mp4"
-  },
-  {
-    "nome": "Extensão de tríceps ajoelhado no TRX",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_kneeling_tricep_extensions.mp4"
-  },
-  {
-    "nome": "Extensão de tríceps acima da cabeça com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/overhead_db_tricep_extension.mp4"
-  },
-  {
-    "nome": "Extensão de tríceps ajoelhado com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_db_tricep_extensions.mp4"
-  },
-  {
-    "nome": "Levantamento terra com resistência da faixa elástica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/band_resisted_deadlifts.mp4"
-  },
-  {
-    "nome": "Bom dia com faixa elástica",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_good_morning.mp4"
-  },
-  {
-    "nome": "Levantamento terra landmine",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_deadlift.mp4"
-  },
-  {
-    "nome": "Agachamento landmine",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_squat.mp4"
-  },
-  {
-    "nome": "Remada landmine com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_bar_row.mp4"
-  },
-  {
-    "nome": "Levantamento terra romeno landmine",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_straight_leg_deadlift.mp4"
-  },
-  {
-    "nome": "Levantamento terra romeno com barra afastada do corpo",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/away_from_body_barbell_straight_leg_deadlift.mp4"
-  },
-  {
-    "nome": "Levantamento terra romeno com halteres e base escalonada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_staggered_stance_straight_leg_deadlift.mp4"
-  },
-  {
-    "nome": "Levantamento terra romeno cruzado",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cross_body_straight_leg_deadlift.mp4"
-  },
-  {
-    "nome": "Agachamento goblet com base escalonada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/goblet_b-stance_squat.mp4"
-  },
-  {
-    "nome": "Agachamento com base escalonada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/b-stance_squat.mp4"
-  },
-  {
-    "nome": "Agachamento com halteres e base escalonada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_b-stance_squat.mp4"
-  },
-  {
-    "nome": "Agachamento com halteres e base fechada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_narrow_stance_squat.mp4"
-  },
-  {
-    "nome": "Agachamento com base fechada em posição frontal",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_rack_narrow_stance_squat.mp4"
-  },
-  {
-    "nome": "Agachamento landmine com base fechada",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_narrow_stance_squat.mp4"
-  },
-  {
-    "nome": "Agachamento búlgaro com halteres",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_db_squat_in_lunge.mp4"
-  },
-  {
-    "nome": "Agachamento búlgaro com barra",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_barbell_squat_in_lunge.mp4"
-  },
-  {
-    "nome": "Agachamento búlgaro com kettlebell",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_kb_squat_in_lunge.mp4"
-  },
-  {
-    "nome": "Extensões em quatro apoios",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions.mp4"
-  },
-  {
-    "nome": "Agachamento patinador",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/skater_squats.mp4"
-  },
-  {
-    "nome": "Remada arqueiro nas argolas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/archer_ring_row.mp4"
-  },
-  {
-    "nome": "Flexão invertida",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inverted_press_up.mp4"
-  },
-  {
-    "nome": "Landmine agachamento (baixo)",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_squat_(low).mp4"
+    "nome": "Flexão Slider alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/push_up_slider_reach.mp4"
   },
   {
     "nome": "Extensões em quatro apoios com faixa elástica",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_banded_extensions.mp4"
   },
   {
-    "nome": "Agachamento em posição de avanço",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_in_lunge.mp4"
+    "nome": "Extensões em quatro apoios com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_banded_extensions.mp4"
   },
   {
-    "nome": "Remada arqueiro no TRX",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_archer_row.mp4"
+    "nome": "Extensões em quatro apoios com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_banded_extensions.mp4"
   },
   {
-    "nome": "Remada excêntrica no TRX",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_row_eccentric.mp4"
+    "nome": "Em quatro apoios respiração",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_breathing.mp4"
   },
   {
-    "nome": "Barra fixa com pernas em L",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bent_l-sit_pull_ups.mp4"
+    "nome": "Em quatro apoios quadril Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_hip_rotations.mp4"
   },
   {
-    "nome": "Barra fixa excêntrica assistida",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/guided_eccentric_pull_up.mp4"
+    "nome": "Em quatro apoios alcance Through",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_reach_through.mp4"
   },
   {
-    "nome": "Avanço reverso baixo com landmine",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_reverse_lunge_(low).mp4"
+    "nome": "Em quatro apoios alcance Through",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_reach_through.mp4"
   },
   {
-    "nome": "Extensões em quatro apoios com pausa",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions_with_pause.mp4"
+    "nome": "Em quatro apoios escapular Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_scapular_rotations.mp4"
+  },
+  {
+    "nome": "Em quatro apoios torácica rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_thoracic_rotation.mp4"
+  },
+  {
+    "nome": "Agachamento búlgaro com barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_barbell_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Argola suspenso joelho elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_hanging_knee_raises.mp4"
+  },
+  {
+    "nome": "Extensões em quatro apoios",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions.mp4"
+  },
+  {
+    "nome": "Slider Clocks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_clocks.mp4"
+  },
+  {
+    "nome": "Rear pé elevado halteres levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_db_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Agachamento búlgaro com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_kb_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Rear pé elevado kettlebell levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rear_foot_elevated_kb_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Reverso urso deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_bear_crawl.mp4"
+  },
+  {
+    "nome": "Reverso Duck Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_duck_walk.mp4"
+  },
+  {
+    "nome": "Avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_lunge.mp4"
+  },
+  {
+    "nome": "Avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_lunge.mp4"
+  },
+  {
+    "nome": "Avanço reverso com acima da cabeça Lateral alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_lunge_with_overhead_lateral_reach.mp4"
+  },
+  {
+    "nome": "Avanço reverso com TRX apoio",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_lunge_with_trx_support.mp4"
+  },
+  {
+    "nome": "Reverso Table posição superior",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_table_top.mp4"
   },
   {
     "nome": "Flexão arqueiro nas argolas",
@@ -768,35 +2708,1671 @@
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_archer_pull_ups.mp4"
   },
   {
+    "nome": "Argola flexionado L-isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_bent_l-hold.mp4"
+  },
+  {
+    "nome": "Argola peito Flies",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_chest_flies.mp4"
+  },
+  {
+    "nome": "Argola queixo acima da barra isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_chin_over_bar_hold.mp4"
+  },
+  {
+    "nome": "Argola queixo acima da barra isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_chin_over_bar_hold.mp4"
+  },
+  {
+    "nome": "Mergulho nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_dip.mp4"
+  },
+  {
+    "nome": "Mergulho excêntrico nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_dip_eccentric.mp4"
+  },
+  {
     "nome": "Flexão excêntrica nas argolas",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_eccentric_press_up.mp4"
+  },
+  {
+    "nome": "Argola cotovelo para mãos prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_elbow_to_hands_plank.mp4"
+  },
+  {
+    "nome": "Argola extensão do corpo extensões (tríceps)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_fall_out_extensions_(triceps).mp4"
+  },
+  {
+    "nome": "Argola extensões do corpo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_fall-outs.mp4"
+  },
+  {
+    "nome": "Argola posição inferior de flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_bottom_of_press_up_hold.mp4"
+  },
+  {
+    "nome": "Reverso Flies",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_flies.mp4"
+  },
+  {
+    "nome": "Argola prancha com Adbuction",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_plank_with_adbuction.mp4"
+  },
+  {
+    "nome": "Argola desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_press.mp4"
+  },
+  {
+    "nome": "Flexão nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_press_up.mp4"
+  },
+  {
+    "nome": "Barra fixa nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_pull_ups.mp4"
+  },
+  {
+    "nome": "Remada nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_row.mp4"
+  },
+  {
+    "nome": "Remada nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_row.mp4"
+  },
+  {
+    "nome": "Remada excêntrica nas argolas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_row_eccentric.mp4"
+  },
+  {
+    "nome": "Argola Scap barra fixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_scap_pull_up.mp4"
+  },
+  {
+    "nome": "Argola apoio isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_support_hold.mp4"
+  },
+  {
+    "nome": "Argola T elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_t_raises.mp4"
+  },
+  {
+    "nome": "Argola Y elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_y_raises.mp4"
+  },
+  {
+    "nome": "Argola Y elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_y_raises.mp4"
+  },
+  {
+    "nome": "Russian kettlebell Swing",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/russian_kb_swing.mp4"
+  },
+  {
+    "nome": "Russian flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/russian_press_ups.mp4"
+  },
+  {
+    "nome": "Rotação russa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/russian_twists.mp4"
+  },
+  {
+    "nome": "Scap barra fixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/scap_pull_up.mp4"
+  },
+  {
+    "nome": "Scap barra fixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/scap_pull_up.mp4"
+  },
+  {
+    "nome": "Scissor Kicks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/scissor_kicks.mp4"
+  },
+  {
+    "nome": "Scissor Kicks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/scissor_kicks.mp4"
+  },
+  {
+    "nome": "Sentado Arnold desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_arnold_press.mp4"
+  },
+  {
+    "nome": "Sentado com faixa elástica Pulls",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_banded_pulls.mp4"
+  },
+  {
+    "nome": "Avanço reverso com TRX apoio",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_lunge_with_trx_support.mp4"
+  },
+  {
+    "nome": "Argola posição superior de flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_top_of_press_up_hold.mp4"
+  },
+  {
+    "nome": "Argola lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_side_plank.mp4"
+  },
+  {
+    "nome": "Argola L-Sit isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_l-sit_hold.mp4"
+  },
+  {
+    "nome": "Argola Tuck isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_tuck_hold.mp4"
+  },
+  {
+    "nome": "Sentado rosca bíceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_bicep_curls.mp4"
+  },
+  {
+    "nome": "Desenvolvimento sentado com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_kb_strict_press.mp4"
+  },
+  {
+    "nome": "Sentado pike",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_pike.mp4"
+  },
+  {
+    "nome": "Sentado pike Lifts",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_pike_lifts.mp4"
+  },
+  {
+    "nome": "Sentado unilateral posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_single_arm_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Sentado afastado Global extensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_straddle_global_extension.mp4"
+  },
+  {
+    "nome": "Lateral deitado Clam elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_lying_clam_raise.mp4"
+  },
+  {
+    "nome": "Lateral deitado Clam elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_lying_clam_raise.mp4"
+  },
+  {
+    "nome": "Prancha lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank.mp4"
+  },
+  {
+    "nome": "Prancha lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank.mp4"
+  },
+  {
+    "nome": "Lateral prancha com faixa elástica remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank_banded_row.mp4"
+  },
+  {
+    "nome": "Lateral prancha ajoelhado perna elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank_kneeling_leg_raise.mp4"
+  },
+  {
+    "nome": "Lateral prancha perna elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank_leg_raises.mp4"
+  },
+  {
+    "nome": "Lateral prancha elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank_lift.mp4"
+  },
+  {
+    "nome": "Em pé torácica coluna Joint Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_thoracic_spine_joint_rotations.mp4"
+  },
+  {
+    "nome": "Lateral prancha desenvolvimento Out",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank_press_out.mp4"
+  },
+  {
+    "nome": "Lateral prancha com alcance Through",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_plank_with_reach_through.mp4"
+  },
+  {
+    "nome": "Unilateral com faixa elástica puxada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_banded_pull_downs.mp4"
+  },
+  {
+    "nome": "Unilateral posição inferior Up kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_bottom_up_kb_press.mp4"
+  },
+  {
+    "nome": "Unilateral halteres supino",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_bench_press.mp4"
+  },
+  {
+    "nome": "Unilateral halteres remada curvada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_bent_over_row.mp4"
+  },
+  {
+    "nome": "Unilateral com halteres no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_floor_press.mp4"
+  },
+  {
+    "nome": "Seiza Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seiza_sit.mp4"
+  },
+  {
+    "nome": "Seiza Sit Toes Tucked sob",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seiza_sit_toes_tucked_under.mp4"
+  },
+  {
+    "nome": "Sentado caixa salto",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_box_jump.mp4"
+  },
+  {
+    "nome": "Unilateral halteres no chão desenvolvimento em Half Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_floor_press_in_half_hollow_hold.mp4"
+  },
+  {
+    "nome": "Unilateral halteres no chão desenvolvimento em Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_floor_press_in_hollow_hold.mp4"
+  },
+  {
+    "nome": "Unilateral halteres sentado no chão desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_floor_seated_strict_press.mp4"
+  },
+  {
+    "nome": "Unilateral halteres avanço lateral com Slider",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_lateral_lunge_with_slider.mp4"
+  },
+  {
+    "nome": "Unilateral halteres desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_press.mp4"
+  },
+  {
+    "nome": "Unilateral halteres Rack ajoelhado para em pé",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_db_rack_tall_kneeling_to_standing.mp4"
+  },
+  {
+    "nome": "Unilateral com pés elevados argola prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_feet_elevated_ring_plank.mp4"
+  },
+  {
+    "nome": "Unilateral sentado no chão kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_floor_seated_kb_press.mp4"
+  },
+  {
+    "nome": "Unilateral posição frontal carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_front_rack_carry.mp4"
+  },
+  {
+    "nome": "Unilateral posição frontal kettlebell avanço caminhando",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_front_rack_kb_walking_lunge.mp4"
+  },
+  {
+    "nome": "Unilateral posição frontal kettlebell avanço caminhando",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_front_rack_kb_walking_lunge.mp4"
+  },
+  {
+    "nome": "Unilateral posição frontal marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_front_rack_march.mp4"
+  },
+  {
+    "nome": "Unilateral Hammer rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_hammer_curl.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell supino",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_bench_press.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell remada curvada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_bent_over_row.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell levantamento terra em aberta Stance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_deadlift_in_wide_stance.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell do fazendeiro carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_farmers_carry.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell do fazendeiro marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_farmers_march.mp4"
+  },
+  {
+    "nome": "Desenvolvimento unilateral com kettlebell no chão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_floor_press.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell no chão desenvolvimento em dead bug",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_floor_press_in_deadbug.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell no chão desenvolvimento em Half Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_floor_press_in_half_hollow_hold.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell no chão desenvolvimento em Hollow isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_floor_press_in_hollow_hold.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell do fazendeiro carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_farmers_carry.mp4"
+  },
+  {
+    "nome": "Unilateral com kettlebell remada gorila",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_gorilla_row.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell alto Pull",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_high_pull.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell alto Pull",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_high_pull.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell carregada acima da cabeça",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_oh_carry.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_press.mp4"
+  },
+  {
+    "nome": "Unilateral kettlebell Waiter agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_kb_waiter_squat.mp4"
+  },
+  {
+    "nome": "Unilateral OH kettlebell isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_oh_kb_hold.mp4"
+  },
+  {
+    "nome": "Unilateral acima da cabeça posição inferior Up kettlebell carregada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_overhead_bottom_up_kb_carry.mp4"
+  },
+  {
+    "nome": "Unilateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_plank.mp4"
+  },
+  {
+    "nome": "Unilateral prancha no caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_plank_on_box.mp4"
+  },
+  {
+    "nome": "Unilateral prancha no alto caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_plank_on_high_box.mp4"
+  },
+  {
+    "nome": "Unilateral argola prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_ring_plank.mp4"
+  },
+  {
+    "nome": "Unilateral sentado com faixa elástica Pulls",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_seated_banded_pulls.mp4"
+  },
+  {
+    "nome": "Unilateral sentado com halteres desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_seated_db_press.mp4"
+  },
+  {
+    "nome": "Unilateral sentado kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_seated_kb_press.mp4"
+  },
+  {
+    "nome": "Unilateral posição superior de argola remada isométrico isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_top_of_ring_row_isometric_hold.mp4"
+  },
+  {
+    "nome": "Unilateral Turkish abdominal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_turkish_sit_up.mp4"
+  },
+  {
+    "nome": "Unilateral Crossbody levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_crossbody_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Unilateral duplo posição frontal kettlebell Lateral descida do banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_dual_front_rack_kb_lateral_step_down.mp4"
+  },
+  {
+    "nome": "Unilateral elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_lift.mp4"
+  },
+  {
+    "nome": "Unilateral adução com banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_adduction_with_bench.mp4"
+  },
+  {
+    "nome": "Unilateral halteres pé elevado elevação pélvica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_db_foot_elevated_hip_thrust.mp4"
+  },
+  {
+    "nome": "Unilateral prancha no alto barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_plank_on_high_barbell.mp4"
+  },
+  {
+    "nome": "Unilateral Pallof desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_pallof_press.mp4"
+  },
+  {
+    "nome": "Unilateral prancha no baixo barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_plank_on_low_barbell.mp4"
+  },
+  {
+    "nome": "Unilateral ponte de glúteos isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "Unilateral ponte de glúteos isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "Unilateral ponte de glúteos isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "Unilateral goblet kettlebell subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_goblet_kb_step_up.mp4"
+  },
+  {
+    "nome": "Elevação pélvica unilateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_hip_thrust.mp4"
+  },
+  {
+    "nome": "Elevação pélvica unilateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_hip_thrust.mp4"
+  },
+  {
+    "nome": "Elevação pélvica unilateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_hip_thrust.mp4"
+  },
+  {
+    "nome": "Unilateral quadril Thrusts com faixa elástica Resistance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_hip_thrusts_with_band_resistance.mp4"
+  },
+  {
+    "nome": "Unilateral isométrico ponte de glúteos com kettlebell Lowering",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_isometric_glute_bridge_with_kb_lowering.mp4"
+  },
+  {
+    "nome": "Unilateral Land",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_land.mp4"
+  },
+  {
+    "nome": "Unilateral landmine quadril Thrusts",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_landmine_hip_thrusts.mp4"
+  },
+  {
+    "nome": "Subida lateral unilateral no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_lateral_step_up.mp4"
+  },
+  {
+    "nome": "Unilateral elevação para banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_lift_to_bench.mp4"
+  },
+  {
+    "nome": "Unilateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_plank.mp4"
+  },
+  {
+    "nome": "Unilateral RDL no caixa respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_rdl_on_box_breathing_position.mp4"
+  },
+  {
+    "nome": "Unilateral argola prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_ring_plank.mp4"
+  },
+  {
+    "nome": "Unilateral Slider posterior da coxa roscas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_slider_hamstring_curls.mp4"
+  },
+  {
+    "nome": "Unilateral subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_step_up.mp4"
+  },
+  {
+    "nome": "Unilateral subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_step_up.mp4"
+  },
+  {
+    "nome": "TRX peito Flies",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_chest_flies.mp4"
   },
   {
     "nome": "Descida unilateral do banco",
     "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_step_down.mp4"
   },
   {
-    "nome": "Subida unilateral no banco com anilha",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_plate_step_up.mp4"
+    "nome": "Descida unilateral do banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_step_down.mp4"
   },
   {
-    "nome": "Barra fixa com seis pausas",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/six_pause_pull_up.mp4"
+    "nome": "Descida unilateral do banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_step_down.mp4"
   },
   {
-    "nome": "Agachamento com apoio no TRX",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_with_trx_support.mp4"
+    "nome": "Unilateral isométrico ponte de glúteos com perna Lowering",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_isometric_glute_bridge_with_leg_lowering.mp4"
   },
   {
-    "nome": "Flexão excêntrica no banco",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_bench.mp4"
+    "nome": "Unilateral Pallof desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_pallof_press.mp4"
   },
   {
-    "nome": "Flexão excêntrica com as mãos na caixa",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/eccentric_press_up_on_box.mp4"
+    "nome": "Ski saltos",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ski_jumps.mp4"
   },
   {
-    "nome": "Flexão invertida com pés elevados",
-    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_inverted_press_up.mp4"
+    "nome": "Slider posterior da coxa roscas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_hamstring_curls.mp4"
+  },
+  {
+    "nome": "Slider joelho Tucks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_knee_tucks.mp4"
+  },
+  {
+    "nome": "Slider pike Up",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_pike_up.mp4"
+  },
+  {
+    "nome": "Slider pistol agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_pistol_squat.mp4"
+  },
+  {
+    "nome": "Slider Skater Squats",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_skater_squats.mp4"
+  },
+  {
+    "nome": "Slider alto prancha com abdução",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_tall_plank_with_abduction.mp4"
+  },
+  {
+    "nome": "Sliding passada cruzada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/sliding_curtsy_squat.mp4"
+  },
+  {
+    "nome": "Sliding avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/sliding_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Sphinx desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/sphinx_press.mp4"
+  },
+  {
+    "nome": "Spinal Waves Shallow",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/spinal_waves_shallow.mp4"
+  },
+  {
+    "nome": "Split Stance cruzado halteres Romanian levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/split_stance_cross_body_db_romanian_deadlift.mp4"
+  },
+  {
+    "nome": "Split Stance unilateral Russian Swings",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/split_stance_single_arm_russian_swings.mp4"
+  },
+  {
+    "nome": "Agachamento em posição de avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Agachamento em posição de avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Agachamento Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_rotations.mp4"
+  },
+  {
+    "nome": "Agachamento Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_rotations.mp4"
+  },
+  {
+    "nome": "Agachamento para Walk Out",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/squat_to_walk_out.mp4"
+  },
+  {
+    "nome": "Slider lateral para lateral flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_side_to_side_push_ups.mp4"
+  },
+  {
+    "nome": "Slider posterior da coxa roscas",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_hamstring_curls.mp4"
+  },
+  {
+    "nome": "Base escalonada Crossbody levantamento terra romeno para alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/staggered_stance_crossbody_straight_leg_deadlift_to_reach.mp4"
+  },
+  {
+    "nome": "Base escalonada bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/staggered_stance_good_morning.mp4"
+  },
+  {
+    "nome": "Base escalonada landmine levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/staggered_stance_landmine_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Base escalonada unilateral landmine remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/staggered_stance_single_arm_landmine_row.mp4"
+  },
+  {
+    "nome": "Em pé kettlebell Halo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_kb_halo.mp4"
+  },
+  {
+    "nome": "Em pé ombro External rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_shoulder_external_rotation.mp4"
+  },
+  {
+    "nome": "Em pé ombro Internal rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_shoulder_internal_rotation.mp4"
+  },
+  {
+    "nome": "Em pé unilateral flexionado Pec Stretch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_single_arm_bent_pec_stretch.mp4"
+  },
+  {
+    "nome": "Em pé unilateral estendido Pec Stretch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_single_arm_straight_pec_stretch.mp4"
+  },
+  {
+    "nome": "Em pé Twist",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_twist.mp4"
+  },
+  {
+    "nome": "Star lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/star_side_plank.mp4"
+  },
+  {
+    "nome": "Subida no banco seguida de avanço reverso",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/step_up_to_reverse_lunge.mp4"
+  },
+  {
+    "nome": "Afastado Compression Walks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straddle_compression_walks.mp4"
+  },
+  {
+    "nome": "Afastado Inchworms",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straddle_inchworms.mp4"
+  },
+  {
+    "nome": "Afastado Lifts",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straddle_lifts.mp4"
+  },
+  {
+    "nome": "Estendido braço Copenhagen prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straight_arm_copenhagen_plank.mp4"
+  },
+  {
+    "nome": "Estendido braço lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straight_arm_side_plank.mp4"
+  },
+  {
+    "nome": "Estendido perna Copenhagen prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straight_leg_copenhagen_plank.mp4"
+  },
+  {
+    "nome": "Estendido perna Sit-Ups",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straight_leg_sit-ups.mp4"
+  },
+  {
+    "nome": "Desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/strict_press.mp4"
+  },
+  {
+    "nome": "Levantamento terra sumô",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/sumo_deadlift.mp4"
+  },
+  {
+    "nome": "Sumô minhoca para flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/sumo_inchworm_to_press_up.mp4"
+  },
+  {
+    "nome": "Superman isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/superman_hold.mp4"
+  },
+  {
+    "nome": "Deitado de costas perna elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/supine_leg_raises.mp4"
+  },
+  {
+    "nome": "Supinated barra remada curvada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/supinated_barbell_bent_over_row.mp4"
+  },
+  {
+    "nome": "Em pé Forward isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/standing_forward_hold.mp4"
+  },
+  {
+    "nome": "Base escalonada flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/staggered_stance_press_up.mp4"
+  },
+  {
+    "nome": "Supinated pegada Passive suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/supinated_grip_passive_hang.mp4"
+  },
+  {
+    "nome": "Afastado L suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straddle_l_hang.mp4"
+  },
+  {
+    "nome": "Ajoelhado com faixa elástica corte",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_banded_chop.mp4"
+  },
+  {
+    "nome": "Ajoelhado com faixa elástica remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_banded_row.mp4"
+  },
+  {
+    "nome": "Ajoelhado com faixa elástica unilateral Pull Down",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_banded_single_arm_pull_down.mp4"
+  },
+  {
+    "nome": "Extensão de tríceps ajoelhado com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_db_tricep_extensions.mp4"
+  },
+  {
+    "nome": "Ajoelhado diagonal no chão Touch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_diagonal_floor_touch.mp4"
+  },
+  {
+    "nome": "Ajoelhado diagonal no chão Touch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_diagonal_floor_touch.mp4"
+  },
+  {
+    "nome": "Desenvolvimento landmine ajoelhado com os dois braços",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_double_arm_landmine_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado Forward alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_forward_reach.mp4"
+  },
+  {
+    "nome": "Ajoelhado Forward alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_forward_reach.mp4"
+  },
+  {
+    "nome": "Ajoelhado quadril para Halo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_hip_to_halo.mp4"
+  },
+  {
+    "nome": "Ajoelhado Horn pegada kettlebell rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_horn_grip_kb_curl.mp4"
+  },
+  {
+    "nome": "Ajoelhado Jefferson rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_jefferson_curl.mp4"
+  },
+  {
+    "nome": "Ajoelhado Jefferson rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_jefferson_curl.mp4"
+  },
+  {
+    "nome": "Ajoelhado kettlebell pegada fechada desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_kb_crush_grip_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado kettlebell Horn extensão de tríceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_kb_horn_tricep_extensions.mp4"
+  },
+  {
+    "nome": "Ajoelhado landmine barra rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_landmine_barbell_curl.mp4"
+  },
+  {
+    "nome": "Ajoelhado pescoço Rotations",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_neck_rotations.mp4"
+  },
+  {
+    "nome": "Ajoelhado unilateral com faixa elástica desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_single_arm_banded_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado unilateral com faixa elástica remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_single_arm_banded_row.mp4"
+  },
+  {
+    "nome": "Ajoelhado unilateral rosca para desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_single_arm_curl_to_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado unilateral halteres desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_single_arm_db_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado unilateral kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_single_arm_kb_press.mp4"
+  },
+  {
+    "nome": "TRX passada cruzada avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_curtsy_lunge.mp4"
+  },
+  {
+    "nome": "Ajoelhado duplo Hand halteres desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_dual_hand_db_press.mp4"
+  },
+  {
+    "nome": "Ajoelhado duplo Hand kettlebell desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_dual_hand_kb_press.mp4"
+  },
+  {
+    "nome": "Alto prancha Controlled Articular rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_plank_controlled_articular_rotation.mp4"
+  },
+  {
+    "nome": "Alto prancha joelho para cotovelo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_plank_knee_to_elbow.mp4"
+  },
+  {
+    "nome": "Alto prancha Lateral deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_plank_lateral_crawl.mp4"
+  },
+  {
+    "nome": "Alto prancha marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_plank_march.mp4"
+  },
+  {
+    "nome": "Alto prancha com kettlebell passagem",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_plank_with_kb_pass_through.mp4"
+  },
+  {
+    "nome": "Alto argola prancha marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_ring_plank_march.mp4"
+  },
+  {
+    "nome": "Tempo descida do banco com Tap",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tempo_step_down_with_tap.mp4"
+  },
+  {
+    "nome": "Three Point ajoelhado avanço Complex",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/three_point_kneeling_lunge_complex.mp4"
+  },
+  {
+    "nome": "Posição superior de invertido flexão isométrico isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/top_of_inverted_press_up_isometric_hold.mp4"
+  },
+  {
+    "nome": "Posição superior de flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/top_of_press_up_hold.mp4"
+  },
+  {
+    "nome": "Posição superior de argola remada isométrico isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/top_of_ring_row_isometric_hold.mp4"
+  },
+  {
+    "nome": "Posição superior de argola remada isométrico isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/top_of_ring_row_isometric_hold.mp4"
+  },
+  {
+    "nome": "Posição superior de argola remada isométrico isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/top_of_ring_row_isometric_hold.mp4"
+  },
+  {
+    "nome": "Posição superior lateral Half Moon",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/top_side_half_moon.mp4"
+  },
+  {
+    "nome": "Flexão para tríceps",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/triceps_press_ups.mp4"
+  },
+  {
+    "nome": "Triple pausa barra fixa durante excêntrico Phase",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/triple_pause_pull_up_during_eccentric_phase.mp4"
+  },
+  {
+    "nome": "Triple pausa barras fixas durante Concentric Phase",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/triple_pause_pull_ups_during_concentric_phase.mp4"
+  },
+  {
+    "nome": "Tripod Stance flexionado sobre Rows",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tripod_stance_bent_over_rows.mp4"
+  },
+  {
+    "nome": "TRX arqueiro flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_archer_press_up.mp4"
+  },
+  {
+    "nome": "TRX Bicep rosca",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_bicep_curl.mp4"
+  },
+  {
+    "nome": "Tip ponta do pé marcha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tip_toe_march.mp4"
+  },
+  {
+    "nome": "Remada arqueiro no TRX",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_archer_row.mp4"
+  },
+  {
+    "nome": "Ajoelhado Spinal Pulses",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_spinal_pulses.mp4"
+  },
+  {
+    "nome": "Ajoelhado Transition para agachamento Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_transition_to_squat_sit.mp4"
+  },
+  {
+    "nome": "TRX Aligators",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_aligators.mp4"
+  },
+  {
+    "nome": "Ajoelhado com acima da cabeça Pallof desenvolvimento respiração posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_with_overhead_pallof_press_breathing_position.mp4"
+  },
+  {
+    "nome": "TRX ponte de glúteos isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "TRX ponte de glúteos isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_glute_bridge_hold.mp4"
+  },
+  {
+    "nome": "TRX posterior da coxa Pull em",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_hamstring_pull_in.mp4"
+  },
+  {
+    "nome": "TRX I's",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_i's.mp4"
+  },
+  {
+    "nome": "Extensão de tríceps ajoelhado no TRX",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_kneeling_tricep_extensions.mp4"
+  },
+  {
+    "nome": "TRX avanço lateral",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_lateral_lunge.mp4"
+  },
+  {
+    "nome": "TRX longo alavanca prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_long_lever_plank.mp4"
+  },
+  {
+    "nome": "TRX escaladores",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_mountain_climbers.mp4"
+  },
+  {
+    "nome": "TRX Oblique abdominal",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_oblique_crunch.mp4"
+  },
+  {
+    "nome": "TRX pike",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_pike.mp4"
+  },
+  {
+    "nome": "TRX prancha com Adbuction",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_plank_with_adbuction.mp4"
+  },
+  {
+    "nome": "TRX desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_press.mp4"
+  },
+  {
+    "nome": "TRX reverso escalador",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_reverse_mountain_climber.mp4"
+  },
+  {
+    "nome": "Remada no TRX",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_row.mp4"
+  },
+  {
+    "nome": "Remada excêntrica no TRX",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_row_eccentric.mp4"
+  },
+  {
+    "nome": "TRX Serratus Slides (Or Body Saws)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_serratus_slides_(or_body_saws).mp4"
+  },
+  {
+    "nome": "TRX unilateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_single_arm_plank.mp4"
+  },
+  {
+    "nome": "TRX unilateral Hamsting Pull em",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_single_leg_hamsting_pull_in.mp4"
+  },
+  {
+    "nome": "TRX Forward Lean",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_forward_lean.mp4"
+  },
+  {
+    "nome": "TRX lateral prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_side_plank.mp4"
+  },
+  {
+    "nome": "TRX posição superior de remada Lateral Glides",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_top_of_row_lateral_glides.mp4"
+  },
+  {
+    "nome": "TRX posição superior de remada Transfer",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_top_of_row_transfer.mp4"
+  },
+  {
+    "nome": "Parede com apoio agachamento em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_supported_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "Parede Touch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_touch.mp4"
+  },
+  {
+    "nome": "Parede Touch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wall_touch.mp4"
+  },
+  {
+    "nome": "Weight anilha bom dia isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weight_plate_good_morning_hold.mp4"
+  },
+  {
+    "nome": "Weight anilha Good Mornings",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weight_plate_good_mornings.mp4"
+  },
+  {
+    "nome": "Weight anilha Squats",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weight_plate_squats.mp4"
+  },
+  {
+    "nome": "Com carga flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weighted_press_ups.mp4"
+  },
+  {
+    "nome": "Barra fixa com pegada aberta",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_grip_pull_ups.mp4"
+  },
+  {
+    "nome": "Aberta agachamento com acima da cabeça alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_squat_with_overhead_reach.mp4"
+  },
+  {
+    "nome": "Aberta Stance pegada fechada halteres levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_stance_crush_grip_db_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Aberta Stance halteres levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_stance_db_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Aberta Stance kettlebell levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_stance_kb_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Yoga flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/yoga_press_ups.mp4"
+  },
+  {
+    "nome": "Yoga flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/yoga_press_ups.mp4"
+  },
+  {
+    "nome": "TRX Y elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_y_raises.mp4"
+  },
+  {
+    "nome": "Bom dia com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_good_morning.mp4"
+  },
+  {
+    "nome": "Base fechada agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/narrow_stance_squat.mp4"
+  },
+  {
+    "nome": "Sentado afastado elevação sobre Blocks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_straddle_lift_over_blocks.mp4"
+  },
+  {
+    "nome": "Sentado afastado elevação sobre Blocks",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seated_straddle_lift_over_blocks.mp4"
+  },
+  {
+    "nome": "Unilateral levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Passada cruzada descida do banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_step_down.mp4"
+  },
+  {
+    "nome": "Passada cruzada descida do banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/curtsy_step_down.mp4"
+  },
+  {
+    "nome": "Ativo suspensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/active_hang.mp4"
+  },
+  {
+    "nome": "Aberta Stance flexões",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/wide_stance_press_ups.mp4"
+  },
+  {
+    "nome": "Weight Transfers de prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weight_transfers_from_plank.mp4"
+  },
+  {
+    "nome": "Prancha com carga",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/weighted_plank.mp4"
+  },
+  {
+    "nome": "90-90 Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/90-90_sit.mp4"
+  },
+  {
+    "nome": "90-90 para ajoelhado para agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/90-90_to_tall_kneeling_to_squat.mp4"
+  },
+  {
+    "nome": "Tornozelo para cotovelo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ankle_to_elbow.mp4"
+  },
+  {
+    "nome": "Ankling",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ankling.mp4"
+  },
+  {
+    "nome": "B-Stand",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/b-stand.mp4"
+  },
+  {
+    "nome": "B-Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/b-walk.mp4"
+  },
+  {
+    "nome": "Arch isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/arch_hold.mp4"
+  },
+  {
+    "nome": "Posterior perna elevação Off",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/back_leg_lift_off.mp4"
+  },
+  {
+    "nome": "Balanced Sit cruzado alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/balanced_sit_crossover_reach.mp4"
+  },
+  {
+    "nome": "Balanced Sit duplo perna extensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/balanced_sit_double_leg_extension.mp4"
+  },
+  {
+    "nome": "Balanced Sit unilateral extensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/balanced_sit_single_leg_extension.mp4"
+  },
+  {
+    "nome": "Bird dog",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bird_dog.mp4"
+  },
+  {
+    "nome": "Joelho para peito Walk",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/knee_to_chest_walk.mp4"
+  },
+  {
+    "nome": "Lateral Duck Unders",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_duck_unders.mp4"
+  },
+  {
+    "nome": "Avanço lateral com salto",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lunge_with_jump.mp4"
+  },
+  {
+    "nome": "Power Skip",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/power_skip.mp4"
+  },
+  {
+    "nome": "Unilateral RDL para chute",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_rdl_to_kick.mp4"
+  },
+  {
+    "nome": "Cowboy Posture",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cowboy_posture.mp4"
+  },
+  {
+    "nome": "Borboleta sentado desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/butterfly_seated_press.mp4"
+  },
+  {
+    "nome": "Caranguejo extensão com Windmill",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/crab_extension_with_windmill.mp4"
+  },
+  {
+    "nome": "Deadbugs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/deadbugs.mp4"
+  },
+  {
+    "nome": "Duplo perna elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/double_leg_lift.mp4"
+  },
+  {
+    "nome": "Downward Dog prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/downward_dog_plank.mp4"
+  },
+  {
+    "nome": "Cotovelo para joelho Half Rolls",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/elbow_to_knee_half_rolls.mp4"
+  },
+  {
+    "nome": "Frog Stretch com punho Pulsation",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/frog_stretch_with_wrist_pulsation.mp4"
+  },
+  {
+    "nome": "Frontal perna elevação Off",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_leg_lift_off.mp4"
+  },
+  {
+    "nome": "Ponte de glúteos para alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_to_reach.mp4"
+  },
+  {
+    "nome": "Ponte de glúteos para alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/glute_bridge_to_reach.mp4"
+  },
+  {
+    "nome": "Groin Shift Hinge",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/groin_shift_hinge.mp4"
+  },
+  {
+    "nome": "Quadril Switch extensão para avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_switch_extension_to_lunge.mp4"
+  },
+  {
+    "nome": "Quadril Switch para extensão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hip_switch_to_extension.mp4"
+  },
+  {
+    "nome": "Posição inferior de agachamento Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/bottom_of_squat_sit.mp4"
+  },
+  {
+    "nome": "Depth saltos",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/depth_jumps.mp4"
+  },
+  {
+    "nome": "Close Gate",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/close_the_gate.mp4"
+  },
+  {
+    "nome": "Invertido prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/inverted_plank.mp4"
+  },
+  {
+    "nome": "Lateral urso deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_bear_crawl.mp4"
+  },
+  {
+    "nome": "Deitado posição",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lying_position.mp4"
+  },
+  {
+    "nome": "Opposite braço perna elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/opposite_arm_leg_lift.mp4"
+  },
+  {
+    "nome": "Prancha para torácica Bridge",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank_to_thoracic_bridge.mp4"
+  },
+  {
+    "nome": "De bruços flexionado joelho Glute elevação Off",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prone_bent_knee_glute_lift_off.mp4"
+  },
+  {
+    "nome": "Em quatro apoios torácica alcance Through com rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_thoracic_reach_through_with_rotation.mp4"
+  },
+  {
+    "nome": "Rotação em 90-90",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/rotation_in_90-90.mp4"
+  },
+  {
+    "nome": "Seiza Sit quadril extensão para torácica alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/seiza_sit_hip_extension_to_thoracic_reach.mp4"
+  },
+  {
+    "nome": "Lateral deitado perna elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_lying_leg_lift.mp4"
+  },
+  {
+    "nome": "Lateral deitado Table posição superior Opener",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_lying_table_top_opener.mp4"
+  },
+  {
+    "nome": "Unilateral sentado afastado elevação sobre Block",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_seated_straddle_lift_over_block.mp4"
+  },
+  {
+    "nome": "Slider afastado prancha deslocamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/slider_straddle_plank_crawl.mp4"
+  },
+  {
+    "nome": "Soft perna Dissociative Rolls (arms led)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/soft_leg_dissociative_rolls_(arms_led).mp4"
+  },
+  {
+    "nome": "Soft perna Dissociative Rolls (legs led)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/soft_leg_dissociative_rolls_(legs_led).mp4"
+  },
+  {
+    "nome": "Afastado Sit",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/straddle_sit.mp4"
+  },
+  {
+    "nome": "Deitado de costas perna Whip",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/supine_leg_whip.mp4"
+  },
+  {
+    "nome": "T-coluna Arch rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/t-spine_arch_rotation.mp4"
+  },
+  {
+    "nome": "Ajoelhado diagonal no chão Touch",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_diagonal_floor_touch.mp4"
+  },
+  {
+    "nome": "Ajoelhado Lateral Leans",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_lateral_leans.mp4"
+  },
+  {
+    "nome": "Ajoelhado Lateral alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_lateral_reach.mp4"
+  },
+  {
+    "nome": "Ajoelhado acima da cabeça alcance",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/tall_kneeling_overhead_reach.mp4"
+  },
+  {
+    "nome": "Forward Fold em 90-90",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/forward_fold_in_90-90.mp4"
+  },
+  {
+    "nome": "Lateral elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/side_raise.mp4"
+  },
+  {
+    "nome": "Lateral Lean em 90-90",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/lateral_lean_in_90-90.mp4"
+  },
+  {
+    "nome": "Ajoelhado Arnold desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/half_kneeling_arnold_press.mp4"
+  },
+  {
+    "nome": "Argola posição inferior de remada Transfer",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_bottom_of_row_transfer.mp4"
+  },
+  {
+    "nome": "Argola com pés elevados arqueiro flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_feet_elevated_archer_press_up.mp4"
+  },
+  {
+    "nome": "Unilateral elevação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_lift.mp4"
+  },
+  {
+    "nome": "Reverso Table posição superior",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/reverse_table_top.mp4"
+  },
+  {
+    "nome": "Argola flexão para pike",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_press_up_to_pike.mp4"
+  },
+  {
+    "nome": "Argola posição superior de remada Lateral Glides",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_top_of_row_lateral_glides.mp4"
+  },
+  {
+    "nome": "Argola posição superior de remada Transfer",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/ring_top_of_row_transfer.mp4"
+  },
+  {
+    "nome": "Unilateral argola remada com rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_ring_row_with_rotation.mp4"
+  },
+  {
+    "nome": "Bom dia com faixa elástica",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/banded_good_morning.mp4"
+  },
+  {
+    "nome": "Extensões em quatro apoios",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions.mp4"
+  },
+  {
+    "nome": "Extensões em quatro apoios com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions_with_pause.mp4"
+  },
+  {
+    "nome": "Extensões em quatro apoios com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions_with_pause.mp4"
+  },
+  {
+    "nome": "Extensões em quatro apoios com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/quadrupled_extensions_with_pause.mp4"
+  },
+  {
+    "nome": "Halteres Lateral subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_lateral_step_up.mp4"
+  },
+  {
+    "nome": "Halteres Lateral subida no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_lateral_step_up.mp4"
+  },
+  {
+    "nome": "Avanço com halteres caminhando",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_walking_lunge.mp4"
+  },
+  {
+    "nome": "Barra fixa excêntrica assistida",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/guided_eccentric_pull_up.mp4"
+  },
+  {
+    "nome": "Agachamento frontal para caixa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_squat_to_box.mp4"
+  },
+  {
+    "nome": "Prisoner bom dia",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/prisoner_good_morning.mp4"
+  },
+  {
+    "nome": "Kettlebell Windmill",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_windmill.mp4"
+  },
+  {
+    "nome": "Kettlebell Windmill",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_windmill.mp4"
+  },
+  {
+    "nome": "Unilateral posição frontal kettlebell subidas no banco",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_front_rack_kb_step_ups.mp4"
+  },
+  {
+    "nome": "Prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/plank.mp4"
+  },
+  {
+    "nome": "Remada alta com kettlebell",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_upright_row.mp4"
+  },
+  {
+    "nome": "Posição frontal kettlebell agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_rack_kb_squat.mp4"
+  },
+  {
+    "nome": "Avanço lateral com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_lateral_lunge.mp4"
+  },
+  {
+    "nome": "Deslocado Rear pé elevado kettlebell agachamento em avanço",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/offset_rear_foot_elevated_kb_squat_in_lunge.mp4"
+  },
+  {
+    "nome": "TRX com pés elevados arqueiro flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_feet_elevated_archer_press_up.mp4"
+  },
+  {
+    "nome": "Landmine unilateral levantamento terra romeno",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/landmine_single_leg_straight_leg_deadlift.mp4"
+  },
+  {
+    "nome": "Unilateral landmine levantamento terra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_landmine_deadlift.mp4"
+  },
+  {
+    "nome": "Unilateral argola extensões do corpo",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_leg_ring_fall-outs.mp4"
+  },
+  {
+    "nome": "Unilateral landmine remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_landmine_row.mp4"
+  },
+  {
+    "nome": "Desenvolvimento cubano",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cuban_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento cubano",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cuban_press.mp4"
+  },
+  {
+    "nome": "Desenvolvimento cubano",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/cuban_press.mp4"
+  },
+  {
+    "nome": "Remada alta com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_upright_row.mp4"
+  },
+  {
+    "nome": "Remada alta com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_upright_row.mp4"
+  },
+  {
+    "nome": "Remada alta com halteres",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/db_upright_row.mp4"
+  },
+  {
+    "nome": "Kettlebell Clean e desenvolvimento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/kb_clean_and_press.mp4"
+  },
+  {
+    "nome": "Twisting agachamento",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/twisting_squat.mp4"
+  },
+  {
+    "nome": "Walk Outs",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_outs.mp4"
+  },
+  {
+    "nome": "Walk Backward no Forefoot",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_on_forefoot.mp4"
+  },
+  {
+    "nome": "Walk Backward no Forefoot com Extenal rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_on_forefoot_with_extenal_rotation.mp4"
+  },
+  {
+    "nome": "Walk Backward no Forefoot com Internal rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_on_forefoot_with_internal_rotation.mp4"
+  },
+  {
+    "nome": "Walk Backward no Heels",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_on_heels.mp4"
+  },
+  {
+    "nome": "Walk Backward no Heels com External rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_on_heels_with_external_rotation.mp4"
+  },
+  {
+    "nome": "Walk Backward no Heels com Internal rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_on_heels_with_internal_rotation.mp4"
+  },
+  {
+    "nome": "Walk Backward com Eversion",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_with_eversion.mp4"
+  },
+  {
+    "nome": "Walk Backward com Inversion",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_backward_with_inversion.mp4"
+  },
+  {
+    "nome": "Walk Forward no Forefoot com External rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_forward_on_forefoot_with_external_rotation.mp4"
+  },
+  {
+    "nome": "Walk Forward no Forefoot com Internal rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_forward_on_forefoot_with_internal_rotation.mp4"
+  },
+  {
+    "nome": "Walk Forward no Forfoot",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_forward_on_forfoot.mp4"
+  },
+  {
+    "nome": "Walk Forward no Heels com Internal rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_forward_on_heels_with_internal_rotation.mp4"
+  },
+  {
+    "nome": "Walk Forward com Eversion",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_forward_with_eversion.mp4"
+  },
+  {
+    "nome": "Walk Forward com Inversion",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_forward_with_inversion.mp4"
+  },
+  {
+    "nome": "Walk Lateral no Forefoot",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_lateral_on_forefoot.mp4"
+  },
+  {
+    "nome": "Walk Lateral no Heels",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/walk_lateral_on_heels.mp4"
+  },
+  {
+    "nome": "TRX posição inferior de flexão isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_bottom_of_press_up_hold.mp4"
+  },
+  {
+    "nome": "TRX posição inferior de remada Transfer",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_bottom_of_row_transfer.mp4"
+  },
+  {
+    "nome": "TRX com pés elevados flexão",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_feet_elevated_press_up.mp4"
+  },
+  {
+    "nome": "TRX com pés elevados remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_feet_elevated_row.mp4"
+  },
+  {
+    "nome": "TRX com pés elevados posição superior de remada isométrico",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_feet_elevated_top_of_row_isometric.mp4"
+  },
+  {
+    "nome": "TRX flexão para pike",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_press_up_to_pike.mp4"
+  },
+  {
+    "nome": "TRX flexões (pés em TRX)",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_press_ups_(feet_in_trx).mp4"
+  },
+  {
+    "nome": "TRX unilateral remada",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_single_arm_row.mp4"
+  },
+  {
+    "nome": "TRX unilateral remada com rotação",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/trx_single_arm_row_with_rotation.mp4"
+  },
+  {
+    "nome": "Frontal elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_raises.mp4"
+  },
+  {
+    "nome": "Frontal elevações",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/front_raises.mp4"
+  },
+  {
+    "nome": "Com pés elevados invertido prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_inverted_plank.mp4"
+  },
+  {
+    "nome": "Com pés elevados argola prancha",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/feet_elevated_ring_plank.mp4"
+  },
+  {
+    "nome": "Suspenso L-Sit isometria",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_l-sit_hold.mp4"
+  },
+  {
+    "nome": "Unilateral prancha no médio barra",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/single_arm_plank_on_medium_barbell.mp4"
+  },
+  {
+    "nome": "Suspenso joelho elevação com pausa",
+    "video": "https://p001.nyc3.digitaloceanspaces.com/movements/hanging_knee_raise_with_pause.mp4"
   }
 ]
