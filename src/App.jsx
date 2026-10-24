@@ -1290,25 +1290,47 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
 }
 
 function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
+  const [exerciseSearch, setExerciseSearch] = useState('');
+  const [videoSearch, setVideoSearch] = useState('');
   const video = getExercise(exercise.videoId || exercise.exerciseId)?.video;
+  const currentExercise = getExercise(exercise.exerciseId);
   const isCustomExercise = exercise.exerciseId === 'custom';
+  const normalizeSearch = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR').trim();
+  const normalizedExerciseSearch = normalizeSearch(exerciseSearch);
+  const normalizedVideoSearch = normalizeSearch(videoSearch);
+  const filteredExercises = exerciseLibrary.filter((item) => normalizeSearch(item.name).includes(normalizedExerciseSearch));
+  const filteredVideos = exerciseLibrary.filter((item) => normalizeSearch(item.name).includes(normalizedVideoSearch));
+  const exerciseOptions = currentExercise && !filteredExercises.some((item) => item.id === currentExercise.id)
+    ? [currentExercise, ...filteredExercises]
+    : filteredExercises;
+  const videoExercise = getExercise(exercise.videoId);
+  const videoOptions = videoExercise && !filteredVideos.some((item) => item.id === videoExercise.id)
+    ? [videoExercise, ...filteredVideos]
+    : filteredVideos;
+
   return <tr>
     <td>
       <div className="editor-exercise">
         {video ? <ExerciseVideo src={video} alt={`Assistir demonstração de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-video">Sem vídeo</span>}
         <div className="editor-exercise-fields">
+          {!isCustomExercise && <label className="catalog-search-label">Buscar exercício
+            <input type="search" aria-label="Buscar exercício pelo nome" value={exerciseSearch} onChange={(event) => setExerciseSearch(event.target.value)} placeholder="Digite o nome" />
+          </label>}
           <label className="exercise-picker-label">Exercício
-            <select aria-label="Selecionar exercício" value={getExercise(exercise.exerciseId) ? exercise.exerciseId : 'custom'} onChange={(event) => onUpdate(exercise.id, 'exerciseId', event.target.value)}>
+            <select aria-label="Selecionar exercício" value={currentExercise ? exercise.exerciseId : 'custom'} onChange={(event) => { onUpdate(exercise.id, 'exerciseId', event.target.value); setExerciseSearch(''); }}>
               <option value="custom">Exercício personalizado</option>
-              {exerciseCategories.map((category) => <optgroup label={category} key={category}>{exerciseLibrary.filter((item) => item.category === category).map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</optgroup>)}
+              {exerciseCategories.map((category) => <optgroup label={category} key={category}>{exerciseOptions.filter((item) => item.category === category).map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}</optgroup>)}
             </select>
           </label>
           {isCustomExercise && <>
             <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />
+            <label className="catalog-search-label">Buscar vídeo
+              <input type="search" aria-label="Buscar vídeo demonstrativo pelo nome" value={videoSearch} onChange={(event) => setVideoSearch(event.target.value)} placeholder="Digite o nome" />
+            </label>
             <label className="video-picker">Vídeo demonstrativo
-              <select aria-label="Vídeo demonstrativo" value={exercise.videoId || ''} onChange={(event) => onUpdate(exercise.id, 'videoId', event.target.value)}>
+              <select aria-label="Vídeo demonstrativo" value={exercise.videoId || ''} onChange={(event) => { onUpdate(exercise.id, 'videoId', event.target.value); setVideoSearch(''); }}>
                 <option value="">Sem vídeo vinculado</option>
-                {exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
+                {videoOptions.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
               </select>
             </label>
           </>}

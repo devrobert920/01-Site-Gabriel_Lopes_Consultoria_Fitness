@@ -37,7 +37,7 @@ export const exerciseLibrary = exerciseData.map((exercise, index) => {
     reps: '10-12',
     rest: '60s',
   };
-});
+}).sort((first, second) => first.name.localeCompare(second.name, 'pt-BR', { sensitivity: 'base' }));
 
 const exercisesById = new Map(exerciseLibrary.map((exercise) => [exercise.id, exercise]));
 const exercisesByName = new Map(exerciseLibrary.map((exercise) => [normalizeExerciseName(exercise.name), exercise]));

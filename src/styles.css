@@ -542,6 +542,9 @@ body { background: #f7f7f6; }
 .exercise-picker-label { display: flex; flex-direction: column; gap: 4px; color: #8c7740; font-size: 8px; font-weight: 600; }
 .exercise-picker-label select { width: 100%; min-width: 0; height: 33px; padding: 0 7px; border: 1px solid #e5e0d2; border-radius: 5px; background: white; color: #343129; font-size: 9px; }
 .exercise-picker-label select:focus { border-color: #c59b27; outline: none; box-shadow: 0 0 0 2px #c59b2724; }
+.catalog-search-label { display: flex; flex-direction: column; gap: 3px; color: #8c7740; font-size: 8px; font-weight: 600; }
+.catalog-search-label input { width: 100%; min-width: 0; height: 30px; padding: 0 7px; border: 1px solid #e5e0d2; border-radius: 5px; background: #fff; color: #343129; font-size: 9px; }
+.catalog-search-label input:focus { border-color: #c59b27; outline: none; box-shadow: 0 0 0 2px #c59b2724; }
 .editor-exercise-fields { min-width: 190px; }
 .editor-exercise { min-width: 240px; }
 .editor-exercise > .exercise-video-thumbnail { background: #fff; }
