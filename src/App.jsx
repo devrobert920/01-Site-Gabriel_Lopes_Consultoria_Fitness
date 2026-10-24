@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import QRCode from 'qrcode';
 import { createDemoWorkoutPlan, createWorkoutExercise, createWorkoutPlan, exerciseLibrary, getExercise } from './exercises.js';
@@ -31,6 +31,63 @@ function Icon({ name, size = 18 }) {
     download: <><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5M12 15V3" /></>,
   };
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
+}
+
+function sessionDraftKey(namespace, name) {
+  return `gl-consultoria-draft:${namespace}:${name}`;
+}
+
+function readSessionValue(key, fallback) {
+  try {
+    const value = sessionStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  } catch (error) {
+    console.error(`Não foi possível recuperar o rascunho "${key}".`, error);
+    return fallback;
+  }
+}
+
+function writeSessionValue(key, value) {
+  try {
+    sessionStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.error(`Não foi possível guardar o rascunho "${key}".`, error);
+  }
+}
+
+function useSessionValue(key, initialValue) {
+  const [value, setValue] = useState(() => readSessionValue(key, initialValue));
+  const valueRef = useRef(value);
+  valueRef.current = value;
+  const updateValue = useCallback((nextValue) => {
+    const next = typeof nextValue === 'function' ? nextValue(valueRef.current) : nextValue;
+    valueRef.current = next;
+    writeSessionValue(key, next);
+    setValue(next);
+  }, [key]);
+  useEffect(() => {
+    writeSessionValue(key, value);
+  }, [key, value]);
+  return [value, updateValue];
+}
+
+function clearSessionValue(key) {
+  try {
+    sessionStorage.removeItem(key);
+  } catch (error) {
+    console.error(`Não foi possível remover o rascunho "${key}".`, error);
+  }
+}
+
+function clearSessionDraftTree(prefix) {
+  try {
+    for (let index = sessionStorage.length - 1; index >= 0; index -= 1) {
+      const key = sessionStorage.key(index);
+      if (key === prefix || key?.startsWith(`${prefix}:`)) sessionStorage.removeItem(key);
+    }
+  } catch (error) {
+    console.error(`Não foi possível remover os rascunhos "${prefix}".`, error);
+  }
 }
 
 function normalizeStudent(student) {
@@ -166,11 +223,18 @@ function normalizeStudentRecords(student) {
   const measurementRecords = student.measurementRecords?.length
     ? student.measurementRecords
     : [{ date: student.startDate || today, ...(student.measurements || {}) }];
+  const measurements = { ...(student.measurements || {}) };
+  delete measurements.arm;
   return {
     ...student,
+    measurements,
     history: weightRecords.map((record) => Number(record.value)),
     weightRecords,
-    measurementRecords,
+    measurementRecords: measurementRecords.map((record) => {
+      const currentRecord = { ...record };
+      delete currentRecord.arm;
+      return currentRecord;
+    }),
     dietPlan: student.dietPlan
       ? { ...student.dietPlan, meals: Array.isArray(student.dietPlan.meals) ? student.dietPlan.meals.map(normalizeDietMeal) : [] }
       : createDietPlan(student.diet?.startsWith('Nenhum') ? 'Plano alimentar' : student.diet || 'Plano alimentar'),
@@ -321,13 +385,20 @@ export default function App() {
   const [legacyImportCount, setLegacyImportCount] = useState(0);
   const [legacyStudents, setLegacyStudents] = useState([]);
   const [loadAttempt, setLoadAttempt] = useState(0);
-  const [activePage, setActivePage] = useState('overview');
+  const [activePage, setActivePage] = useSessionValue(
+    'gl-consultoria-draft:panel:active-page',
+    'overview',
+  );
   const [selectedStudent, setSelectedStudent] = useState(null);
-  const [search, setSearch] = useState('');
-  const [modalOpen, setModalOpen] = useState(false);
+  const [search, setSearch] = useSessionValue('gl-consultoria-draft:panel:student-search', '');
+  const [modalOpen, setModalOpen] = useSessionValue('gl-consultoria-draft:panel:add-student-open', false);
   const [notice, setNotice] = useState('');
   const cloudWriteQueue = useRef(Promise.resolve());
   const shareTokensByStudent = useRef(new Map());
+  const uiDraftNamespace = authState.user?.id || 'panel';
+  const addStudentDraftKey = sessionDraftKey(uiDraftNamespace, 'add-student');
+  const selectedStudentDraftKey = sessionDraftKey(uiDraftNamespace, 'selected-student');
+  const selectedStudentRestoredFor = useRef(null);
 
   useEffect(() => {
     if (!isSupabaseConfigured) {
@@ -423,6 +494,15 @@ export default function App() {
     });
     return () => { active = false; };
   }, [authState.user, loadAttempt, supabaseClient]);
+
+  useEffect(() => {
+    if (!studentsLoaded || selectedStudentRestoredFor.current === uiDraftNamespace) return;
+    selectedStudentRestoredFor.current = uiDraftNamespace;
+    const savedStudentId = readSessionValue(selectedStudentDraftKey, '');
+    const student = students.find((item) => String(item.id) === savedStudentId);
+    setSelectedStudent(student || null);
+    if (!student) clearSessionValue(selectedStudentDraftKey);
+  }, [students, studentsLoaded, selectedStudentDraftKey, uiDraftNamespace]);
 
   useEffect(() => {
     if (!portalState.student) return;
@@ -540,7 +620,7 @@ export default function App() {
       id: Date.now(),
       status: 'Ativo',
       lastCheckin: 'Agora',
-      measurements: { chest: 0, waist: 0, hip: 0, arm: 0 },
+      measurements: { chest: 0, waist: 0, hip: 0 },
       history: [Number(formData.weight)],
       weightRecords: [{ date: todayDate(), value: Number(formData.weight) }],
       measurementRecords: [],
@@ -551,9 +631,32 @@ export default function App() {
     };
     setStudents((current) => [student, ...current]);
     setModalOpen(false);
+    clearSessionDraftTree(addStudentDraftKey);
     setNotice('Aluno cadastrado. Salvando na nuvem...');
     setSelectedStudent(student);
+    writeSessionValue(selectedStudentDraftKey, String(student.id));
     void saveStudent(student, 'Aluno cadastrado e salvo na nuvem.');
+  }
+
+  function openStudent(student) {
+    setSelectedStudent(student);
+    writeSessionValue(selectedStudentDraftKey, String(student.id));
+  }
+
+  function changePage(page) {
+    setActivePage(page);
+    setSelectedStudent(null);
+    clearSessionValue(selectedStudentDraftKey);
+  }
+
+  function closeStudentDetail() {
+    setSelectedStudent(null);
+    clearSessionValue(selectedStudentDraftKey);
+  }
+
+  function closeAddStudent() {
+    setModalOpen(false);
+    clearSessionDraftTree(addStudentDraftKey);
   }
 
   function updateStudent(id, updates) {
@@ -647,14 +750,14 @@ export default function App() {
                 ? <CloudLoadingPage message="Carregando alunos salvos na nuvem..." />
                 : <div className="app-shell">
       <aside className="sidebar">
-        <a className="brand" href="#" onClick={(event) => { event.preventDefault(); setActivePage('overview'); setSelectedStudent(null); }}>
+        <a className="brand" href="#" onClick={(event) => { event.preventDefault(); changePage('overview'); }}>
           <img className="brand-logo" src={brandLogo} alt="" />
           <span className="brand-copy"><strong>GABRIEL LOPES</strong><small>CONSULTORIA FITNESS</small></span>
         </a>
         <div className="workspace-label">MENU PRINCIPAL</div>
         <nav className="nav-list" aria-label="Menu principal">
           {navigation.map((item) => (
-            <button className={`nav-item ${!selectedStudent && activePage === item.id ? 'selected' : ''}`} key={item.id} onClick={() => { setActivePage(item.id); setSelectedStudent(null); }}>
+            <button className={`nav-item ${!selectedStudent && activePage === item.id ? 'selected' : ''}`} key={item.id} onClick={() => changePage(item.id)}>
               <Icon name={item.icon} /><span>{item.label}</span>{item.id === 'students' && <span className="nav-count">{students.length}</span>}
             </button>
           ))}
@@ -664,7 +767,7 @@ export default function App() {
             <div className="tip-icon"><Icon name="chart" size={17} /></div>
             <strong>Consistência gera resultado.</strong>
             <p>Acompanhe de perto a jornada de cada aluno.</p>
-            <button onClick={() => { setActivePage('progress'); setSelectedStudent(null); }}>Ver evolução <Icon name="arrow" size={14} /></button>
+            <button onClick={() => changePage('progress')}>Ver evolução <Icon name="arrow" size={14} /></button>
           </div>
           <div className="profile-mini">
             <div className="avatar avatar-dark">GL</div>
@@ -688,22 +791,22 @@ export default function App() {
         <div className="page-content">
           {legacyImportAvailable && <LocalImportBanner count={legacyImportCount} onImport={importLocalStudents} onDismiss={() => setLegacyImportAvailable(false)} />}
           {selectedStudent ? (
-            <StudentDetail student={selectedStudent} onBack={() => setSelectedStudent(null)} onUpdate={updateStudent} onShare={shareStudent} onEnsureShare={ensureStudentShare} />
+            <StudentDetail key={`${uiDraftNamespace}:${selectedStudent.id}`} student={selectedStudent} draftNamespace={uiDraftNamespace} onBack={closeStudentDetail} onUpdate={updateStudent} onShare={shareStudent} onEnsureShare={ensureStudentShare} />
           ) : activePage === 'overview' ? (
-            <Overview students={students} activeCount={activeStudents} onAdd={() => setModalOpen(true)} onOpen={setSelectedStudent} onPage={setActivePage} />
+            <Overview students={students} activeCount={activeStudents} onAdd={() => setModalOpen(true)} onOpen={openStudent} onPage={changePage} />
           ) : activePage === 'students' ? (
-            <StudentsPage students={filteredStudents} search={search} onSearch={setSearch} onAdd={() => setModalOpen(true)} onOpen={setSelectedStudent} />
+            <StudentsPage students={filteredStudents} search={search} onSearch={setSearch} onAdd={() => setModalOpen(true)} onOpen={openStudent} />
           ) : activePage === 'workouts' ? (
-            <AssignmentsPage type="workout" students={students} onOpen={setSelectedStudent} onUpdate={updateStudent} />
+            <AssignmentsPage key={`${uiDraftNamespace}:workouts`} type="workout" students={students} draftNamespace={uiDraftNamespace} onOpen={openStudent} onUpdate={updateStudent} />
           ) : activePage === 'nutrition' ? (
-            <AssignmentsPage type="nutrition" students={students} onOpen={setSelectedStudent} onUpdate={updateStudent} />
+            <AssignmentsPage key={`${uiDraftNamespace}:nutrition`} type="nutrition" students={students} draftNamespace={uiDraftNamespace} onOpen={openStudent} onUpdate={updateStudent} />
           ) : (
-            <ProgressPage students={students} onOpen={setSelectedStudent} />
+            <ProgressPage students={students} onOpen={openStudent} />
           )}
         </div>
       </main>
 
-      {modalOpen && <AddStudentModal onClose={() => setModalOpen(false)} onSave={addStudent} />}
+      {modalOpen && <AddStudentModal key={addStudentDraftKey} draftKey={addStudentDraftKey} onClose={closeAddStudent} onSave={addStudent} />}
       {notice && <div className="toast"><span className="toast-check"><Icon name="check" size={15} /></span>{notice}</div>}
     </div>
   );
@@ -944,14 +1047,20 @@ function StudentsPage({ students, search, onSearch, onAdd, onOpen }) {
   </>;
 }
 
-function StudentDetail({ student, onBack, onUpdate, onShare, onEnsureShare }) {
-  const [tab, setTab] = useState('overview');
-  const [editing, setEditing] = useState(false);
-  const [workoutEditorOpen, setWorkoutEditorOpen] = useState(false);
-  const [dietEditorOpen, setDietEditorOpen] = useState(false);
-  const [progressEntry, setProgressEntry] = useState(null);
-  const [expandedChart, setExpandedChart] = useState(null);
-  const [qrCodeOpen, setQrCodeOpen] = useState(false);
+function StudentDetail({ student, draftNamespace, onBack, onUpdate, onShare, onEnsureShare }) {
+  const draftKey = (name) => sessionDraftKey(draftNamespace, `student:${student.id}:${name}`);
+  const [tab, setTab] = useSessionValue(draftKey('tab'), 'overview');
+  const [editing, setEditing] = useSessionValue(draftKey('editing'), false);
+  const [workoutEditorOpen, setWorkoutEditorOpen] = useSessionValue(draftKey('workout-open'), false);
+  const [dietEditorOpen, setDietEditorOpen] = useSessionValue(draftKey('diet-open'), false);
+  const [progressEntry, setProgressEntry] = useSessionValue(draftKey('progress-entry'), null);
+  const [expandedChart, setExpandedChart] = useSessionValue(draftKey('expanded-chart'), null);
+  const [qrCodeOpen, setQrCodeOpen] = useSessionValue(draftKey('qr-open'), false);
+  const editingDraftKey = draftKey('editing-form');
+  const workoutDraftKey = draftKey('workout-form');
+  const dietDraftKey = draftKey('diet-form');
+  const progressDraftKey = draftKey('progress-form');
+  const clearModalDraft = (key) => clearSessionDraftTree(key);
   const bmi = Number(student.weight) && Number(student.height) ? (Number(student.weight) / Number(student.height) ** 2).toFixed(1) : '—';
   const weightRecords = student.weightRecords || [];
   const previous = weightRecords.length > 1 ? weightRecords[weightRecords.length - 2].value : student.weight;
@@ -965,7 +1074,7 @@ function StudentDetail({ student, onBack, onUpdate, onShare, onEnsureShare }) {
     {tab === 'overview' ? <>
       <div className="detail-metrics">
         <MetricCard label="Peso atual" value={`${Number(student.weight).toFixed(1)} kg`} note={Number(difference) <= 0 ? `${difference} kg desde o início` : `+${difference} kg desde o início`} icon="chart" />
-        <MetricCard label="Altura" value={student.height ? `${Number(student.height).toFixed(2)} m` : '—'} note="Última avaliação" icon="grid" />
+        <MetricCard label="Altura" value={student.height ? `${Math.round(Number(student.height) * 100)} cm` : '—'} note="Última avaliação" icon="grid" />
         <MetricCard label="IMC estimado" value={bmi} note="Indicador de referência" icon="users" />
         <MetricCard label="Objetivo" value={student.goal} note={`Status: ${student.status}`} icon="arrow" />
       </div>
@@ -975,10 +1084,10 @@ function StudentDetail({ student, onBack, onUpdate, onShare, onEnsureShare }) {
       </div>
       <div className="content-grid detail-assignment-grid"><AssignmentCard type="workout" title="Treino atual" value={student.workoutPlan?.name || student.workout} onClick={() => setTab('workout')} /><AssignmentCard type="nutrition" title="Plano alimentar" value={student.dietPlan?.name || student.diet} onClick={() => setTab('diet')} /></div>
     </> : isWorkout ? <WorkoutPlanView plan={student.workoutPlan || createWorkoutPlan(student.workout)} onEdit={() => setWorkoutEditorOpen(true)} /> : <DietPlanView plan={student.dietPlan || createDietPlan(student.diet)} onEdit={() => setDietEditorOpen(true)} />}
-    {editing && <EditStudentModal student={student} onClose={() => setEditing(false)} onSave={(updates) => { onUpdate(student.id, updates); setEditing(false); }} />}
-    {workoutEditorOpen && <WorkoutEditorModal student={student} onClose={() => setWorkoutEditorOpen(false)} onSave={(workoutPlan) => { onUpdate(student.id, { workoutPlan, workout: workoutPlan.name.trim() || 'Treino sem nome' }); setWorkoutEditorOpen(false); }} />}
-    {dietEditorOpen && <DietEditorModal student={student} onClose={() => setDietEditorOpen(false)} onSave={(dietPlan) => { onUpdate(student.id, { dietPlan, diet: dietPlan.name.trim() || 'Plano alimentar' }); setDietEditorOpen(false); }} />}
-    {progressEntry && <ProgressEntryModal student={student} type={progressEntry.type} record={progressEntry.record} onClose={() => setProgressEntry(null)} onSave={(updates) => { onUpdate(student.id, updates); setProgressEntry(null); }} />}
+    {editing && <EditStudentModal key={editingDraftKey} draftKey={editingDraftKey} student={student} onClose={() => { clearModalDraft(editingDraftKey); setEditing(false); }} onSave={(updates) => { onUpdate(student.id, updates); clearModalDraft(editingDraftKey); setEditing(false); }} />}
+    {workoutEditorOpen && <WorkoutEditorModal key={workoutDraftKey} draftKey={workoutDraftKey} student={student} onClose={() => { clearModalDraft(workoutDraftKey); setWorkoutEditorOpen(false); }} onSave={(workoutPlan) => { onUpdate(student.id, { workoutPlan, workout: workoutPlan.name.trim() || 'Treino sem nome' }); clearModalDraft(workoutDraftKey); setWorkoutEditorOpen(false); }} />}
+    {dietEditorOpen && <DietEditorModal key={dietDraftKey} draftKey={dietDraftKey} student={student} onClose={() => { clearModalDraft(dietDraftKey); setDietEditorOpen(false); }} onSave={(dietPlan) => { onUpdate(student.id, { dietPlan, diet: dietPlan.name.trim() || 'Plano alimentar' }); clearModalDraft(dietDraftKey); setDietEditorOpen(false); }} />}
+    {progressEntry && <ProgressEntryModal key={progressDraftKey} draftKey={progressDraftKey} student={student} type={progressEntry.type} record={progressEntry.record} onClose={() => { clearModalDraft(progressDraftKey); setProgressEntry(null); }} onSave={(updates) => { onUpdate(student.id, updates); clearModalDraft(progressDraftKey); setProgressEntry(null); }} />}
     {expandedChart && <ProgressChartModal student={student} kind={expandedChart} onClose={() => setExpandedChart(null)} onEdit={(record) => { setExpandedChart(null); setProgressEntry({ type: expandedChart, record }); }} />}
     {qrCodeOpen && <ShareQrModal student={student} onClose={() => setQrCodeOpen(false)} onEnsureShare={onEnsureShare} />}
   </>;
@@ -1001,7 +1110,6 @@ const measurementSeries = [
   { key: 'chest', label: 'Peitoral', color: '#c59b27' },
   { key: 'waist', label: 'Cintura', color: '#4e9c73' },
   { key: 'hip', label: 'Quadril', color: '#6485bb' },
-  { key: 'arm', label: 'Braço (geral)', color: '#a273ac' },
   { key: 'calfLeft', label: 'Panturrilha esquerda', color: '#d87548' },
   { key: 'calfRight', label: 'Panturrilha direita', color: '#ba6a47' },
   { key: 'quadricepsLeft', label: 'Quadríceps esquerdo', color: '#58a9a2' },
@@ -1121,16 +1229,24 @@ function AssignmentCard({ type, title, value, onClick }) {
   return <button className="panel assignment-card" onClick={onClick}><div className={`assignment-icon ${workout ? 'orange' : 'green'}`}><Icon name={workout ? 'dumbbell' : 'leaf'} size={18} /></div><div><span>{title}</span><strong>{value}</strong><small>{workout ? 'Exercícios e rotina semanal' : 'Orientações personalizadas'}</small></div><Icon name="chevron" size={17} /></button>;
 }
 
-function AssignmentsPage({ type, students, onOpen, onUpdate }) {
+function AssignmentsPage({ type, students, draftNamespace, onOpen, onUpdate }) {
   const workout = type === 'workout';
   const title = workout ? 'Treinos' : 'Planos alimentares';
-  const [editingWorkoutStudent, setEditingWorkoutStudent] = useState(null);
-  const [editingDietStudent, setEditingDietStudent] = useState(null);
+  const editingDraftKey = sessionDraftKey(draftNamespace, `assignment:${type}-student`);
+  const [editingStudentId, setEditingStudentId] = useSessionValue(editingDraftKey, '');
+  const editingStudent = students.find((student) => String(student.id) === editingStudentId);
+  const editorDraftKey = editingStudent ? sessionDraftKey(draftNamespace, `${type}:${editingStudent.id}`) : '';
+  function closeEditor() {
+    if (editorDraftKey) clearSessionDraftTree(editorDraftKey);
+    setEditingStudentId('');
+    clearSessionValue(editingDraftKey);
+  }
+
   return <>
     <PageHeading eyebrow={workout ? 'PRESCRIÇÃO E ROTINA' : 'NUTRIÇÃO PERSONALIZADA'} title={title} description={workout ? 'Organize as rotinas de exercícios por aluno.' : 'Acompanhe as estratégias alimentares dos seus alunos.'} action={<span className="header-count">{students.length} alunos</span>} />
-    <div className="assignment-list">{students.length ? students.map((student, index) => <div className="panel assignment-list-card" key={student.id}><div className={`assignment-icon ${workout ? 'orange' : 'green'}`}><Icon name={workout ? 'dumbbell' : 'leaf'} size={18} /></div><div className="assignment-student"><div className={`avatar avatar-${['green', 'blue', 'orange', 'purple'][index % 4]}`}>{initials(student.name)}</div><div><strong>{student.name}</strong><small>{student.goal}</small></div></div><div className="assignment-current"><small>{workout ? 'TREINO ATUAL' : 'PLANO ATUAL'}</small><strong>{workout ? student.workoutPlan?.name || student.workout : student.dietPlan?.name || student.diet}</strong>{workout && <span>{student.workoutPlan?.days.reduce((total, day) => total + day.exercises.length, 0) || 0} exercícios cadastrados</span>}{!workout && <span>{student.dietPlan?.meals.length || 0} refeições cadastradas</span>}</div><button className="outline-button compact" onClick={() => workout ? setEditingWorkoutStudent(student) : setEditingDietStudent(student)}>Editar planilha</button><button className="row-arrow" onClick={() => onOpen(student)} aria-label={`Ver perfil de ${student.name}`}><Icon name="chevron" size={17} /></button></div>) : <div className="panel"><EmptyState title="Cadastre seu primeiro aluno" text="Os planos serão organizados aqui por aluno." /></div>}</div>
-    {editingWorkoutStudent && <WorkoutEditorModal student={editingWorkoutStudent} onClose={() => setEditingWorkoutStudent(null)} onSave={(workoutPlan) => { onUpdate(editingWorkoutStudent.id, { workoutPlan, workout: workoutPlan.name.trim() || 'Treino sem nome' }); setEditingWorkoutStudent(null); }} />}
-    {editingDietStudent && <DietEditorModal student={editingDietStudent} onClose={() => setEditingDietStudent(null)} onSave={(dietPlan) => { onUpdate(editingDietStudent.id, { dietPlan, diet: dietPlan.name.trim() || 'Plano alimentar' }); setEditingDietStudent(null); }} />}
+    <div className="assignment-list">{students.length ? students.map((student, index) => <div className="panel assignment-list-card" key={student.id}><div className={`assignment-icon ${workout ? 'orange' : 'green'}`}><Icon name={workout ? 'dumbbell' : 'leaf'} size={18} /></div><div className="assignment-student"><div className={`avatar avatar-${['green', 'blue', 'orange', 'purple'][index % 4]}`}>{initials(student.name)}</div><div><strong>{student.name}</strong><small>{student.goal}</small></div></div><div className="assignment-current"><small>{workout ? 'TREINO ATUAL' : 'PLANO ATUAL'}</small><strong>{workout ? student.workoutPlan?.name || student.workout : student.dietPlan?.name || student.diet}</strong>{workout && <span>{student.workoutPlan?.days.reduce((total, day) => total + day.exercises.length, 0) || 0} exercícios cadastrados</span>}{!workout && <span>{student.dietPlan?.meals.length || 0} refeições cadastradas</span>}</div><button className="outline-button compact" onClick={() => setEditingStudentId(String(student.id))}>Editar planilha</button><button className="row-arrow" onClick={() => onOpen(student)} aria-label={`Ver perfil de ${student.name}`}><Icon name="chevron" size={17} /></button></div>) : <div className="panel"><EmptyState title="Cadastre seu primeiro aluno" text="Os planos serão organizados aqui por aluno." /></div>}</div>
+    {editingStudent && workout && <WorkoutEditorModal key={editorDraftKey} draftKey={editorDraftKey} student={editingStudent} onClose={closeEditor} onSave={(workoutPlan) => { onUpdate(editingStudent.id, { workoutPlan, workout: workoutPlan.name.trim() || 'Treino sem nome' }); closeEditor(); }} />}
+    {editingStudent && !workout && <DietEditorModal key={editorDraftKey} draftKey={editorDraftKey} student={editingStudent} onClose={closeEditor} onSave={(dietPlan) => { onUpdate(editingStudent.id, { dietPlan, diet: dietPlan.name.trim() || 'Plano alimentar' }); closeEditor(); }} />}
   </>;
 }
 
@@ -1203,10 +1319,17 @@ function ExerciseVideo({ src, alt }) {
   </>;
 }
 
-function WorkoutEditorModal({ student, onClose, onSave }) {
-  const [plan, setPlan] = useState(() => JSON.parse(JSON.stringify(student.workoutPlan || createWorkoutPlan(student.workout || 'Novo treino'))));
-  const [activeDayId, setActiveDayId] = useState(() => plan.days[0]?.id);
+function WorkoutEditorModal({ student, draftKey, onClose, onSave }) {
+  const initialPlan = useMemo(() => JSON.parse(JSON.stringify(student.workoutPlan || createWorkoutPlan(student.workout || 'Novo treino'))), [student]);
+  const [plan, setPlan] = useSessionValue(draftKey, initialPlan);
+  const [activeDayId, setActiveDayId] = useSessionValue(`${draftKey}:active-day`, plan.days[0]?.id);
+  const [scrollTop, setScrollTop] = useSessionValue(`${draftKey}:scroll`, 0);
+  const modalRef = useRef(null);
   const activeDay = plan.days.find((day) => day.id === activeDayId);
+
+  useEffect(() => {
+    if (modalRef.current) modalRef.current.scrollTop = scrollTop;
+  }, [scrollTop]);
 
   function updateDay(dayId, updates) {
     setPlan((current) => ({ ...current, days: current.days.map((day) => day.id === dayId ? { ...day, ...updates } : day) }));
@@ -1226,21 +1349,13 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
   }
 
   function addExercise() {
+    if (!activeDay) {
+      const day = { id: `day-${Math.random().toString(36).slice(2, 9)}`, name: 'Treino A', exercises: [createWorkoutExercise()] };
+      setPlan((current) => ({ ...current, days: [...current.days, day] }));
+      setActiveDayId(day.id);
+      return;
+    }
     updateDay(activeDay.id, { exercises: [...activeDay.exercises, createWorkoutExercise()] });
-  }
-
-  function addCustomExercise() {
-    const exercise = {
-      id: `custom-${Math.random().toString(36).slice(2, 9)}`,
-      exerciseId: 'custom',
-      videoId: '',
-      name: '',
-      sets: '3',
-      reps: '10-12',
-      rest: '60s',
-      notes: '',
-    };
-    updateDay(activeDay.id, { exercises: [...activeDay.exercises, exercise] });
   }
 
   function updateExercise(exerciseId, field, value) {
@@ -1274,24 +1389,24 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
     onSave(updatedPlan);
   }
 
-  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card workout-editor-modal" role="dialog" aria-modal="true" aria-labelledby="workout-editor-title">
+  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section ref={modalRef} onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)} className="modal-card workout-editor-modal" role="dialog" aria-modal="true" aria-labelledby="workout-editor-title">
     <div className="modal-heading"><div><div className="eyebrow">PLANILHA INDIVIDUAL</div><h2 id="workout-editor-title">Treino de {student.name}</h2><p>Organize as sessões e os exercícios do aluno.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
     <form onSubmit={submit}>
-      <label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Treino de força e condicionamento" /></label>
-      <div className="workout-days-toolbar"><div className="workout-day-tabs">{plan.days.map((day) => <button type="button" className={`workout-day-tab ${activeDayId === day.id ? 'active' : ''}`} key={day.id} onClick={() => setActiveDayId(day.id)}>{day.name}</button>)}</div><button type="button" className="outline-button compact" onClick={addDay}><Icon name="plus" size={14} /> Adicionar dia</button></div>
+      <div className="workout-editor-top-actions"><label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Treino de força e condicionamento" /></label><button type="button" className="add-exercise-button add-exercise-button-prominent" onClick={addExercise}><Icon name="plus" size={16} /> Adicionar novo exercício</button></div>
+      <div className="workout-days-toolbar"><div className="workout-day-tabs">{plan.days.map((day) => <button type="button" className={`workout-day-tab ${activeDayId === day.id ? 'active' : ''}`} key={day.id} onClick={() => setActiveDayId(day.id)}>{day.name}</button>)}</div><button type="button" className="new-workout-day-button" onClick={addDay}><Icon name="plus" size={16} /> Nova planilha</button></div>
       {activeDay && <div className="workout-editor-day"><div className="workout-editor-day-heading"><label className="form-field">Nome da sessão<input value={activeDay.name} onChange={(event) => updateDay(activeDay.id, { name: event.target.value })} /></label><button type="button" className="remove-day-button" onClick={() => removeDay(activeDay.id)}>Remover dia</button></div>
-        <div className="workout-editor-table-wrap"><table className="workout-editor-table"><thead><tr><th>EXERCÍCIO E VÍDEO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th><th /></tr></thead><tbody>{activeDay.exercises.map((exercise) => <FixedWorkoutExerciseRow key={exercise.id} exercise={exercise} onUpdate={updateExercise} onRemove={removeExercise} />)}</tbody></table></div>
+        <div className="workout-editor-table-wrap"><table className="workout-editor-table"><thead><tr><th>EXERCÍCIO E VÍDEO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th><th /></tr></thead><tbody>{activeDay.exercises.map((exercise) => <FixedWorkoutExerciseRow key={exercise.id} draftKey={`${draftKey}:exercise:${exercise.id}`} exercise={exercise} onUpdate={updateExercise} onRemove={removeExercise} />)}</tbody></table></div>
         {activeDay.exercises.length === 0 && <div className="workout-editor-empty">Adicione exercícios para preencher esta sessão.</div>}
-        <div className="workout-editor-add-actions"><button type="button" className="add-exercise-button" onClick={addExercise}><Icon name="plus" size={15} /> Adicionar do catálogo</button><button type="button" className="add-exercise-button" onClick={addCustomExercise}><Icon name="plus" size={15} /> Adicionar personalizado</button></div>
+        <div className="workout-editor-add-actions"><button type="button" className="add-exercise-button add-exercise-button-prominent" onClick={addExercise}><Icon name="plus" size={15} /> Adicionar novo exercício</button></div>
       </div>}
       <div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar planilha</button></div>
     </form>
   </section></div>;
 }
 
-function ExercisePicker({ selectedExercise, isCustomExercise, onSelect }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [search, setSearch] = useState('');
+function ExercisePicker({ draftKey, selectedExercise, isCustomExercise, onSelect }) {
+  const [isOpen, setIsOpen] = useSessionValue(`${draftKey}:picker-open`, false);
+  const [search, setSearch] = useSessionValue(`${draftKey}:picker-search`, '');
   const [position, setPosition] = useState(null);
   const triggerRef = useRef(null);
   const menuRef = useRef(null);
@@ -1350,7 +1465,7 @@ function ExercisePicker({ selectedExercise, isCustomExercise, onSelect }) {
 
   return <div className="exercise-picker">
     <span>Exercício</span>
-    <button type="button" ref={triggerRef} className="exercise-picker-trigger" aria-haspopup="listbox" aria-expanded={isOpen} onClick={() => setIsOpen((current) => { if (!current) setSearch(''); return !current; })}>
+    <button type="button" ref={triggerRef} className="exercise-picker-trigger" aria-haspopup="listbox" aria-expanded={isOpen} onClick={() => { if (!isOpen) setSearch(''); setIsOpen(!isOpen); }}>
       <span>{selectedExercise?.name || (isCustomExercise ? 'Exercício personalizado' : 'Selecionar exercício')}</span>
       <Icon name="chevron" size={14} />
     </button>
@@ -1368,8 +1483,8 @@ function ExercisePicker({ selectedExercise, isCustomExercise, onSelect }) {
   </div>;
 }
 
-function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
-  const [videoSearch, setVideoSearch] = useState('');
+function FixedWorkoutExerciseRow({ exercise, draftKey, onUpdate, onRemove }) {
+  const [videoSearch, setVideoSearch] = useSessionValue(`${draftKey}:video-search`, '');
   const video = getExercise(exercise.videoId || exercise.exerciseId)?.video;
   const currentExercise = getExercise(exercise.exerciseId);
   const isCustomExercise = exercise.exerciseId === 'custom';
@@ -1386,7 +1501,7 @@ function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
       <div className="editor-exercise">
         {video ? <ExerciseVideo src={video} alt={`Assistir demonstração de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-video">Sem vídeo</span>}
         <div className="editor-exercise-fields">
-          <ExercisePicker selectedExercise={currentExercise} isCustomExercise={isCustomExercise} onSelect={(value) => onUpdate(exercise.id, 'exerciseId', value)} />
+          <ExercisePicker draftKey={draftKey} selectedExercise={currentExercise} isCustomExercise={isCustomExercise} onSelect={(value) => onUpdate(exercise.id, 'exerciseId', value)} />
           {isCustomExercise && <>
             <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />
             <label className="catalog-search-label">Buscar vídeo
@@ -1425,8 +1540,14 @@ function DietPlanView({ plan, onEdit }) {
   </section>;
 }
 
-function DietEditorModal({ student, onClose, onSave }) {
-  const [plan, setPlan] = useState(() => JSON.parse(JSON.stringify(student.dietPlan || createDietPlan(student.diet))));
+function DietEditorModal({ student, draftKey, onClose, onSave }) {
+  const initialPlan = useMemo(() => JSON.parse(JSON.stringify(student.dietPlan || createDietPlan(student.diet))), [student]);
+  const [plan, setPlan] = useSessionValue(draftKey, initialPlan);
+  const [scrollTop, setScrollTop] = useSessionValue(`${draftKey}:scroll`, 0);
+  const modalRef = useRef(null);
+  useEffect(() => {
+    if (modalRef.current) modalRef.current.scrollTop = scrollTop;
+  }, [scrollTop]);
   function updateMeal(mealId, field, value) {
     setPlan((current) => ({ ...current, meals: current.meals.map((meal) => meal.id === mealId ? { ...meal, [field]: value } : meal) }));
   }
@@ -1453,7 +1574,7 @@ function DietEditorModal({ student, onClose, onSave }) {
       meals: plan.meals.map((meal) => ({ ...meal, name: meal.name.trim() || 'Refeição', foods: meal.foods.filter((food) => food.name.trim() || food.quantity.trim()).map((food) => ({ ...food, name: food.name.trim() })) })),
     });
   }
-  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card workout-editor-modal diet-editor-modal" role="dialog" aria-modal="true" aria-labelledby="diet-editor-title">
+  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section ref={modalRef} onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)} className="modal-card workout-editor-modal diet-editor-modal" role="dialog" aria-modal="true" aria-labelledby="diet-editor-title">
     <div className="modal-heading"><div><div className="eyebrow">PLANILHA INDIVIDUAL</div><h2 id="diet-editor-title">Plano alimentar de {student.name}</h2><p>Organize os horários, alimentos, quantidades e observações.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
     <form onSubmit={submit}>
       <label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Plano alimentar — rotina de treino" /></label>
@@ -1472,16 +1593,17 @@ function DietEditorModal({ student, onClose, onSave }) {
   </section></div>;
 }
 
-function ProgressEntryModal({ student, type, record, onClose, onSave }) {
+function ProgressEntryModal({ student, type, record, draftKey, onClose, onSave }) {
   const isWeight = type === 'weight';
   const latest = student.measurements || {};
   const measurementValues = Object.fromEntries(measurementSeries.map(({ key }) => [
     key,
     record ? record[key] ?? '' : latest[key] ?? '',
   ]));
-  const [form, setForm] = useState(isWeight
+  const initialForm = useMemo(() => (isWeight
     ? { date: record?.date || todayDate(), value: String(record?.value ?? student.weight ?? '') }
-    : { date: record?.date || todayDate(), ...measurementValues });
+    : { date: record?.date || todayDate(), ...measurementValues }), [isWeight, record, student.measurements, student.weight]);
+  const [form, setForm] = useSessionValue(draftKey, initialForm);
   const [error, setError] = useState('');
   function submit(event) {
     event.preventDefault();
@@ -1528,31 +1650,32 @@ function EmptyState({ title, text }) {
   return <div className="empty-state"><span><Icon name="search" size={20} /></span><strong>{title}</strong><p>{text}</p></div>;
 }
 
-function AddStudentModal({ onClose, onSave }) {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', goal: 'Emagrecimento', weight: '', height: '', startDate: new Date().toISOString().slice(0, 10) });
+function AddStudentModal({ draftKey, onClose, onSave }) {
+  const [form, setForm] = useSessionValue(draftKey, { name: '', email: '', phone: '', goal: 'Emagrecimento', weight: '', height: '', startDate: todayDate() });
   const [error, setError] = useState('');
   function submit(event) {
     event.preventDefault();
     if (!form.name.trim()) return setError('Informe o nome do aluno.');
     if (!form.email.trim()) return setError('Informe o e-mail do aluno.');
-    if (!Number(form.weight) || !Number(form.height)) return setError('Informe peso e altura válidos.');
-    onSave({ ...form, name: form.name.trim(), email: form.email.trim(), weight: Number(form.weight), height: Number(form.height) });
+    if (!Number(form.weight) || Number(form.height) < 50 || Number(form.height) > 300) return setError('Informe peso e altura válidos. A altura deve estar entre 50 e 300 cm.');
+    onSave({ ...form, name: form.name.trim(), email: form.email.trim(), weight: Number(form.weight), height: Number(form.height) / 100 });
   }
-  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card" role="dialog" aria-modal="true" aria-labelledby="new-student-title"><div className="modal-heading"><div><div className="eyebrow">NOVO CADASTRO</div><h2 id="new-student-title">Adicionar aluno</h2><p>Preencha os dados iniciais para começar o acompanhamento.</p></div><button className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div><form onSubmit={submit}><div className="form-grid"><label className="form-field full">Nome completo<input value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Ex.: Ana Silva" autoFocus /></label><label className="form-field">E-mail<input type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="aluno@email.com" /></label><label className="form-field">Telefone<input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} placeholder="(11) 99999-9999" /></label><label className="form-field">Objetivo<select value={form.goal} onChange={(event) => setForm({ ...form, goal: event.target.value })}><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Saúde e bem-estar</option><option>Performance</option></select></label><label className="form-field">Data de início<input type="date" value={form.startDate} onChange={(event) => setForm({ ...form, startDate: event.target.value })} /></label><label className="form-field">Peso atual (kg)<input type="number" step="0.1" min="1" value={form.weight} onChange={(event) => setForm({ ...form, weight: event.target.value })} placeholder="Ex.: 68.5" /></label><label className="form-field">Altura (m)<input type="number" step="0.01" min="0.5" value={form.height} onChange={(event) => setForm({ ...form, height: event.target.value })} placeholder="Ex.: 1.70" /></label></div>{error && <p className="form-error">{error}</p>}<div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="plus" size={16} /> Cadastrar aluno</button></div></form></section></div>;
+  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card" role="dialog" aria-modal="true" aria-labelledby="new-student-title"><div className="modal-heading"><div><div className="eyebrow">NOVO CADASTRO</div><h2 id="new-student-title">Adicionar aluno</h2><p>Preencha os dados iniciais para começar o acompanhamento.</p></div><button className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div><form onSubmit={submit}><div className="form-grid"><label className="form-field full">Nome completo<input value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Ex.: Ana Silva" autoFocus /></label><label className="form-field">E-mail<input type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="aluno@email.com" /></label><label className="form-field">Telefone<input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} placeholder="(11) 99999-9999" /></label><label className="form-field">Objetivo<select value={form.goal} onChange={(event) => setForm({ ...form, goal: event.target.value })}><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Saúde e bem-estar</option><option>Performance</option></select></label><label className="form-field">Data de início<input type="date" value={form.startDate} onChange={(event) => setForm({ ...form, startDate: event.target.value })} /></label><label className="form-field">Peso atual (kg)<input type="number" step="0.1" min="1" value={form.weight} onChange={(event) => setForm({ ...form, weight: event.target.value })} placeholder="Ex.: 68.5" /></label><label className="form-field">Altura (cm)<input type="number" step="0.1" min="50" max="300" value={form.height} onChange={(event) => setForm({ ...form, height: event.target.value })} placeholder="Ex.: 170" /></label></div>{error && <p className="form-error">{error}</p>}<div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="plus" size={16} /> Cadastrar aluno</button></div></form></section></div>;
 }
 
-function EditStudentModal({ student, onClose, onSave }) {
-  const [form, setForm] = useState({
+function EditStudentModal({ student, draftKey, onClose, onSave }) {
+  const initialForm = useMemo(() => ({
     name: student.name,
     email: student.email,
     phone: student.phone || '',
     goal: student.goal,
     weight: student.weight,
-    height: student.height,
+    height: Number(student.height) * 100,
     status: student.status,
     diet: student.diet,
     ...Object.fromEntries(measurementSeries.map(({ key }) => [key, student.measurements?.[key] || ''])),
-  });
+  }), [student]);
+  const [form, setForm] = useSessionValue(draftKey, initialForm);
   function submit(event) {
     event.preventDefault();
     const weight = Number(form.weight);
@@ -1574,7 +1697,7 @@ function EditStudentModal({ student, onClose, onSave }) {
       measurementRecords.sort((first, second) => first.date.localeCompare(second.date));
     }
     const dietPlan = { ...(student.dietPlan || createDietPlan()), name: form.diet.trim() || 'Plano alimentar' };
-    onSave({ ...form, diet: dietPlan.name, dietPlan, weight, height: Number(form.height), measurements, weightRecords, history: weightRecords.map((record) => record.value), measurementRecords });
+    onSave({ ...form, diet: dietPlan.name, dietPlan, weight, height: Number(form.height) / 100, measurements, weightRecords, history: weightRecords.map((record) => record.value), measurementRecords });
   }
-  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-student-title"><div className="modal-heading"><div><div className="eyebrow">PERFIL DO ALUNO</div><h2 id="edit-student-title">Atualizar informações</h2><p>As alterações serão salvas automaticamente no seu navegador.</p></div><button className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div><form onSubmit={submit}><div className="form-grid"><label className="form-field">Nome completo<input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} /></label><label className="form-field">E-mail<input required type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} /></label><label className="form-field">Telefone<input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} /></label><label className="form-field">Objetivo<select value={form.goal} onChange={(event) => setForm({ ...form, goal: event.target.value })}><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Saúde e bem-estar</option><option>Performance</option></select></label><label className="form-field">Peso atual (kg)<input required type="number" step="0.1" min="1" value={form.weight} onChange={(event) => setForm({ ...form, weight: event.target.value })} /></label><label className="form-field">Altura (m)<input required type="number" step="0.01" min="0.5" value={form.height} onChange={(event) => setForm({ ...form, height: event.target.value })} /></label><label className="form-field">Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value })}><option>Ativo</option><option>Atenção</option><option>Inativo</option></select></label></div><div className="form-section-label">MEDIDAS CORPORAIS (CM)</div><div className="form-grid measurement-inputs">{measurementSeries.map(({ key, label }) => <label className="form-field" key={key}>{label}<input type="number" step="0.1" min="0" value={form[key]} onChange={(event) => setForm({ ...form, [key]: event.target.value })} placeholder="—" /></label>)}</div><div className="form-section-label">PRESCRIÇÃO ATUAL</div><div className="form-grid"><label className="form-field full">Plano alimentar<input value={form.diet} onChange={(event) => setForm({ ...form, diet: event.target.value })} /></label></div><div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar alterações</button></div></form></section></div>;
+  return <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="modal-card edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-student-title"><div className="modal-heading"><div><div className="eyebrow">PERFIL DO ALUNO</div><h2 id="edit-student-title">Atualizar informações</h2><p>As alterações serão salvas automaticamente no seu navegador.</p></div><button className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div><form onSubmit={submit}><div className="form-grid"><label className="form-field">Nome completo<input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} /></label><label className="form-field">E-mail<input required type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} /></label><label className="form-field">Telefone<input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} /></label><label className="form-field">Objetivo<select value={form.goal} onChange={(event) => setForm({ ...form, goal: event.target.value })}><option>Emagrecimento</option><option>Hipertrofia</option><option>Condicionamento</option><option>Saúde e bem-estar</option><option>Performance</option></select></label><label className="form-field">Peso atual (kg)<input required type="number" step="0.1" min="1" value={form.weight} onChange={(event) => setForm({ ...form, weight: event.target.value })} /></label><label className="form-field">Altura (cm)<input required type="number" step="0.1" min="50" max="300" value={form.height} onChange={(event) => setForm({ ...form, height: event.target.value })} /></label><label className="form-field">Status<select value={form.status} onChange={(event) => setForm({ ...form, status: event.target.value })}><option>Ativo</option><option>Atenção</option><option>Inativo</option></select></label></div><div className="form-section-label">MEDIDAS CORPORAIS (CM)</div><div className="form-grid measurement-inputs">{measurementSeries.map(({ key, label }) => <label className="form-field" key={key}>{label}<input type="number" step="0.1" min="0" value={form[key]} onChange={(event) => setForm({ ...form, [key]: event.target.value })} placeholder="—" /></label>)}</div><div className="form-section-label">PRESCRIÇÃO ATUAL</div><div className="form-grid"><label className="form-field full">Plano alimentar<input value={form.diet} onChange={(event) => setForm({ ...form, diet: event.target.value })} /></label></div><div className="modal-footer"><button type="button" className="outline-button" onClick={onClose}>Cancelar</button><button type="submit" className="primary-button"><Icon name="check" size={16} /> Salvar alterações</button></div></form></section></div>;
 }
