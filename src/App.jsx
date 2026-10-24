@@ -399,6 +399,7 @@ export default function App() {
   const addStudentDraftKey = sessionDraftKey(uiDraftNamespace, 'add-student');
   const selectedStudentDraftKey = sessionDraftKey(uiDraftNamespace, 'selected-student');
   const selectedStudentRestoredFor = useRef(null);
+  const pageScrollRestoredFor = useRef(null);
 
   useEffect(() => {
     if (!isSupabaseConfigured) {
@@ -503,6 +504,18 @@ export default function App() {
     setSelectedStudent(student || null);
     if (!student) clearSessionValue(selectedStudentDraftKey);
   }, [students, studentsLoaded, selectedStudentDraftKey, uiDraftNamespace]);
+
+  useEffect(() => {
+    if (portalState.active || !studentsLoaded || selectedStudentRestoredFor.current !== uiDraftNamespace || pageScrollRestoredFor.current === uiDraftNamespace) return undefined;
+    pageScrollRestoredFor.current = uiDraftNamespace;
+    const pageScrollKey = sessionDraftKey(uiDraftNamespace, 'page-scroll');
+    window.requestAnimationFrame(() => window.scrollTo(0, readSessionValue(pageScrollKey, 0)));
+    function savePageScroll() {
+      writeSessionValue(pageScrollKey, window.scrollY);
+    }
+    window.addEventListener('scroll', savePageScroll, { passive: true });
+    return () => window.removeEventListener('scroll', savePageScroll);
+  }, [portalState.active, studentsLoaded, selectedStudent, uiDraftNamespace]);
 
   useEffect(() => {
     if (!portalState.student) return;
@@ -1323,13 +1336,22 @@ function WorkoutEditorModal({ student, draftKey, onClose, onSave }) {
   const initialPlan = useMemo(() => JSON.parse(JSON.stringify(student.workoutPlan || createWorkoutPlan(student.workout || 'Novo treino'))), [student]);
   const [plan, setPlan] = useSessionValue(draftKey, initialPlan);
   const [activeDayId, setActiveDayId] = useSessionValue(`${draftKey}:active-day`, plan.days[0]?.id);
-  const [scrollTop, setScrollTop] = useSessionValue(`${draftKey}:scroll`, 0);
+  const savedScrollTop = useRef(readSessionValue(`${draftKey}:scroll`, 0));
   const modalRef = useRef(null);
+  const [pendingExerciseId, setPendingExerciseId] = useState('');
   const activeDay = plan.days.find((day) => day.id === activeDayId);
 
   useEffect(() => {
-    if (modalRef.current) modalRef.current.scrollTop = scrollTop;
-  }, [scrollTop]);
+    if (modalRef.current) modalRef.current.scrollTop = savedScrollTop.current;
+  }, []);
+
+  useEffect(() => {
+    if (!pendingExerciseId) return;
+    const exerciseRow = modalRef.current?.querySelector(`[data-workout-exercise-id="${pendingExerciseId}"]`);
+    if (!exerciseRow) return;
+    exerciseRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setPendingExerciseId('');
+  }, [pendingExerciseId, plan]);
 
   function updateDay(dayId, updates) {
     setPlan((current) => ({ ...current, days: current.days.map((day) => day.id === dayId ? { ...day, ...updates } : day) }));
@@ -1350,12 +1372,16 @@ function WorkoutEditorModal({ student, draftKey, onClose, onSave }) {
 
   function addExercise() {
     if (!activeDay) {
-      const day = { id: `day-${Math.random().toString(36).slice(2, 9)}`, name: 'Treino A', exercises: [createWorkoutExercise()] };
+      const exercise = createWorkoutExercise();
+      const day = { id: `day-${Math.random().toString(36).slice(2, 9)}`, name: 'Treino A', exercises: [exercise] };
       setPlan((current) => ({ ...current, days: [...current.days, day] }));
       setActiveDayId(day.id);
+      setPendingExerciseId(exercise.id);
       return;
     }
-    updateDay(activeDay.id, { exercises: [...activeDay.exercises, createWorkoutExercise()] });
+    const exercise = createWorkoutExercise();
+    updateDay(activeDay.id, { exercises: [...activeDay.exercises, exercise] });
+    setPendingExerciseId(exercise.id);
   }
 
   function updateExercise(exerciseId, field, value) {
@@ -1389,12 +1415,12 @@ function WorkoutEditorModal({ student, draftKey, onClose, onSave }) {
     onSave(updatedPlan);
   }
 
-  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section ref={modalRef} onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)} className="modal-card workout-editor-modal" role="dialog" aria-modal="true" aria-labelledby="workout-editor-title">
+  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section ref={modalRef} onScroll={(event) => { savedScrollTop.current = event.currentTarget.scrollTop; writeSessionValue(`${draftKey}:scroll`, savedScrollTop.current); }} className="modal-card workout-editor-modal" role="dialog" aria-modal="true" aria-labelledby="workout-editor-title">
     <div className="modal-heading"><div><div className="eyebrow">PLANILHA INDIVIDUAL</div><h2 id="workout-editor-title">Treino de {student.name}</h2><p>Organize as sessões e os exercícios do aluno.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
     <form onSubmit={submit}>
-      <div className="workout-editor-top-actions"><label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Treino de força e condicionamento" /></label><button type="button" className="add-exercise-button add-exercise-button-prominent" onClick={addExercise}><Icon name="plus" size={16} /> Adicionar novo exercício</button></div>
+      <label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Treino de força e condicionamento" /></label>
       <div className="workout-days-toolbar"><div className="workout-day-tabs">{plan.days.map((day) => <button type="button" className={`workout-day-tab ${activeDayId === day.id ? 'active' : ''}`} key={day.id} onClick={() => setActiveDayId(day.id)}>{day.name}</button>)}</div><button type="button" className="new-workout-day-button" onClick={addDay}><Icon name="plus" size={16} /> Nova planilha</button></div>
-      {activeDay && <div className="workout-editor-day"><div className="workout-editor-day-heading"><label className="form-field">Nome da sessão<input value={activeDay.name} onChange={(event) => updateDay(activeDay.id, { name: event.target.value })} /></label><button type="button" className="remove-day-button" onClick={() => removeDay(activeDay.id)}>Remover dia</button></div>
+      {activeDay && <div className="workout-editor-day"><div className="workout-editor-day-heading"><div className="workout-editor-session-fields"><button type="button" className="add-exercise-button add-exercise-button-prominent" onClick={addExercise}><Icon name="plus" size={16} /> Adicionar novo exercício</button><label className="form-field">Nome da sessão<input value={activeDay.name} onChange={(event) => updateDay(activeDay.id, { name: event.target.value })} /></label></div><button type="button" className="remove-day-button" onClick={() => removeDay(activeDay.id)}>Remover dia</button></div>
         <div className="workout-editor-table-wrap"><table className="workout-editor-table"><thead><tr><th>EXERCÍCIO E VÍDEO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th><th /></tr></thead><tbody>{activeDay.exercises.map((exercise) => <FixedWorkoutExerciseRow key={exercise.id} draftKey={`${draftKey}:exercise:${exercise.id}`} exercise={exercise} onUpdate={updateExercise} onRemove={removeExercise} />)}</tbody></table></div>
         {activeDay.exercises.length === 0 && <div className="workout-editor-empty">Adicione exercícios para preencher esta sessão.</div>}
         <div className="workout-editor-add-actions"><button type="button" className="add-exercise-button add-exercise-button-prominent" onClick={addExercise}><Icon name="plus" size={15} /> Adicionar novo exercício</button></div>
@@ -1496,7 +1522,7 @@ function FixedWorkoutExerciseRow({ exercise, draftKey, onUpdate, onRemove }) {
     ? [videoExercise, ...filteredVideos]
     : filteredVideos;
 
-  return <tr>
+  return <tr data-workout-exercise-id={exercise.id}>
     <td>
       <div className="editor-exercise">
         {video ? <ExerciseVideo src={video} alt={`Assistir demonstração de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-video">Sem vídeo</span>}
@@ -1543,11 +1569,11 @@ function DietPlanView({ plan, onEdit }) {
 function DietEditorModal({ student, draftKey, onClose, onSave }) {
   const initialPlan = useMemo(() => JSON.parse(JSON.stringify(student.dietPlan || createDietPlan(student.diet))), [student]);
   const [plan, setPlan] = useSessionValue(draftKey, initialPlan);
-  const [scrollTop, setScrollTop] = useSessionValue(`${draftKey}:scroll`, 0);
+  const savedScrollTop = useRef(readSessionValue(`${draftKey}:scroll`, 0));
   const modalRef = useRef(null);
   useEffect(() => {
-    if (modalRef.current) modalRef.current.scrollTop = scrollTop;
-  }, [scrollTop]);
+    if (modalRef.current) modalRef.current.scrollTop = savedScrollTop.current;
+  }, []);
   function updateMeal(mealId, field, value) {
     setPlan((current) => ({ ...current, meals: current.meals.map((meal) => meal.id === mealId ? { ...meal, [field]: value } : meal) }));
   }
@@ -1574,7 +1600,7 @@ function DietEditorModal({ student, draftKey, onClose, onSave }) {
       meals: plan.meals.map((meal) => ({ ...meal, name: meal.name.trim() || 'Refeição', foods: meal.foods.filter((food) => food.name.trim() || food.quantity.trim()).map((food) => ({ ...food, name: food.name.trim() })) })),
     });
   }
-  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section ref={modalRef} onScroll={(event) => setScrollTop(event.currentTarget.scrollTop)} className="modal-card workout-editor-modal diet-editor-modal" role="dialog" aria-modal="true" aria-labelledby="diet-editor-title">
+  return <div className="modal-backdrop workout-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section ref={modalRef} onScroll={(event) => { savedScrollTop.current = event.currentTarget.scrollTop; writeSessionValue(`${draftKey}:scroll`, savedScrollTop.current); }} className="modal-card workout-editor-modal diet-editor-modal" role="dialog" aria-modal="true" aria-labelledby="diet-editor-title">
     <div className="modal-heading"><div><div className="eyebrow">PLANILHA INDIVIDUAL</div><h2 id="diet-editor-title">Plano alimentar de {student.name}</h2><p>Organize os horários, alimentos, quantidades e observações.</p></div><button type="button" className="icon-button" onClick={onClose} aria-label="Fechar"><Icon name="close" /></button></div>
     <form onSubmit={submit}>
       <label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Plano alimentar — rotina de treino" /></label>

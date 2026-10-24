@@ -411,9 +411,7 @@ td { border-top: 1px solid #f0f2f0; padding: 10px 9px; font-size: 10px; }
 .workout-modal-backdrop { padding: 15px; }
 .workout-editor-modal { width: min(100%, 1080px); padding: 22px 24px 18px; }
 .workout-name-field { max-width: 510px; margin-bottom: 18px; }
-.workout-editor-top-actions { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; }
-.workout-editor-top-actions .workout-name-field { flex: 1; }
-.add-exercise-button-prominent { min-height: 36px; align-self: flex-end; margin-bottom: 18px; padding: 0 12px; border: 1px solid #d5e5d9; border-radius: 6px; background: #f4f9f5; white-space: nowrap; }
+.add-exercise-button-prominent { min-height: 36px; align-self: flex-start; padding: 0 12px; border: 1px solid #d5e5d9; border-radius: 6px; background: #f4f9f5; white-space: nowrap; }
 .add-exercise-button-prominent:hover { background: #e9f3ec; }
 .workout-days-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-bottom: 1px solid #e9ede9; margin-bottom: 14px; }
 .workout-day-tabs { display: flex; gap: 5px; overflow-x: auto; }
@@ -423,6 +421,8 @@ td { border-top: 1px solid #f0f2f0; padding: 10px 9px; font-size: 10px; }
 .new-workout-day-button:hover { border-color: #c59b27; background: #f6f0df; }
 .workout-editor-day-heading { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px; }
 .workout-editor-day-heading .form-field { width: min(100%, 300px); }
+.workout-editor-session-fields { display: flex; width: min(100%, 360px); flex-direction: column; align-items: flex-start; gap: 8px; }
+.workout-editor-session-fields .form-field { width: 100%; }
 .remove-day-button { border: 0; background: none; color: #ad7162; font-size: 9px; padding: 8px 2px; }
 .workout-editor-table { min-width: 920px; }
 .workout-editor-table th { padding: 0 7px 9px; }
@@ -509,12 +509,11 @@ td { border-top: 1px solid #f0f2f0; padding: 10px 9px; font-size: 10px; }
 @media (max-width: 560px) {
   .workout-plan-heading { flex-direction: column; }
   .workout-plan-heading .primary-button { align-self: flex-start; }
-  .workout-editor-top-actions { align-items: stretch; flex-direction: column; gap: 0; }
-  .workout-editor-top-actions .workout-name-field { margin-bottom: 12px; }
-  .add-exercise-button-prominent { align-self: flex-start; margin-bottom: 14px; }
+  .add-exercise-button-prominent { max-width: 100%; min-height: 38px; padding: 0 10px; font-size: 9px; }
   .workout-days-toolbar { align-items: flex-start; flex-direction: column; }
   .new-workout-day-button { width: 100%; }
-  .workout-editor-day-heading { align-items: flex-start; }
+  .workout-editor-day-heading { align-items: flex-start; gap: 8px; }
+  .workout-editor-session-fields { width: 100%; }
   .workout-day-tabs { width: 100%; }
 }
 
