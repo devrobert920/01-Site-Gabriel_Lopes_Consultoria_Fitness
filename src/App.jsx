@@ -34,7 +34,6 @@ function Icon({ name, size = 18 }) {
 }
 
 function normalizeStudent(student) {
-  const legacyExerciseIds = { 'afundo-halter': 'afundo-com-halter', 'crucifixo-maquina': 'crucifixo-maquina-fly' };
   const workoutPlan = student.workoutPlan || createDemoWorkoutPlan(student.id, student.workout || 'Novo treino');
   return normalizeStudentRecords({
     ...student,
@@ -43,15 +42,16 @@ function normalizeStudent(student) {
       days: (workoutPlan.days || []).map((day) => ({
         ...day,
         exercises: (day.exercises || []).map((exercise) => {
-          const exerciseId = legacyExerciseIds[exercise.exerciseId] || exercise.exerciseId;
-          const canonical = getExercise(exerciseId);
-          const imageExercise = exercise.imageId === 'none' ? null : getExercise(exercise.imageId) || canonical;
+          const catalogExercise = getExercise(exercise.exerciseId) || getExercise(exercise.videoId) || getExercise(exercise.name);
+          const isCustomExercise = exercise.exerciseId === 'custom';
+          const savedExercise = { ...exercise };
+          delete savedExercise.image;
+          delete savedExercise.imageId;
           return {
-            ...exercise,
-            exerciseId: canonical ? canonical.id : 'custom',
-            name: canonical ? canonical.name : exercise.name || '',
-            imageId: exercise.imageId ?? imageExercise?.id ?? (exercise.image ? 'custom' : 'none'),
-            image: exercise.imageId === 'none' ? '' : imageExercise?.image || exercise.image || '',
+            ...savedExercise,
+            exerciseId: isCustomExercise ? 'custom' : catalogExercise?.id || 'custom',
+            videoId: getExercise(exercise.videoId)?.id || catalogExercise?.id || '',
+            name: isCustomExercise ? exercise.name || '' : catalogExercise?.name || exercise.name || '',
           };
         }),
       })),
@@ -208,7 +208,7 @@ function studentShareData(student) {
       days: (student.workoutPlan?.days || []).map((day) => ({
         id: day.id,
         name: day.name,
-        exercises: day.exercises.map(({ id, exerciseId, imageId, image, name, sets, reps, rest, notes }) => ({ id, exerciseId, imageId, image, name, sets, reps, rest, notes })),
+        exercises: day.exercises.map(({ id, exerciseId, videoId, name, sets, reps, rest, notes }) => ({ id, exerciseId, videoId, name, sets, reps, rest, notes })),
       })),
     },
     dietPlan: {
@@ -988,7 +988,7 @@ function WorkoutPlanView({ plan, onEdit, readOnly = false }) {
   const exerciseCount = plan.days.reduce((total, day) => total + day.exercises.length, 0);
   return <div className="workout-plan-view">
     <div className="workout-plan-heading"><div><div className="eyebrow">PLANILHA DE TREINO</div><h2>{plan.name || 'Novo treino'}</h2><p>{plan.days.length} {plan.days.length === 1 ? 'dia' : 'dias'} de treino <span>·</span> {exerciseCount} {exerciseCount === 1 ? 'exercício' : 'exercícios'}</p></div>{!readOnly && <button className="primary-button" onClick={onEdit}><Icon name="check" size={16} /> Editar planilha</button>}</div>
-    {plan.days.map((day) => <section className="panel workout-day-panel" key={day.id}><div className="workout-day-heading"><div><span className="workout-day-tag">SESSÃO</span><h3>{day.name}</h3></div><span className="goal-pill">{day.exercises.length} exercícios</span></div>{day.exercises.length ? <div className="workout-table-wrap"><table className="workout-table"><thead><tr><th>EXERCÍCIO / EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th></tr></thead><tbody>{day.exercises.map((exercise) => { const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image; return <tr key={exercise.id}><td><div className="workout-exercise-cell">{image ? <ExerciseImage src={image} alt={`Exemplo ilustrado de ${exercise.name}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}<strong>{exercise.name}</strong></div></td><td>{exercise.sets}</td><td>{exercise.reps}</td><td>{exercise.rest}</td><td className="workout-notes">{exercise.notes || '—'}</td></tr>; })}</tbody></table></div> : <p className="workout-empty-day">Ainda não há exercícios nesta sessão.</p>}</section>)}
+    {plan.days.map((day) => <section className="panel workout-day-panel" key={day.id}><div className="workout-day-heading"><div><span className="workout-day-tag">SESSÃO</span><h3>{day.name}</h3></div><span className="goal-pill">{day.exercises.length} exercícios</span></div>{day.exercises.length ? <div className="workout-table-wrap"><table className="workout-table"><thead><tr><th>EXERCÍCIO / VÍDEO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th></tr></thead><tbody>{day.exercises.map((exercise) => { const video = getExercise(exercise.videoId || exercise.exerciseId)?.video; return <tr key={exercise.id}><td><div className="workout-exercise-cell">{video ? <ExerciseVideo src={video} alt={`Assistir demonstração de ${exercise.name}`} /> : <span className="workout-exercise-no-video">Sem vídeo</span>}<strong>{exercise.name}</strong></div></td><td>{exercise.sets}</td><td>{exercise.reps}</td><td>{exercise.rest}</td><td className="workout-notes">{exercise.notes || '—'}</td></tr>; })}</tbody></table></div> : <p className="workout-empty-day">Ainda não há exercícios nesta sessão.</p>}</section>)}
     {plan.days.length === 0 && <div className="panel"><EmptyState title="Sua ficha ainda está vazia" text="Adicione dias e exercícios para montar o treino." /></div>}
   </div>;
 }
@@ -1134,8 +1134,29 @@ function AssignmentsPage({ type, students, onOpen, onUpdate }) {
   </>;
 }
 
-function ExerciseImage({ src, alt }) {
+function ExerciseVideo({ src, alt }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [loadThumbnail, setLoadThumbnail] = useState(false);
+  const [thumbnailLoaded, setThumbnailLoaded] = useState(false);
+  const [thumbnailError, setThumbnailError] = useState(false);
+  const [playerError, setPlayerError] = useState(false);
+  const thumbnailRef = useRef(null);
+
+  useEffect(() => {
+    const element = thumbnailRef.current;
+    if (!element) return undefined;
+    if (!('IntersectionObserver' in window)) {
+      setLoadThumbnail(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setLoadThumbnail(true);
+      observer.disconnect();
+    }, { rootMargin: '120px' });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -1151,20 +1172,31 @@ function ExerciseImage({ src, alt }) {
     };
   }, [isOpen]);
 
+  function seekThumbnail(event) {
+    const video = event.currentTarget;
+    if (video.duration > 0) video.currentTime = Math.min(0.2, video.duration / 2);
+  }
+
+  function handleThumbnailError() {
+    setThumbnailError(true);
+  }
+
   return <>
-    <button type="button" className="exercise-image-button" onClick={() => setIsOpen(true)} aria-label={`Ampliar imagem: ${alt}`}>
-      <img src={src} alt={alt} />
+    <button type="button" ref={thumbnailRef} className="exercise-video-thumbnail" onClick={() => { setPlayerError(false); setIsOpen(true); }} aria-label={alt}>
+      {loadThumbnail && !thumbnailError && <video src={src} muted playsInline preload="metadata" onLoadedMetadata={seekThumbnail} onSeeked={() => setThumbnailLoaded(true)} onError={handleThumbnailError} aria-hidden="true" />}
+      {!thumbnailLoaded && <span className="exercise-video-placeholder">{thumbnailError ? 'Prévia indisponível' : 'Vídeo'}</span>}
+      {!thumbnailError && <span className="exercise-video-play" aria-hidden="true">▶</span>}
     </button>
     {isOpen && createPortal(
-      <div className="exercise-image-lightbox" onMouseDown={(event) => event.target === event.currentTarget && setIsOpen(false)}>
-        <div className="exercise-image-lightbox-header">
+      <div className="exercise-video-lightbox" onMouseDown={(event) => event.target === event.currentTarget && setIsOpen(false)}>
+        <div className="exercise-video-lightbox-header">
           <p>{alt}</p>
-          <button type="button" className="icon-button" onClick={() => setIsOpen(false)} aria-label="Fechar imagem ampliada"><Icon name="close" /></button>
+          <button type="button" className="icon-button" onClick={() => setIsOpen(false)} aria-label="Fechar vídeo"><Icon name="close" /></button>
         </div>
-        <div className="exercise-image-viewer">
-          <img src={src} alt={alt} draggable="false" />
+        <div className="exercise-video-player">
+          <video src={src} controls autoPlay playsInline preload="auto" onError={() => setPlayerError(true)} aria-label={alt} />
+          {playerError && <p className="exercise-video-error" role="alert">Não foi possível carregar este vídeo. Verifique a conexão ou o endereço informado no catálogo JSON.</p>}
         </div>
-        <div className="exercise-image-controls"><span>100% · resolução original</span></div>
       </div>,
       document.body,
     )}
@@ -1201,9 +1233,8 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
     const exercise = {
       id: `custom-${Math.random().toString(36).slice(2, 9)}`,
       exerciseId: 'custom',
-      imageId: 'none',
+      videoId: '',
       name: '',
-      image: '',
       sets: '3',
       reps: '10-12',
       rest: '60s',
@@ -1214,14 +1245,12 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
 
   function updateExercise(exerciseId, field, value) {
     const selectedExercise = field === 'exerciseId' ? getExercise(value) : null;
-    const selectedImage = field === 'imageId' ? getExercise(value) : null;
+    const selectedVideo = field === 'videoId' ? getExercise(value) : null;
     const exercises = activeDay.exercises.map((exercise) => {
       if (exercise.id !== exerciseId) return exercise;
-      if (field === 'exerciseId' && selectedExercise) return { ...exercise, exerciseId: selectedExercise.id, name: selectedExercise.name, imageId: selectedExercise.id, image: selectedExercise.image, sets: selectedExercise.sets, reps: selectedExercise.reps, rest: selectedExercise.rest };
-      if (field === 'exerciseId') return { ...exercise, exerciseId: 'custom', name: '', imageId: 'none', image: '' };
-      if (field === 'imageId') return value === 'custom'
-        ? { ...exercise, imageId: value }
-        : { ...exercise, imageId: value, image: selectedImage?.image || '' };
+      if (field === 'exerciseId' && selectedExercise) return { ...exercise, exerciseId: selectedExercise.id, videoId: selectedExercise.id, name: selectedExercise.name, sets: selectedExercise.sets, reps: selectedExercise.reps, rest: selectedExercise.rest };
+      if (field === 'exerciseId') return { ...exercise, exerciseId: 'custom', videoId: '', name: '' };
+      if (field === 'videoId') return { ...exercise, videoId: selectedVideo?.id || '' };
       return { ...exercise, [field]: value };
     });
     updateDay(activeDay.id, { exercises });
@@ -1251,7 +1280,7 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
       <label className="form-field workout-name-field">Nome do plano<input value={plan.name} onChange={(event) => setPlan((current) => ({ ...current, name: event.target.value }))} placeholder="Ex.: Treino de força e condicionamento" /></label>
       <div className="workout-days-toolbar"><div className="workout-day-tabs">{plan.days.map((day) => <button type="button" className={`workout-day-tab ${activeDayId === day.id ? 'active' : ''}`} key={day.id} onClick={() => setActiveDayId(day.id)}>{day.name}</button>)}</div><button type="button" className="outline-button compact" onClick={addDay}><Icon name="plus" size={14} /> Adicionar dia</button></div>
       {activeDay && <div className="workout-editor-day"><div className="workout-editor-day-heading"><label className="form-field">Nome da sessão<input value={activeDay.name} onChange={(event) => updateDay(activeDay.id, { name: event.target.value })} /></label><button type="button" className="remove-day-button" onClick={() => removeDay(activeDay.id)}>Remover dia</button></div>
-        <div className="workout-editor-table-wrap"><table className="workout-editor-table"><thead><tr><th>EXERCÍCIO E EXEMPLO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th><th /></tr></thead><tbody>{activeDay.exercises.map((exercise) => <FixedWorkoutExerciseRow key={exercise.id} exercise={exercise} onUpdate={updateExercise} onRemove={removeExercise} />)}</tbody></table></div>
+        <div className="workout-editor-table-wrap"><table className="workout-editor-table"><thead><tr><th>EXERCÍCIO E VÍDEO</th><th>SÉRIES</th><th>REPETIÇÕES</th><th>DESCANSO</th><th>OBSERVAÇÕES</th><th /></tr></thead><tbody>{activeDay.exercises.map((exercise) => <FixedWorkoutExerciseRow key={exercise.id} exercise={exercise} onUpdate={updateExercise} onRemove={removeExercise} />)}</tbody></table></div>
         {activeDay.exercises.length === 0 && <div className="workout-editor-empty">Adicione exercícios para preencher esta sessão.</div>}
         <div className="workout-editor-add-actions"><button type="button" className="add-exercise-button" onClick={addExercise}><Icon name="plus" size={15} /> Adicionar do catálogo</button><button type="button" className="add-exercise-button" onClick={addCustomExercise}><Icon name="plus" size={15} /> Adicionar personalizado</button></div>
       </div>}
@@ -1261,12 +1290,12 @@ function WorkoutEditorModal({ student, onClose, onSave }) {
 }
 
 function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
-  const image = exercise.imageId === 'none' ? '' : getExercise(exercise.imageId)?.image || getExercise(exercise.exerciseId)?.image || exercise.image;
+  const video = getExercise(exercise.videoId || exercise.exerciseId)?.video;
   const isCustomExercise = exercise.exerciseId === 'custom';
   return <tr>
     <td>
       <div className="editor-exercise">
-        {image ? <ExerciseImage src={image} alt={`Exemplo ilustrado de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-image">Sem imagem</span>}
+        {video ? <ExerciseVideo src={video} alt={`Assistir demonstração de ${exercise.name || 'exercício'}`} /> : <span className="workout-exercise-no-video">Sem vídeo</span>}
         <div className="editor-exercise-fields">
           <label className="exercise-picker-label">Exercício
             <select aria-label="Selecionar exercício" value={getExercise(exercise.exerciseId) ? exercise.exerciseId : 'custom'} onChange={(event) => onUpdate(exercise.id, 'exerciseId', event.target.value)}>
@@ -1276,11 +1305,10 @@ function FixedWorkoutExerciseRow({ exercise, onUpdate, onRemove }) {
           </label>
           {isCustomExercise && <>
             <input aria-label="Nome do exercício personalizado" value={exercise.name} onChange={(event) => onUpdate(exercise.id, 'name', event.target.value)} placeholder="Digite o nome do exercício" />
-            <label className="image-picker">Imagem de exemplo
-              <select aria-label="Imagem de exemplo" value={exercise.imageId || (exercise.image ? 'custom' : 'none')} onChange={(event) => onUpdate(exercise.id, 'imageId', event.target.value)}>
-                <option value="none">Sem imagem</option>
+            <label className="video-picker">Vídeo demonstrativo
+              <select aria-label="Vídeo demonstrativo" value={exercise.videoId || ''} onChange={(event) => onUpdate(exercise.id, 'videoId', event.target.value)}>
+                <option value="">Sem vídeo vinculado</option>
                 {exerciseLibrary.map((item) => <option value={item.id} key={item.id}>{item.name}</option>)}
-                {exercise.imageId === 'custom' && <option value="custom">Imagem existente</option>}
               </select>
             </label>
           </>}
